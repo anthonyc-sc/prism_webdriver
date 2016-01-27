@@ -1,0 +1,9 @@
+com/socialcode/webdriver/tests/CommonUtil.class
+com/socialcode/webdriver/tests/TestData.class
+com/socialcode/webdriver/tests/initiatives/CreateInitiative.class
+com/socialcode/webdriver/tests/campaigns/DeleteCampaign.class
+com/socialcode/webdriver/tests/WebDriverSetup.class
+com/socialcode/webdriver/tests/initiatives/DeleteInitiative.class
+com/socialcode/webdriver/tests/facebook/CreateAds.class
+com/socialcode/webdriver/tests/campaigns/CreateCampaign.class
+com/socialcode/webdriver/tests/facebook/BulkUpdate.class

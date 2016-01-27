@@ -1,0 +1,16 @@
+com/socialcode/webdriver/pages/campaigns/CampaignPage.class
+com/socialcode/webdriver/pages/campaigns/DeleteCampaignModal.class
+com/socialcode/webdriver/pages/initiatives/AddAccountModal.class
+com/socialcode/webdriver/pages/facebook/FacebookCampaign.class
+com/socialcode/webdriver/pages/initiatives/InitiativePage.class
+com/socialcode/webdriver/pages/initiatives/InitiativesListPage.class
+com/socialcode/webdriver/pages/campaigns/CampaignDetailsPage.class
+com/socialcode/webdriver/pages/login/LoginPage.class
+com/socialcode/webdriver/pages/BasePage.class
+com/socialcode/webdriver/pages/ads/NewAdsModal.class
+com/socialcode/webdriver/pages/initiatives/DeleteInitiativeModal.class
+com/socialcode/webdriver/pages/initiatives/NewInitiativeModal.class
+com/socialcode/webdriver/pages/campaigns/CampaignsListPage.class
+com/socialcode/webdriver/pages/campaigns/NewCampaignModal.class
+com/socialcode/webdriver/pages/BasePage$1.class
+com/socialcode/webdriver/pages/initiatives/InitiativeEditPage.class

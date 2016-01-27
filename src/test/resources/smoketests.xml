@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SmokeTests" configfailurepolicy="continue" verbose="1" parallel="classes" thread-count="1">
+    <test name="SmokeTests">
+        <classes>
+            <class name="com.socialcode.webdriver.tests.initiatives.CreateInitiative"/>
+            <class name="com.socialcode.webdriver.tests.initiatives.DeleteInitiative"/>
+            <class name="com.socialcode.webdriver.tests.campaigns.CreateCampaign"/>
+            <class name="com.socialcode.webdriver.tests.campaigns.DeleteCampaign"/>
+        </classes>
+    </test>
+</suite>

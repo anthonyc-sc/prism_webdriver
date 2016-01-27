@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-SmokeTests">
+              <span class="suite-name border-passed">SmokeTests</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-SmokeTests">
+                    <span>smoketests.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-SmokeTests">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-SmokeTests">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-SmokeTests">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-SmokeTests">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-SmokeTests">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-SmokeTests">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">12 methods,   12 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-SmokeTests" class="hide-methods passed suite-SmokeTests"> (hide)</a> <!-- hide-methods passed suite-SmokeTests -->
+                      <a href="#" panel-name="suite-SmokeTests" class="show-methods passed suite-SmokeTests"> (show)</a> <!-- show-methods passed suite-SmokeTests -->
+                    </span>
+                    <div class="method-list-content passed suite-SmokeTests">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.campaigns.CreateCampaign" hash-for-method="TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Click, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 1...)">TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Click, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 1...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.campaigns.CreateCampaign" hash-for-method="TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Install, 341, Facebook, sc13@socialcode.com, SC Item Edit Test,...)">TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Install, 341, Facebook, sc13@socialcode.com, SC Item Edit Test,...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.campaigns.CreateCampaign" hash-for-method="TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Impression, 341, Facebook, sc13@socialcode.com, SC Item Edit Te...)">TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Impression, 341, Facebook, sc13@socialcode.com, SC Item Edit Te...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.campaigns.DeleteCampaign" hash-for-method="TC1_17_Delete_SC_Campaign_Facebook(FB Campaign SmkTest - Deletion Test)">TC1_17_Delete_SC_Campaign_Facebook(FB Campaign SmkTest - Deletion Test)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.initiatives.CreateInitiative" hash-for-method="TC1_2_Create_an_Initiative(Automation Initiative-7 Days :, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialco...)">TC1_2_Create_an_Initiative(Automation Initiative-7 Days :, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialco...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.initiatives.CreateInitiative" hash-for-method="TC1_2_Create_an_Initiative(Automation Initiative-1 Day :, SocialCode, SocialCode, current_date, 1, day, Facebook,sc13@socialcod...)">TC1_2_Create_an_Initiative(Automation Initiative-1 Day :, SocialCode, SocialCode, current_date, 1, day, Facebook,sc13@socialcod...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.initiatives.CreateInitiative" hash-for-method="TC1_2_Create_an_Initiative(Automation Initiative-6 Months :, SocialCode, SocialCode, current_date, 6, month, Facebook,sc13@soci...)">TC1_2_Create_an_Initiative(Automation Initiative-6 Months :, SocialCode, SocialCode, current_date, 6, month, Facebook,sc13@soci...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.initiatives.CreateInitiative" hash-for-method="TC1_2_Create_an_Initiative(Automation Initiative-1 Month :, SocialCode, SocialCode, current_date, 1, month, Facebook,sc13@socia...)">TC1_2_Create_an_Initiative(Automation Initiative-1 Month :, SocialCode, SocialCode, current_date, 1, month, Facebook,sc13@socia...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.initiatives.CreateInitiative" hash-for-method="TC1_2_Create_an_Initiative(Automation Initiative-1 Year :, SocialCode, SocialCode, current_date, 1, year, Facebook,sc13@socialc...)">TC1_2_Create_an_Initiative(Automation Initiative-1 Year :, SocialCode, SocialCode, current_date, 1, year, Facebook,sc13@socialc...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.initiatives.DeleteInitiative" hash-for-method="TC1_3_Delete_an_Initiative(Initiative For Deletion Test)">TC1_3_Delete_an_Initiative(Initiative For Deletion Test)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.campaigns.DeleteCampaign" hash-for-method="createCampaignForDeletion(FB Campaign SmkTest - Deletion Test, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 115.01, ...)">createCampaignForDeletion(FB Campaign SmkTest - Deletion Test, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 115.01, ...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeTests" title="com.socialcode.webdriver.tests.initiatives.DeleteInitiative" hash-for-method="createInitiativeForDeletion(Initiative For Deletion Test, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialcode...)">createInitiativeForDeletion(Initiative For Deletion Test, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialcode...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-SmokeTests -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-SmokeTests" class="panel SmokeTests">
+          <div class="suite-SmokeTests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.socialcode.webdriver.tests.campaigns.CreateCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Click, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 1...)">
+                  </a> <!-- TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Click, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 1...) -->
+                  <span class="method-name">TC1_12_Create_SC_Campaign_Facebook</span>
+                  <span class="parameters">(FB Campaign SmkTest App Installs Per Click, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 115.01, 109.53, App Installs, 1.01, Per click, current_date, current_date)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Install, 341, Facebook, sc13@socialcode.com, SC Item Edit Test,...)">
+                  </a> <!-- TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Install, 341, Facebook, sc13@socialcode.com, SC Item Edit Test,...) -->
+                  <span class="method-name">TC1_12_Create_SC_Campaign_Facebook</span>
+                  <span class="parameters">(FB Campaign SmkTest App Installs Per Install, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 250.01, 238.1, App Installs, 1.01, Per install, current_date, current_date)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Impression, 341, Facebook, sc13@socialcode.com, SC Item Edit Te...)">
+                  </a> <!-- TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Impression, 341, Facebook, sc13@socialcode.com, SC Item Edit Te...) -->
+                  <span class="method-name">TC1_12_Create_SC_Campaign_Facebook</span>
+                  <span class="parameters">(FB Campaign SmkTest App Installs Per Impression, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 300.01, 285.72, App Installs, 1.01, Per impression, current_date, current_date)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SmokeTests-class-passed -->
+          <div class="suite-SmokeTests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.socialcode.webdriver.tests.initiatives.DeleteInitiative</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_3_Delete_an_Initiative(Initiative For Deletion Test)">
+                  </a> <!-- TC1_3_Delete_an_Initiative(Initiative For Deletion Test) -->
+                  <span class="method-name">TC1_3_Delete_an_Initiative</span>
+                  <span class="parameters">(Initiative For Deletion Test)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createInitiativeForDeletion(Initiative For Deletion Test, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialcode...)">
+                  </a> <!-- createInitiativeForDeletion(Initiative For Deletion Test, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialcode...) -->
+                  <span class="method-name">createInitiativeForDeletion</span>
+                  <span class="parameters">(Initiative For Deletion Test, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialcode.com,Things My Dog Says)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SmokeTests-class-passed -->
+          <div class="suite-SmokeTests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.socialcode.webdriver.tests.initiatives.CreateInitiative</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_2_Create_an_Initiative(Automation Initiative-7 Days :, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialco...)">
+                  </a> <!-- TC1_2_Create_an_Initiative(Automation Initiative-7 Days :, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialco...) -->
+                  <span class="method-name">TC1_2_Create_an_Initiative</span>
+                  <span class="parameters">(Automation Initiative-7 Days :, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialcode.com,Things My Dog Says)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_2_Create_an_Initiative(Automation Initiative-1 Day :, SocialCode, SocialCode, current_date, 1, day, Facebook,sc13@socialcod...)">
+                  </a> <!-- TC1_2_Create_an_Initiative(Automation Initiative-1 Day :, SocialCode, SocialCode, current_date, 1, day, Facebook,sc13@socialcod...) -->
+                  <span class="method-name">TC1_2_Create_an_Initiative</span>
+                  <span class="parameters">(Automation Initiative-1 Day :, SocialCode, SocialCode, current_date, 1, day, Facebook,sc13@socialcode.com,Things My Dog Says)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_2_Create_an_Initiative(Automation Initiative-6 Months :, SocialCode, SocialCode, current_date, 6, month, Facebook,sc13@soci...)">
+                  </a> <!-- TC1_2_Create_an_Initiative(Automation Initiative-6 Months :, SocialCode, SocialCode, current_date, 6, month, Facebook,sc13@soci...) -->
+                  <span class="method-name">TC1_2_Create_an_Initiative</span>
+                  <span class="parameters">(Automation Initiative-6 Months :, SocialCode, SocialCode, current_date, 6, month, Facebook,sc13@socialcode.com,Things My Dog Says)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_2_Create_an_Initiative(Automation Initiative-1 Month :, SocialCode, SocialCode, current_date, 1, month, Facebook,sc13@socia...)">
+                  </a> <!-- TC1_2_Create_an_Initiative(Automation Initiative-1 Month :, SocialCode, SocialCode, current_date, 1, month, Facebook,sc13@socia...) -->
+                  <span class="method-name">TC1_2_Create_an_Initiative</span>
+                  <span class="parameters">(Automation Initiative-1 Month :, SocialCode, SocialCode, current_date, 1, month, Facebook,sc13@socialcode.com,Things My Dog Says)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_2_Create_an_Initiative(Automation Initiative-1 Year :, SocialCode, SocialCode, current_date, 1, year, Facebook,sc13@socialc...)">
+                  </a> <!-- TC1_2_Create_an_Initiative(Automation Initiative-1 Year :, SocialCode, SocialCode, current_date, 1, year, Facebook,sc13@socialc...) -->
+                  <span class="method-name">TC1_2_Create_an_Initiative</span>
+                  <span class="parameters">(Automation Initiative-1 Year :, SocialCode, SocialCode, current_date, 1, year, Facebook,sc13@socialcode.com,Things My Dog Says)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SmokeTests-class-passed -->
+          <div class="suite-SmokeTests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.socialcode.webdriver.tests.campaigns.DeleteCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC1_17_Delete_SC_Campaign_Facebook(FB Campaign SmkTest - Deletion Test)">
+                  </a> <!-- TC1_17_Delete_SC_Campaign_Facebook(FB Campaign SmkTest - Deletion Test) -->
+                  <span class="method-name">TC1_17_Delete_SC_Campaign_Facebook</span>
+                  <span class="parameters">(FB Campaign SmkTest - Deletion Test)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createCampaignForDeletion(FB Campaign SmkTest - Deletion Test, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 115.01, ...)">
+                  </a> <!-- createCampaignForDeletion(FB Campaign SmkTest - Deletion Test, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 115.01, ...) -->
+                  <span class="method-name">createCampaignForDeletion</span>
+                  <span class="parameters">(FB Campaign SmkTest - Deletion Test, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 115.01, 109.53, App Installs, 1.01, Per click, current_date, current_date)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SmokeTests-class-passed -->
+        </div> <!-- panel SmokeTests -->
+        <div panel-name="test-xml-SmokeTests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/Users/anthonyc/prism_webdriver/src/test/resources/smoketests.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite thread-count=&quot;1&quot; configfailurepolicy=&quot;continue&quot; verbose=&quot;0&quot; name=&quot;SmokeTests&quot; parallel=&quot;classes&quot;&gt;
+  &lt;test name=&quot;SmokeTests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.socialcode.webdriver.tests.initiatives.CreateInitiative&quot;/&gt;
+      &lt;class name=&quot;com.socialcode.webdriver.tests.initiatives.DeleteInitiative&quot;/&gt;
+      &lt;class name=&quot;com.socialcode.webdriver.tests.campaigns.CreateCampaign&quot;/&gt;
+      &lt;class name=&quot;com.socialcode.webdriver.tests.campaigns.DeleteCampaign&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- SmokeTests --&gt;
+&lt;/suite&gt; &lt;!-- SmokeTests --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-SmokeTests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for SmokeTests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">SmokeTests (4 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-SmokeTests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for SmokeTests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-SmokeTests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for SmokeTests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_SmokeTests');
+function tableData_SmokeTests() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(12);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'TC1_12_Create_SC_Campaign_Facebook')
+data.setCell(0, 2, 'com.socialcode.webdriver.tests.campaigns.CreateCampaign')
+data.setCell(0, 3, 65610);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'TC1_12_Create_SC_Campaign_Facebook')
+data.setCell(1, 2, 'com.socialcode.webdriver.tests.campaigns.CreateCampaign')
+data.setCell(1, 3, 60101);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'TC1_12_Create_SC_Campaign_Facebook')
+data.setCell(2, 2, 'com.socialcode.webdriver.tests.campaigns.CreateCampaign')
+data.setCell(2, 3, 55344);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'createCampaignForDeletion')
+data.setCell(3, 2, 'com.socialcode.webdriver.tests.campaigns.DeleteCampaign')
+data.setCell(3, 3, 51870);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'TC1_2_Create_an_Initiative')
+data.setCell(4, 2, 'com.socialcode.webdriver.tests.initiatives.CreateInitiative')
+data.setCell(4, 3, 47029);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'TC1_2_Create_an_Initiative')
+data.setCell(5, 2, 'com.socialcode.webdriver.tests.initiatives.CreateInitiative')
+data.setCell(5, 3, 46228);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'TC1_17_Delete_SC_Campaign_Facebook')
+data.setCell(6, 2, 'com.socialcode.webdriver.tests.campaigns.DeleteCampaign')
+data.setCell(6, 3, 45758);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'TC1_2_Create_an_Initiative')
+data.setCell(7, 2, 'com.socialcode.webdriver.tests.initiatives.CreateInitiative')
+data.setCell(7, 3, 45039);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'TC1_2_Create_an_Initiative')
+data.setCell(8, 2, 'com.socialcode.webdriver.tests.initiatives.CreateInitiative')
+data.setCell(8, 3, 42582);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'TC1_2_Create_an_Initiative')
+data.setCell(9, 2, 'com.socialcode.webdriver.tests.initiatives.CreateInitiative')
+data.setCell(9, 3, 42514);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'createInitiativeForDeletion')
+data.setCell(10, 2, 'com.socialcode.webdriver.tests.initiatives.DeleteInitiative')
+data.setCell(10, 3, 41001);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'TC1_3_Delete_an_Initiative')
+data.setCell(11, 2, 'com.socialcode.webdriver.tests.initiatives.DeleteInitiative')
+data.setCell(11, 3, 36307);
+window.suiteTableData['SmokeTests']= { tableData: data, tableDiv: 'times-div-SmokeTests'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 9 minutes</span>
+              <div id="times-div-SmokeTests">
+              </div> <!-- times-div-SmokeTests -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-SmokeTests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for SmokeTests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-SmokeTests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-SmokeTests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.socialcode.webdriver.tests.initiatives.CreateInitiative</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_2_Create_an_Initiative(Automation Initiative-1 Day :, SocialCode, SocialCode, current_date, 1, day, Facebook,sc13@socialcod...)</span>
+                <span class="method-start">1399 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">48428 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">48486 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_2_Create_an_Initiative(Automation Initiative-7 Days :, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialco...)</span>
+                <span class="method-start">48954 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">93994 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">94047 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_2_Create_an_Initiative(Automation Initiative-1 Month :, SocialCode, SocialCode, current_date, 1, month, Facebook,sc13@socia...)</span>
+                <span class="method-start">94509 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">140737 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">140789 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_2_Create_an_Initiative(Automation Initiative-6 Months :, SocialCode, SocialCode, current_date, 6, month, Facebook,sc13@soci...)</span>
+                <span class="method-start">141253 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">183836 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">183890 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_2_Create_an_Initiative(Automation Initiative-1 Year :, SocialCode, SocialCode, current_date, 1, year, Facebook,sc13@socialc...)</span>
+                <span class="method-start">184360 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">226874 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.socialcode.webdriver.tests.initiatives.DeleteInitiative</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">226931 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createInitiativeForDeletion(Initiative For Deletion Test, SocialCode, SocialCode, current_date, 7, day, Facebook,sc13@socialcode...)</span>
+                <span class="method-start">227395 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">268396 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.socialcode.webdriver.tests.campaigns.CreateCampaign</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">268452 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Click, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 1...)</span>
+                <span class="method-start">268921 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">334532 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">334587 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Impression, 341, Facebook, sc13@socialcode.com, SC Item Edit Te...)</span>
+                <span class="method-start">335054 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">390398 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">390453 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_12_Create_SC_Campaign_Facebook(FB Campaign SmkTest App Installs Per Install, 341, Facebook, sc13@socialcode.com, SC Item Edit Test,...)</span>
+                <span class="method-start">390921 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">451022 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.socialcode.webdriver.tests.campaigns.DeleteCampaign</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">451079 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createCampaignForDeletion(FB Campaign SmkTest - Deletion Test, 341, Facebook, sc13@socialcode.com, SC Item Edit Test, 115.01, ...)</span>
+                <span class="method-start">451543 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">503414 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.socialcode.webdriver.tests.initiatives.DeleteInitiative</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">503468 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_3_Delete_an_Initiative(Initiative For Deletion Test)</span>
+                <span class="method-start">503932 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">540240 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.socialcode.webdriver.tests.campaigns.DeleteCampaign</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">540294 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC1_17_Delete_SC_Campaign_Facebook(FB Campaign SmkTest - Deletion Test)</span>
+                <span class="method-start">540763 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">586522 ms</span>
+              </div> <!-- configuration-method after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
