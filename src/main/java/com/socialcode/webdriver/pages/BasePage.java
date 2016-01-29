@@ -17,7 +17,7 @@ import java.util.List;
 public class BasePage {
     private static final Logger LOG = LoggerFactory.getLogger(BasePage.class);
 
-    public static final int PAGE_LOADING_WAIT = 20000;
+    public static final int PAGE_LOADING_WAIT = 2000;
 
     protected WebDriver driver;
 

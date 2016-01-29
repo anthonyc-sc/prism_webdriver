@@ -43,6 +43,7 @@ public class LoginPage extends BasePage {
      */
     public boolean isPageLoaded() {
         LOG.debug("Verifying 'Login' page is loaded");
+        waitForPageLoaded(driver);
         return waitForElementVisible(driver,authPanel);
     }
 
@@ -72,6 +73,8 @@ public class LoginPage extends BasePage {
      */
     public InitiativesListPage submit() {
         submitButton.click();
+        waitForPageLoaded(driver);
+        waitForAjax(driver);
         return (new InitiativesListPage(driver));
     }
 }
