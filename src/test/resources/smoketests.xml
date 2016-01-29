@@ -6,6 +6,7 @@
             <class name="com.socialcode.webdriver.tests.initiatives.DeleteInitiative"/>
             <class name="com.socialcode.webdriver.tests.campaigns.CreateCampaign"/>
             <class name="com.socialcode.webdriver.tests.campaigns.DeleteCampaign"/>
+            <class name="com.socialcode.webdriver.tests.facebook.BulkUpdate" />
         </classes>
     </test>
 </suite>

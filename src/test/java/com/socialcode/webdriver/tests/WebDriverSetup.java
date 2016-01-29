@@ -18,13 +18,9 @@ public class WebDriverSetup {
 
     protected TestData data;
 
-    protected final String prismURL = "https://staging.socialcodedev.com/advisor-v2/";
-  //  protected final String prismURL = System.getProperty("environment");
-
-    protected final String loginID = "qateam@socialcode.com";
-
-    protected final String password = "oNievooc";
-
+    protected final String prismURL = System.getProperty("environment");
+    protected final String loginID = System.getProperty("username");
+    protected final String password = System.getProperty("password");
 
     /**
      * Instantiates Web Driver object
@@ -33,7 +29,7 @@ public class WebDriverSetup {
     public void setUp() {
         // Currently only handles Chrome browser. Code needs to be added to support other browsers.
 
-        System.setProperty("webdriver.chrome.driver", "/Users/anthonyc/chromedriver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
 
         try {
             driver = new RemoteWebDriver(new URL("http://localhost:9515"), DesiredCapabilities.chrome());

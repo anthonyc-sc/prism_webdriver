@@ -1,5 +1,7 @@
 package com.socialcode.webdriver.pages.facebook;
 
+import com.socialcode.webdriver.pages.bulk_update.BidModal;
+import com.socialcode.webdriver.pages.bulk_update.BudgetModal;
 import com.socialcode.webdriver.pages.bulk_update.StatusModal;
 import com.socialcode.webdriver.pages.campaigns.CampaignPage;
 import org.openqa.selenium.By;
@@ -89,18 +91,30 @@ public class FacebookCampaign extends CampaignPage {
      * @return Status Modal object if successful;null otherwise
      */
     public StatusModal launchBulkStatusUpdateModal(WebDriver aDriver) {
+        if (getActionsDropDown(aDriver)) {
+            if (waitForElementVisible(aDriver,setStatusLink)) {
+                setStatusLink.click();
+                waitForPageLoaded(aDriver);
+                return (new StatusModal(aDriver));
+            }
+        }
+        return null;
+    }
+
+    /**
+     * This method used to select all ad sets row, then click on the Actions header to get the drop down list of actions
+     * @param aDriver
+     * @return true if successful;false otherwise
+     */
+    public boolean getActionsDropDown(WebDriver aDriver) {
         if (waitForElementVisible(aDriver,selectAllCheckBox)) {
             selectAllCheckBox.click();
             if (waitForElementVisible(aDriver,ActionsDropdown)) {
                 ActionsDropdown.click();
-                if (waitForElementVisible(aDriver,setStatusLink)) {
-                    setStatusLink.click();
-                    waitForPageLoaded(aDriver);
-                    return (new StatusModal(aDriver));
-                }
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
     /**
@@ -113,11 +127,85 @@ public class FacebookCampaign extends CampaignPage {
     public FacebookCampaign bulkStatusUpdate(WebDriver aDriver,String cpName,String status) {
         StatusModal stModal = launchBulkStatusUpdateModal(aDriver);
         if (stModal != null) {
-            return (stModal.updateStatus(aDriver,cpName,status));
+            if (stModal.updateStatus(aDriver,cpName,status)) {
+                return (new FacebookCampaign(aDriver,cpName));
+            }
         }
         return null;
     }
 
+    /**
+     * This method is used to select all adsets, then open the bulk budget update modal
+     * @param aDriver
+     * @return Budget Modal object if successful;null otherwise
+     */
+    public BudgetModal launchBulkBudgetUpdateModal(WebDriver aDriver) {
+        if (getActionsDropDown(aDriver)) {
+            if (waitForElementVisible(aDriver,setBudgetLink)) {
+                setBudgetLink.click();
+                waitForPageLoaded(aDriver);
+                return (new BudgetModal(aDriver));
+            }
+        }
+        return null;
+    }
+
+    /**
+     * This method provides api to test for doing bulk budget update
+     * @param aDriver
+     * @param cpName
+     * @param budget
+     * @return Facebook Campaign object if successful;null otherwise
+     */
+    public FacebookCampaign bulkBudgetUpdate(WebDriver aDriver,String cpName,Double budget) {
+        BudgetModal bgModal = launchBulkBudgetUpdateModal(aDriver);
+        if (bgModal != null) {
+            if (bgModal.bulkBudgetUpdate(aDriver,budget)) {
+                return (new FacebookCampaign(aDriver,cpName));
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * This method is used to select all adsets, then open the bulk bid update modal
+     * @param aDriver
+     * @return BidM Modal object if successful;null otherwise
+     */
+    public BidModal launchBulkBidUpdateModal(WebDriver aDriver) {
+        if (getActionsDropDown(aDriver)) {
+            if (waitForElementVisible(aDriver,setBidLink)) {
+                setBidLink.click();
+                waitForPageLoaded(aDriver);
+                return (new BidModal(aDriver));
+            }
+        }
+        return null;
+    }
+
+    /**
+     * This method provides api to test for doing bulk bid update
+     * @param aDriver
+     * @param cpName
+     * @param bid
+     * @return Facebook Campaign object if successful;null otherwise
+     */
+    public FacebookCampaign bulkBidUpdate(WebDriver aDriver,String cpName,Double bid) {
+        BidModal bidModal = launchBulkBidUpdateModal(aDriver);
+        if (bidModal != null) {
+            if (bidModal.bulkBidUpdate(aDriver,bid)) {
+                return (new FacebookCampaign(aDriver,cpName));
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Retrieve each of column values of an ad set for all the rows in the Ad Sets Table
+     * @param aDriver
+     * @return  list of rows of ad sets with individual column values if successful;null or empty list otherwise
+     */
     public List<HashMap<String,String>> getAdSetsList(WebDriver aDriver) {
         List<HashMap<String,String>> adSetsList = new ArrayList<HashMap<String,String>>();
         try {

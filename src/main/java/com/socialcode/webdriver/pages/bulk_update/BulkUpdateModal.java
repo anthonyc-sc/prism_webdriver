@@ -25,8 +25,30 @@ public class BulkUpdateModal extends BasePage {
     @FindBy(id = "cancel")
     protected WebElement cancelButton;
 
-    public BulkUpdateModal(WebDriver aDriver) {
+    public BulkUpdateModal(WebDriver aDriver,String title) {
         driver = aDriver;
+
+        pageInitElements(aDriver,this);
+
+        if (!isPageLoaded(title)) {
+            assert false : "This is not " + title +" Modal";
+        }
+
+        LOG.info("VERIFIED - " + title + " Modal is loaded");
     }
+
+    /**
+     * Checks if modal is loaded.
+     * @return true if modal is loaded;false otherwise
+     */
+    public boolean isPageLoaded(String title) {
+        LOG.debug("Verifying  is " + title +" Modal loaded");
+        waitForPageLoaded(driver);
+        if (waitForElementVisible(driver,modalTitle)) {
+            return modalTitle.getText().contentEquals(title);
+        }
+        return false;
+    }
+
 
 }

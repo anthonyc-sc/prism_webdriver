@@ -19,4 +19,10 @@
         <platform>Facebook</platform>
         <budget type="Double">210.50</budget>
     </data>
+    <data name="fb_campaign_bid">
+        <name>Test 2</name>
+        <initiative_id type="Integer">341</initiative_id>
+        <platform>Facebook</platform>
+        <bid type="Double">22.50</bid>
+    </data>
 </campaigns>
