@@ -88,13 +88,15 @@ public class NewInitiativeModal extends BasePage {
      */
     public boolean inputCorporationName(String corporation) {
         corporationBox.click();
-        corpSearch.sendKeys(corporation);
-        if (waitForElementPresence(driver,"//div[text()='"+corporation+"']")) {
-            WebElement element = driver.findElement(By.xpath("//div[text()='"+corporation+"']"));
-            if (isVisible(element)) {
-                element.click();
+        if (waitForElementPresence(driver,"//li[text()='Please enter 1 or more character']/../../div/input")) {
+            corpSearch.sendKeys(corporation);
+            if (waitForElementPresence(driver,"//div[text()='"+corporation+"']")) {
+                WebElement element = driver.findElement(By.xpath("//div[text()='"+corporation+"']"));
+                if (isVisible(element)) {
+                    element.click();
+                }
+                return true;
             }
-            return true;
         }
         return false;
     }
@@ -106,13 +108,15 @@ public class NewInitiativeModal extends BasePage {
      */
     public boolean inputBrandName(String brand) {
         brandBox.click();
-        brandSearch.sendKeys(brand);
-        if (waitForElementPresence(driver,"//div[text()='"+brand+"']")) {
-            WebElement element = driver.findElement(By.xpath("//div[text()='"+brand+"']"));
-            if (isVisible(element)) {
-                element.click();
+        if (waitForElementPresence(driver,"//li[text()='Please enter 1 or more character']/../../div/input")) {
+            brandSearch.sendKeys(brand);
+            if (waitForElementPresence(driver,"//div[text()='"+brand+"']")) {
+                WebElement element = driver.findElement(By.xpath("//div[text()='"+brand+"']"));
+                if (isVisible(element)) {
+                    element.click();
+                }
+                return true;
             }
-            return true;
         }
         return false;
     }
