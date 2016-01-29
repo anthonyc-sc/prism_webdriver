@@ -37,8 +37,14 @@ public class BulkUpdate extends WebDriverSetup {
         return data.getDataByElement("fb_campaign_budget",cols);
     }
 
+    @DataProvider(name = "getFBCampaignBid")
+    public Object[][] getFBCampaignBid() {
+        String[] cols = {"name","initiative_id","platform","bid"};
+        return data.getDataByElement("fb_campaign_bid",cols);
+    }
+
     @Test(enabled = true,dataProvider = "getFBCampaignStatus")
-    public void bulkUpdateStatusTest(String cpName,Integer initID,String platform,String statusText,String statusValue) throws Exception {
+    public void TC1_15_Bulk_Update_FB_AdStatus(String cpName,Integer initID,String platform,String statusText,String statusValue) throws Exception {
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
 
@@ -75,11 +81,10 @@ public class BulkUpdate extends WebDriverSetup {
                 fail("Expect staus of campaign " + cpName + " to be " + statusValue + ",but get " + h.get("Status"));
             }
         }
-        Thread.sleep(3000);
     }
 
-    @Test(enabled = false,dataProvider = "getFBCampaignBudget")
-    public void bulkUpdateBudgetTest(String cpName,Integer initID,String platform,Double budget) {
+    @Test(enabled = true,dataProvider = "getFBCampaignBudget")
+    public void TC1_15_Bulk_Update_FB_AdBudget(String cpName,Integer initID,String platform,Double budget) throws Exception {
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
 
@@ -96,7 +101,47 @@ public class BulkUpdate extends WebDriverSetup {
         FacebookCampaign fbCampaign = initPage.goToFacebookCampaign(driver,cpName);
         fbCampaign.waitForPageLoaded(driver);
 
-        // To-Do
+        // Perform bulk budget update
+        fbCampaign = fbCampaign.bulkBudgetUpdate(driver,cpName,budget);
+        assertNotNull(fbCampaign);
+        fbCampaign.waitForPageLoaded(driver);
+
+        // Verify success toast
+        assertTrue(fbCampaign.getAlertMessage(driver).contains("Successfully updated lifetime budget to $" + budget),"Fail to verify success toast.");
+
+        Thread.sleep(2000);
+    }
+
+    @Test(enabled = true,dataProvider = "getFBCampaignBid")
+    public void TC1_15_Bulk_Update_FB_AdBid(String cpName,Integer initID,String platform,Double bid) throws Exception {
+        // Navigate to Advisor-V2 application login screen
+        driver.get(prismURL);
+
+        // Log in with default username and password and verify initiative list page is displayed
+        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit();
+        assertNotNull(initListPage,"Fail to login to Prism.");
+        initListPage.waitForPageLoaded(driver);
+
+        // Go to specific initiative having initiative id 'initID'
+        InitiativePage initPage = initListPage.gotoInitiative(initID);
+        initPage.waitForPageLoaded(driver);
+
+        // Go to specific campaign for bulk update
+        FacebookCampaign fbCampaign = initPage.goToFacebookCampaign(driver,cpName);
+        fbCampaign.waitForPageLoaded(driver);
+
+        // Perform bulk bid update
+        fbCampaign = fbCampaign.bulkBidUpdate(driver,cpName,bid);
+        assertNotNull(fbCampaign);
+        fbCampaign.waitForPageLoaded(driver);
+
+        // Verify success toast
+        String bidString = "";
+        String[] bidSArray = String.format("%.2f",bid).split("\\.");
+        if (bidSArray.length == 2) {
+            bidString = bidSArray[0] + bidSArray[1];
+        }
+        assertTrue(fbCampaign.getAlertMessage(driver).contains("Successfully updated bid amount to " + bidString),"Fail to verify success toast for bulk bid update.");
     }
 
 

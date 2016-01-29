@@ -66,9 +66,19 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>./src/test/resources/smoketests.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <systemPropertyVariables>
-                                <environment>${env.USER}</environment>
+                            <systemPropertyVariables> 
+                                <environment>${env.USER}</environment> 
                             </systemPropertyVariables>
+                            <systemProperties> 
+                                <property> 
+                                    <name>username</name> 
+                                    <value>${username}</value> 
+                                </property> 
+                                <property>
+                                    <name>password</name>
+                                    <value>${password}</value>
+                                </property>
+                            </systemProperties>
                         </configuration>
                     </plugin>
                 </plugins>

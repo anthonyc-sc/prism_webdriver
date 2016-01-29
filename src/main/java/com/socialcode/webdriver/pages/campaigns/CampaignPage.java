@@ -114,8 +114,10 @@ public class CampaignPage extends BasePage {
      */
     public Boolean closeAlert(WebDriver aDriver) {
         if (waitForElementVisible(aDriver,closeAlertLink)) {
-            closeAlertLink.click();
-            return true;
+            if (waitForElementClickable(aDriver,closeAlertLink)) {
+                closeAlertLink.click();
+                return true;
+            }
         }
         return false;
     }

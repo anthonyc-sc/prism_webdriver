@@ -19,28 +19,9 @@ public class StatusModal extends BulkUpdateModal {
     protected WebElement statusSelectBox;
 
     public StatusModal(WebDriver aDriver) {
-        super(aDriver);
+        super(aDriver,"Status");
 
         pageInitElements(driver,this);
-
-        if (!isPageLoaded()) {
-            assert false : "This is not Status Modal";
-        }
-
-        LOG.info("VERIFIED - Status Modal is loaded");
-    }
-
-    /**
-     * Checks if Status modal is loaded.
-     * @return true if modal is loaded;false otherwise
-     */
-    public boolean isPageLoaded() {
-        LOG.debug("Verifying  is Status Modal loaded");
-        waitForPageLoaded(driver);
-        if (waitForElementVisible(driver,modalTitle)) {
-            return modalTitle.getText().contentEquals("Status");
-        }
-        return false;
     }
 
     /**
@@ -66,9 +47,9 @@ public class StatusModal extends BulkUpdateModal {
      * @param aDriver
      * @param cpName
      * @param status
-     * @return Facebook Campaign object if successful;null otherwise
+     * @return true if successful;false otherwise
      */
-    public FacebookCampaign updateStatus(WebDriver aDriver,String cpName,String status) {
+    public Boolean updateStatus(WebDriver aDriver,String cpName,String status) {
         waitForPageLoaded(aDriver);
         waitForAjax(aDriver);
 
@@ -76,9 +57,9 @@ public class StatusModal extends BulkUpdateModal {
             updateButton.click();
             waitForPageLoaded(aDriver);
             waitForAjax(aDriver);
-            return (new FacebookCampaign(aDriver,cpName));
+            return true;
         }
-        return null;
+        return false;
     }
 
 

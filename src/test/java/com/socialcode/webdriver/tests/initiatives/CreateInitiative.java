@@ -21,12 +21,12 @@ public class CreateInitiative  extends WebDriverSetup {
 
     @DataProvider(name = "getInitiatives")
     public Object[][] getInitiatives() {
-        String[] cols = {"name","corporation","brand","start","duration","unit","account_data"};
+        String[] cols = {"name","corporation","brand","start","duration","unit","status","account_data"};
         return data.getDataByElement("initiative",cols);
     }
 
     @Test(enabled = true,dataProvider = "getInitiatives")
-    public void TC1_2_Create_an_Initiative(String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String acctData) throws Exception {
+    public void TC1_2_Create_an_Initiative(String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String status,String acctData) throws Exception {
         // Generate unique initiative name
         String initiativeName = initName + CommonUtil.getDate(0,"MMddyyhhmmss");
         String startDate = CommonUtil.getDateByDuration(startDateFlag,0);
@@ -48,15 +48,15 @@ public class CreateInitiative  extends WebDriverSetup {
 
         // Verify initiative fields for the newly created initiative
         Thread.sleep(5000);
-        verifyNewInitiativeFields(initPage,initiativeName,startDate,endDate);
+        verifyNewInitiativeFields(initPage,initiativeName,startDate,endDate,status);
     }
 
-    private void verifyNewInitiativeFields(InitiativePage initPage,String initiativeName,String startDate,String endDate) {
+    private void verifyNewInitiativeFields(InitiativePage initPage,String initiativeName,String startDate,String endDate,String status) {
         // Verify initiative fields for the newly created initiative
         assertEquals(initPage.getPageHeader(),initiativeName,"Expect initiative name: " + initiativeName + ",but get: " + initPage.getPageHeader());   // Verify campaign name
         assertEquals(initPage.getPacingValue(),"All campaigns on pace","Expect text 'All campaigns on pace' for Pacing,but get: " + initPage.getPacingValue());  // Verify Pacing text
         assertEquals(initPage.getMediaSpendValue(),"$0 0% of $0","Expect '$0 0% of $0',but get: " + initPage.getMediaSpendValue());   // Verify Media Spend value
-        assertEquals(initPage.getInitStatus(),"Inactive","Expect initiative status to be Inactive,but get: " + initPage.getInitStatus());  // Verify initiative status
+        assertEquals(initPage.getInitStatus(),status,"Expect initiative status to be Inactive,but get: " + initPage.getInitStatus());  // Verify initiative status
         assertEquals(initPage.getInitBudget(),"$0.00","Expect initiative budget to be $0.0,but get: " + initPage.getInitBudget());
 
         String expectedInitDates = CommonUtil.convertDateString(startDate) + "—" + CommonUtil.convertDateString(endDate);

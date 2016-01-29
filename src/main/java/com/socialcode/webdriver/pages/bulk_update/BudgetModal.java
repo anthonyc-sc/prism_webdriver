@@ -1,6 +1,5 @@
 package com.socialcode.webdriver.pages.bulk_update;
 
-import com.socialcode.webdriver.pages.facebook.FacebookCampaign;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,26 +17,22 @@ public class BudgetModal extends BulkUpdateModal {
     protected WebElement budgetEditBox;
 
     public BudgetModal(WebDriver aDriver) {
-        super(aDriver);
+        super(aDriver,"Lifetime budget");
 
         pageInitElements(driver,this);
-
-        if (!isPageLoaded()) {
-            assert false : "This is not Budget Modal";
-        }
-
-        LOG.info("VERIFIED - Budget Modal is loaded");
     }
 
     /**
-     * Checks if Status modal is loaded.
-     * @return true if modal is loaded;false otherwise
+     * Set budget edit box with given input value on the Budget Modal
+     * @param aDriver
+     * @param budget
+     * @return true if successful;false otherwise
      */
-    public boolean isPageLoaded() {
-        LOG.debug("Verifying  is Budget Modal loaded");
-        waitForPageLoaded(driver);
-        if (waitForElementVisible(driver,modalTitle)) {
-            return modalTitle.getText().contentEquals("Lifetime budget");
+    public boolean bulkBudgetUpdate(WebDriver aDriver,Double budget) {
+        if (waitForElementVisible(aDriver,budgetEditBox)) {
+            type(budgetEditBox,budget.toString());
+            updateButton.click();
+            return true;
         }
         return false;
     }
