@@ -33,11 +33,31 @@ public class InitiativeEditPage extends BasePage {
 
         pageInitElements(driver,this);
 
-        if (!isPageLoaded()
-                || (!toolbarName.getText().contentEquals(initName))
-                || (!isVisible(accountAssetsHeader))) {
-            assert false : "This is not 'Initiative Edit' page";
+        try {
+            if (!isPageLoaded()
+                    || (!toolbarName.getText().contentEquals(initName))
+                    || (!isVisible(accountAssetsHeader))) {
+                assert false : "This is not 'Initiative Edit' page";
+            }
+        } catch (StaleElementReferenceException e) {
+            // Refresh the page. Make sure the current url is the same. Wait for page and any ajax calls to complete,then rechecks for correct page loaded
+            String url = driver.getCurrentUrl();
+            driver.navigate().refresh();
+            if (!driver.getCurrentUrl().contentEquals(url)) {
+                driver.get(url);
+            }
+            waitForPageLoaded(driver);
+            waitForAjax(driver);
+
+            pageInitElements(driver,this);
+
+            if (!isPageLoaded()
+                    || (!toolbarName.getText().contentEquals(initName))
+                    || (!isVisible(accountAssetsHeader))) {
+                assert false : "This is not 'Initiative Edit' page";
+            }
         }
+
         LOG.info("VERIFIED - 'Initiative Edit' page is loaded");
     }
 
