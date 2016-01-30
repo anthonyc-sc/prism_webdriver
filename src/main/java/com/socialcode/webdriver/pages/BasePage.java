@@ -108,6 +108,8 @@ public class BasePage {
             return key.isDisplayed();
         } catch (NullPointerException e) {
             return false;
+        } catch (StaleElementReferenceException e) {
+            return key.isDisplayed();
         }
     }
 
