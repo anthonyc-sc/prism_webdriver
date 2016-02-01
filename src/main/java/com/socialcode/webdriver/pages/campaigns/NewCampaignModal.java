@@ -123,7 +123,7 @@ public class NewCampaignModal extends BasePage {
       throws Exception {
 
         waitForAjax(driver);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         if (!type(campaignNameEdit,cpName).contentEquals(cpName)) {
             return "Unable to enter campaign name";
