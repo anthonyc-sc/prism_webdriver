@@ -2,6 +2,7 @@ package com.socialcode.webdriver.pages.campaigns;
 
 import com.socialcode.webdriver.pages.BasePage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -115,8 +116,21 @@ public class CampaignPage extends BasePage {
     public Boolean closeAlert(WebDriver aDriver) {
         if (waitForElementVisible(aDriver,closeAlertLink)) {
             if (waitForElementClickable(aDriver,closeAlertLink)) {
-                closeAlertLink.click();
-                return true;
+                try {
+                    closeAlertLink.click();
+                    return true;
+                } catch (WebDriverException e) {
+                    // retry
+                    try {
+                        Thread.sleep(2000);
+                        closeAlertLink.click();
+                        return true;
+                    } catch (WebDriverException ex) {
+                        return false;
+                    } catch (Exception ex2) {
+
+                    }
+                }
             }
         }
         return false;

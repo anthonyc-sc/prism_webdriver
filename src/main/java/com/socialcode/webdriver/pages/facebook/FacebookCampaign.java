@@ -2,6 +2,7 @@ package com.socialcode.webdriver.pages.facebook;
 
 import com.socialcode.webdriver.pages.bulk_update.BidModal;
 import com.socialcode.webdriver.pages.bulk_update.BudgetModal;
+import com.socialcode.webdriver.pages.bulk_update.EndDateModal;
 import com.socialcode.webdriver.pages.bulk_update.StatusModal;
 import com.socialcode.webdriver.pages.campaigns.CampaignPage;
 import org.openqa.selenium.By;
@@ -201,6 +202,27 @@ public class FacebookCampaign extends CampaignPage {
         return null;
     }
 
+    public EndDateModal launchBulkEndDateUpdateModal(WebDriver aDriver) {
+        if (getActionsDropDown(aDriver)) {
+            if (waitForElementVisible(aDriver,setEndDateLink)) {
+                setEndDateLink.click();
+                waitForPageLoaded(aDriver);
+                return (new EndDateModal(aDriver));
+            }
+        }
+        return null;
+    }
+
+    public FacebookCampaign bulkEndDateUpdate(WebDriver aDriver,String cpName,String endDate,String endTime) {
+        EndDateModal endDModal = launchBulkEndDateUpdateModal(aDriver);
+        if (endDModal != null) {
+            if (endDModal.updateEndDateTime(aDriver,endDate,endTime)) {
+                return (new FacebookCampaign(aDriver,cpName));
+            }
+        }
+        return null;
+    }
+
     /**
      * Retrieve each of column values of an ad set for all the rows in the Ad Sets Table
      * @param aDriver
@@ -218,12 +240,40 @@ public class FacebookCampaign extends CampaignPage {
                     }
                     HashMap<String, String> item = new HashMap<String, String>();
 
-                    // Retrieve Ad Sets Name and add to the list
+                    // Retrieve Ad Set Name
                     item.put("Name", columns.get(1).getText());
 
-                    // Retrieve Ad Sets status and add to the list
-                    WebElement element = columns.get(10).findElement(By.xpath(".//div/button/i"));
-                    item.put("Status", element.getAttribute("title"));
+                    // Add Start Date and Time
+                    WebElement elementStartD = columns.get(2).findElement(By.xpath("./span/div"));
+                    item.put("Start Date",elementStartD.getText());
+
+                    // Retrieve End Date and Time
+                    WebElement elementEndD = columns.get(3).findElement(By.xpath("./span/div"));
+                    item.put("End Date",elementEndD.getText());
+
+                    // Retrieve Performance
+                    item.put("Performance",columns.get(4).getText());
+
+                    // Retrieve Results
+                    item.put("Results",columns.get(5).getText());
+
+                    // Retrieve Reach
+                    item.put("Reach",columns.get(6).getText());
+
+                    // Retrieve Max Bids
+                    WebElement elementMaxBid = columns.get(7).findElement(By.xpath("./span"));
+                    item.put("Max Bids",elementMaxBid.getText());
+
+                    // Retrieve Budget
+                    WebElement elementBudget = columns.get(8).findElement(By.xpath("./span"));
+                    item.put("Budget",elementBudget.getText());
+
+                    // Retrieve Spend
+                    item.put("Spend",columns.get(9).getText());
+
+                    // Retrieve Add Ad Set Status
+                    WebElement elementStatus = columns.get(10).findElement(By.xpath(".//div/button/i"));
+                    item.put("Status", elementStatus.getAttribute("title"));
 
                     adSetsList.add(item);
                 }
