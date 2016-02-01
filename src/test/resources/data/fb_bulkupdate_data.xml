@@ -25,4 +25,12 @@
         <platform>Facebook</platform>
         <bid type="Double">22.50</bid>
     </data>
+    <data name="fb_campaign_endtime">
+        <name>Test 2</name>
+        <initiative_id type="Integer">341</initiative_id>
+        <platform>Facebook</platform>
+        <end_date_offset type="Integer">3</end_date_offset>
+        <end_date_offset_unit>day</end_date_offset_unit>
+        <end_time>1:00am</end_time>
+    </data>
 </campaigns>

@@ -31,6 +31,17 @@ public class CommonUtil {
         return sdf.format(c.getTime());
     }
 
+    public static String getDateStringByFormat(String input,String format) {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        String newDateString = "";
+        try {
+            newDateString = sdf.format(sdf.parse(input));
+        } catch (Exception e) {
+
+        }
+        return newDateString;
+    }
+
     /**
      * Method to convert given date into specific format
      * @param input
