@@ -57,6 +57,8 @@ public class CampaignPage extends BasePage {
      */
     public boolean isPageLoaded(String scName) {
         LOG.debug("Verifying Campaign Page is loaded");
+        waitForPageLoaded(driver);
+        waitForAjax(driver);
         if (waitForElementVisible(driver,campaignNameHeader)) {
             String str = campaignNameHeader.getText();
             System.out.println(str);
