@@ -4,10 +4,7 @@ package com.socialcode.webdriver.pages.initiatives;
 import com.socialcode.webdriver.pages.BasePage;
 import com.socialcode.webdriver.pages.campaigns.CampaignPage;
 import com.socialcode.webdriver.pages.campaigns.CampaignsListPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -297,8 +294,27 @@ public class InitiativesListPage extends BasePage {
      * Closes alert message box
      * @param aDriver
      */
-    public void closeAlert(WebDriver aDriver) {
-        alertCloseLink.click();
+    public Boolean closeAlert(WebDriver aDriver) {
+        if (waitForElementVisible(aDriver,alertCloseLink)) {
+            if (waitForElementClickable(aDriver,alertCloseLink)) {
+                try {
+                    alertCloseLink.click();
+                    return true;
+                } catch (WebDriverException e) {
+                    // retry
+                    try {
+                        Thread.sleep(2000);
+                        alertCloseLink.click();
+                        return true;
+                    } catch (WebDriverException ex) {
+                        return false;
+                    } catch (Exception ex2) {
+
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /**
