@@ -9,10 +9,15 @@ import com.socialcode.webdriver.tests.WebDriverSetup;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by anthonyc on 12/1/15.
  */
 public class CreateInitiative  extends WebDriverSetup {
+    private static Logger LOG = LoggerFactory.getLogger(CreateInitiative.class);
 
     public CreateInitiative() {
         data = new TestData();
@@ -27,6 +32,8 @@ public class CreateInitiative  extends WebDriverSetup {
 
     @Test(enabled = true,dataProvider = "getInitiatives")
     public void TC1_2_Create_an_Initiative(String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String status,String acctData) throws Exception {
+        LOG.info("Starting TC1_2_Create_an_Initiative.....");
+
         // Generate unique initiative name
         String initiativeName = initName + CommonUtil.getDate(0,"MMddyyhhmmss");
         String startDate = CommonUtil.getDateByDuration(startDateFlag,0);

@@ -10,11 +10,14 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by anthonyc on 1/22/16.
  */
 public class DeleteInitiative extends WebDriverSetup {
+    private static Logger LOG = LoggerFactory.getLogger(DeleteInitiative.class);
 
     public DeleteInitiative() {
         data = new TestData();
@@ -35,6 +38,8 @@ public class DeleteInitiative extends WebDriverSetup {
 
     @Test(dataProvider = "getInitiatives")
     public void createInitiativeForDeletion(String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String acctData) throws Exception {
+        LOG.info("Starting createInitiativeForDeletion.....");
+
         String startDate = CommonUtil.getDateByDuration(startDateFlag,0);
         String endDate = CommonUtil.getDateByDuration(unit,duration);
 
@@ -55,6 +60,8 @@ public class DeleteInitiative extends WebDriverSetup {
 
     @Test(dependsOnMethods = { "createInitiativeForDeletion" },dataProvider = "getDInit")
     public void TC1_3_Delete_an_Initiative(String initName) throws Exception {
+        LOG.info("Starting TC1_3_Delete_an_Initiative.....");
+
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
 

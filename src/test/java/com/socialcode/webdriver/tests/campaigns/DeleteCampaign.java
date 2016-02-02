@@ -14,10 +14,15 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 import static org.testng.Assert.assertNotNull;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by anthonyc on 1/24/16.
  */
 public class DeleteCampaign extends WebDriverSetup {
+    private static Logger LOG = LoggerFactory.getLogger(DeleteCampaign.class);
+
     public DeleteCampaign() {
         data = new TestData();
         data.load("/data/campaigndatafordeletion.xml");
@@ -37,6 +42,8 @@ public class DeleteCampaign extends WebDriverSetup {
 
     @Test(dataProvider = "getCampaigns")
     public void createCampaignForDeletion(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag) throws Exception {
+        LOG.info("Starting createCampaignForDeletion.....");
+
         // Convert start and end date
         String startDate = CommonUtil.getDateByDuration(sDateFlag,0);
         String endDate = CommonUtil.getDateByDuration(endDateFlag,0);
@@ -58,6 +65,8 @@ public class DeleteCampaign extends WebDriverSetup {
 
     @Test(dependsOnMethods = { "createCampaignForDeletion" },dataProvider = "getDCampaign")
     public void TC1_17_Delete_SC_Campaign_Facebook(String cpName) throws Exception {
+        LOG.info("Starting TC1_17_Delete_SC_Campaign_Facebook......");
+
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
 

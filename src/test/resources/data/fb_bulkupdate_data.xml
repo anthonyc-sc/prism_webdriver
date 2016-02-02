@@ -1,32 +1,32 @@
 <campaigns>
     <data name="fb_campaign_status">
-        <name>san_fb</name>
+        <name>Test 2</name>
         <initiative_id type="Integer">341</initiative_id>
         <platform>Facebook</platform>
         <status_text>Resume</status_text>
         <status_value>active</status_value>
     </data>
     <data name="fb_campaign_status">
-        <name>san_fb</name>
+        <name>Test 2</name>
         <initiative_id type="Integer">341</initiative_id>
         <platform>Facebook</platform>
         <status_text>Pause</status_text>
         <status_value>paused</status_value>
     </data>
     <data name="fb_campaign_budget">
-        <name>san_fb</name>
+        <name>Test 2</name>
         <initiative_id type="Integer">341</initiative_id>
         <platform>Facebook</platform>
         <budget type="Double">210.50</budget>
     </data>
     <data name="fb_campaign_bid">
-        <name>san_fb</name>
+        <name>Test 2</name>
         <initiative_id type="Integer">341</initiative_id>
         <platform>Facebook</platform>
         <bid type="Double">22.50</bid>
     </data>
     <data name="fb_campaign_endtime">
-        <name>san_fb</name>
+        <name>Test 2</name>
         <initiative_id type="Integer">341</initiative_id>
         <platform>Facebook</platform>
         <end_date_offset type="Integer">3</end_date_offset>
