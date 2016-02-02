@@ -28,6 +28,9 @@ public class InitiativesListPage extends BasePage {
     @FindBy(id = "initiative-search")
     protected WebElement initiativeSearch;
 
+    @FindBy(xpath = "//*[@id = 'initiative-search']/../span")
+    protected WebElement searchIcon;
+
     @FindBy(xpath = "//*[@id = 'alert-region']/div/div/div")
     protected WebElement alertMessage;
 
@@ -124,6 +127,27 @@ public class InitiativesListPage extends BasePage {
 
                 break;
             case "Instagram":
+                if (accountData.length < 4) {
+                    return null;
+                }
+
+                // Data in order: platform, instagram_assets, fb_account, fb_assets
+                // Select platform
+                if (!addAccModal.selectPlatform(aDriver,accountData[0])) {
+                    return null;
+                }
+
+                // Enter Instagram Asset
+                addAccModal.selectInstagramAsset(aDriver,accountData[1]);
+
+
+                // Enter fb account
+                if (!addAccModal.selectAccount(aDriver,accountData[2])) {
+                    return null;
+                }
+
+
+
                 break;
             case "Pinterest":
                 break;
@@ -242,9 +266,14 @@ public class InitiativesListPage extends BasePage {
      * @return  string with no results found if successful;empty string otherwise
      */
     public String searchInitiativeExpectNoResult(WebDriver aDriver,String initName) {
-        initiativeSearch.sendKeys(initName + Keys.ENTER);
-        if (waitForElementVisible(aDriver,emptyInitListText)) {
-            return emptyInitListText.getText();
+        waitForPageLoaded(aDriver);
+        waitForAjax(aDriver);
+        if (waitForElementVisible(aDriver,initiativeSearch)) {
+            initiativeSearch.sendKeys(initName);
+            searchIcon.click();
+            if (waitForElementVisible(aDriver,emptyInitListText)) {
+                return emptyInitListText.getText();
+            }
         }
         return "";
     }
