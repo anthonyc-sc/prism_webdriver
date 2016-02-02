@@ -191,8 +191,13 @@ public class NewCampaignModal extends BasePage {
      * @return Campaign Details Page object
      */
     public CampaignDetailsPage submit() {
-        submitButton.click();
-        return (new CampaignDetailsPage(driver));
+        if (waitForElementVisible(driver,submitButton))  {
+            submitButton.click();
+            waitForPageLoaded(driver);
+            waitForAjax(driver);
+            return (new CampaignDetailsPage(driver));
+        }
+        return null;
     }
 
     /**

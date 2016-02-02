@@ -292,12 +292,14 @@ public class InitiativePage extends BasePage {
         NewCampaignModal cpModal = launchNewCampaignModal(aDriver);
         CampaignDetailsPage cpDetailPage =  cpModal.createNewSCCampaign(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
 
-        // Verify values display on Campaign Details page
-        String result = cpDetailPage.checkCampaignDetails(cpName,platform,account,insertionOrder,startDate,endDate,mediaBudget.toString(),kpiGoal.toString(),kpi,objective);
-        String verifyResult = cpDetailPage.checkCampaignDetails(cpName,platform,account,insertionOrder,startDate,endDate,mediaBudget.toString(),kpiGoal.toString(),kpi,objective);
-        System.out.println(verifyResult);
-        if (verifyResult.isEmpty()) {
-            return cpDetailPage.saveChangesNoRedirect(aDriver,cpName);
+        if (cpDetailPage != null) {
+            // Verify values display on Campaign Details page
+            String result = cpDetailPage.checkCampaignDetails(cpName,platform,account,insertionOrder,startDate,endDate,mediaBudget.toString(),kpiGoal.toString(),kpi,objective);
+            String verifyResult = cpDetailPage.checkCampaignDetails(cpName,platform,account,insertionOrder,startDate,endDate,mediaBudget.toString(),kpiGoal.toString(),kpi,objective);
+            System.out.println(verifyResult);
+            if (verifyResult.isEmpty()) {
+                return cpDetailPage.saveChangesNoRedirect(aDriver,cpName);
+            }
         }
         return false;
     }
