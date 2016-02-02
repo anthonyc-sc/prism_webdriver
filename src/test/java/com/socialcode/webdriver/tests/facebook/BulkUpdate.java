@@ -15,13 +15,17 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static org.testng.Assert.*;
-
 import static org.testng.Assert.assertNotNull;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by anthonyc on 1/25/16.
  */
 public class BulkUpdate extends WebDriverSetup {
+    private static Logger LOG = LoggerFactory.getLogger(BulkUpdate.class);
+
     public BulkUpdate() {
         data = new TestData();
         data.load("/data/fb_bulkupdate_data.xml");
@@ -53,6 +57,8 @@ public class BulkUpdate extends WebDriverSetup {
 
     @Test(enabled = true,dataProvider = "getFBCampaignStatus")
     public void TC1_15_Bulk_Update_FB_AdStatus(String cpName,Integer initID,String platform,String statusText,String statusValue) throws Exception {
+        LOG.info("Starting TC1_15_Bulk_Update_FB_AdStatus.....");
+
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
 
@@ -93,6 +99,8 @@ public class BulkUpdate extends WebDriverSetup {
 
     @Test(enabled = true,dataProvider = "getFBCampaignBudget")
     public void TC1_15_Bulk_Update_FB_AdBudget(String cpName,Integer initID,String platform,Double budget) throws Exception {
+        LOG.info("Starting TC1_15_Bulk_Update_FB_AdBudget.....");
+
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
 
@@ -134,6 +142,8 @@ public class BulkUpdate extends WebDriverSetup {
 
     @Test(enabled = true,dataProvider = "getFBCampaignBid")
     public void TC1_15_Bulk_Update_FB_AdBid(String cpName,Integer initID,String platform,Double bid) throws Exception {
+        LOG.info("Starting TC1_15_Bulk_Update_FB_AdBid.....");
+
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
 
@@ -179,6 +189,8 @@ public class BulkUpdate extends WebDriverSetup {
 
     @Test(enabled = true,dataProvider = "getFBCampaignEndDate")
     public void TC1_15_Bulk_Update_FB_EndDate(String cpName,Integer initID,String platform,Integer endDateOffset,String endDateOffsetUnit,String endTime) {
+        LOG.info("Starting TC1_15_Bulk_Update_FB_EndDate......");
+
         String endDate = CommonUtil.getDateByDuration(endDateOffsetUnit,endDateOffset);
 
         // Navigate to Advisor-V2 application login screen

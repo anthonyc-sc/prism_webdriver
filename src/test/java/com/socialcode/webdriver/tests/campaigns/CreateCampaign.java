@@ -14,10 +14,15 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 import static org.testng.Assert.assertNotNull;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by anthonyc on 12/14/15.
  */
 public class CreateCampaign  extends WebDriverSetup {
+    private static Logger LOG = LoggerFactory.getLogger(CreateCampaign.class);
+
     public CreateCampaign() {
         data = new TestData();
         data.load("/data/campaigndata.xml");
@@ -31,6 +36,8 @@ public class CreateCampaign  extends WebDriverSetup {
 
     @Test(enabled = true,dataProvider = "getCampaigns")
     public void TC1_12_Create_SC_Campaign_Facebook(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag) throws Exception {
+        LOG.info("Starting TC1_12_Create_SC_Campaign_Facebook.....");
+
         // Convert start and end date
         String startDate = CommonUtil.getDateByDuration(sDateFlag,0);
         String endDate = CommonUtil.getDateByDuration(endDateFlag,0);
