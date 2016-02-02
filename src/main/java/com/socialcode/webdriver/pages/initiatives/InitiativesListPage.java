@@ -138,16 +138,13 @@ public class InitiativesListPage extends BasePage {
                 }
 
                 // Enter Instagram Asset
-                addAccModal.selectInstagramAsset(aDriver,accountData[1]);
+                //addAccModal.selectInstagramAsset(aDriver,accountData[1]);
 
 
                 // Enter fb account
-                if (!addAccModal.selectAccount(aDriver,accountData[2])) {
-                    return null;
-                }
-
-
-
+                //if (!addAccModal.selectAccount(aDriver,accountData[2])) {
+                //    return null;
+               // }
                 break;
             case "Pinterest":
                 break;
