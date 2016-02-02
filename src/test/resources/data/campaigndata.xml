@@ -1,7 +1,7 @@
 <campaigns>
     <data name="campaign">
         <name>FB Campaign SmkTest App Installs Per Click</name>
-        <initiative_id type="Integer">9324</initiative_id>
+        <initiative_id type="Integer">341</initiative_id>
         <platform>Facebook</platform>
         <account>sc13@socialcode.com</account>
         <insertion_order>SC Item Edit Test</insertion_order>
@@ -15,7 +15,7 @@
     </data>
     <data name="campaign">
         <name>FB Campaign SmkTest App Installs Per Impression</name>
-        <initiative_id type="Integer">9324</initiative_id>
+        <initiative_id type="Integer">341</initiative_id>
         <platform>Facebook</platform>
         <account>sc13@socialcode.com</account>
         <insertion_order>SC Item Edit Test</insertion_order>
@@ -29,7 +29,7 @@
     </data>
     <data name="campaign">
         <name>FB Campaign SmkTest App Installs Per Install</name>
-        <initiative_id type="Integer">9324</initiative_id>
+        <initiative_id type="Integer">341</initiative_id>
         <platform>Facebook</platform>
         <account>sc13@socialcode.com</account>
         <insertion_order>SC Item Edit Test</insertion_order>
