@@ -260,6 +260,8 @@ public class InitiativePage extends BasePage {
      * @return Initiative List Page object if successful;null otherwise
      */
     public InitiativesListPage deleteInitiative(WebDriver aDriver) {
+        waitForPageLoaded(aDriver);
+        waitForAjax(aDriver);
         if (waitForElementVisible(aDriver,initDetailDropDownButton)) {
             initDetailDropDownButton.click();
             if (waitForElementVisible(aDriver,deleteInitiativeLink)) {
@@ -290,19 +292,26 @@ public class InitiativePage extends BasePage {
      */
     public boolean createNewSCCampaginNoRedirect(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate) throws Exception {
         NewCampaignModal cpModal = launchNewCampaignModal(aDriver);
-        CampaignDetailsPage cpDetailPage =  cpModal.createNewSCCampaign(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
+        if (platform.contentEquals("Pinterest")) {
+            CampaignPage cpPage = cpModal.createNewPinterestSCCampaign(aDriver,cpName, platform, account, insertionOrder, totalBudget, mediaBudget, objective, kpiGoal, kpi, startDate, endDate);
+            return (cpPage != null);
+        } else {
+            CampaignDetailsPage cpDetailPage = cpModal.createNewSCCampaign(cpName, platform, account, insertionOrder, totalBudget, mediaBudget, objective, kpiGoal, kpi, startDate, endDate);
 
-        if (cpDetailPage != null) {
-            // Verify values display on Campaign Details page
-            String result = cpDetailPage.checkCampaignDetails(cpName,platform,account,insertionOrder,startDate,endDate,mediaBudget.toString(),kpiGoal.toString(),kpi,objective);
-            String verifyResult = cpDetailPage.checkCampaignDetails(cpName,platform,account,insertionOrder,startDate,endDate,mediaBudget.toString(),kpiGoal.toString(),kpi,objective);
-            System.out.println(verifyResult);
-            if (verifyResult.isEmpty()) {
-                return cpDetailPage.saveChangesNoRedirect(aDriver,cpName);
+            if (cpDetailPage != null) {
+                // Verify values display on Campaign Details page
+                String result = cpDetailPage.checkCampaignDetails(cpName, platform, account, insertionOrder, startDate, endDate, mediaBudget.toString(), kpiGoal.toString(), kpi, objective);
+                String verifyResult = cpDetailPage.checkCampaignDetails(cpName, platform, account, insertionOrder, startDate, endDate, mediaBudget.toString(), kpiGoal.toString(), kpi, objective);
+                System.out.println(verifyResult);
+                if (verifyResult.isEmpty()) {
+                    return cpDetailPage.saveChangesNoRedirect(aDriver, cpName);
+                }
             }
         }
         return false;
     }
+
+
 
     /**
      * Retrieves alert message

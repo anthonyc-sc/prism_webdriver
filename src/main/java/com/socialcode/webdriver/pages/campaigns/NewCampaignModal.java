@@ -200,6 +200,18 @@ public class NewCampaignModal extends BasePage {
         return null;
     }
 
+    public CampaignPage submitforPinterest(WebDriver aDriver,String cpName) {
+        if (waitForElementVisible(aDriver,submitButton)) {
+            submitButton.click();
+            waitForPageLoaded(aDriver);
+            waitForAjax(aDriver);
+            return (new CampaignPage(aDriver,cpName));
+        }
+        return null;
+    }
+
+
+
     /**
      * Method invoke to create new Social Code campaign. It enters specified data, then clicks submit.
      * @param cpName
@@ -218,8 +230,18 @@ public class NewCampaignModal extends BasePage {
      */
     public CampaignDetailsPage createNewSCCampaign(String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate) throws Exception {
         String result = enterCampaignData(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
+
         if (result.isEmpty()) {
             return submit();
+        }
+        return null;
+    }
+
+    public CampaignPage createNewPinterestSCCampaign(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate) throws Exception {
+        String result = enterCampaignData(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
+
+        if (result.isEmpty()) {
+            return submitforPinterest(aDriver,cpName);
         }
         return null;
     }
