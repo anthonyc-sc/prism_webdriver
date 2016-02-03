@@ -26,7 +26,7 @@ public class WebDriverSetup {
      * Instantiates Web Driver object
      */
     @BeforeMethod
-    public void setUp() {
+    public synchronized void setUp() {
         // Currently only handles Chrome browser. Code needs to be added to support other browsers.
 
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
@@ -43,7 +43,7 @@ public class WebDriverSetup {
      * Quits Web Driver object
      */
     @AfterMethod
-    public void tearDown() {
+    public synchronized void tearDown() {
         driver.quit();
     }
 }
