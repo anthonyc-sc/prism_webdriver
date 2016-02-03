@@ -138,17 +138,52 @@ public class InitiativesListPage extends BasePage {
                 }
 
                 // Enter Instagram Asset
-                //addAccModal.selectInstagramAsset(aDriver,accountData[1]);
-
+                if (!addAccModal.selectInstagramAsset(aDriver,accountData[1])) {
+                    return null;
+                }
 
                 // Enter fb account
-                //if (!addAccModal.selectAccount(aDriver,accountData[2])) {
-                //    return null;
-               // }
+                if (!addAccModal.selectAccount(aDriver,accountData[2])) {
+                    return null;
+                }
+
+                // Enter FB Asset
+                if (!addAccModal.selectFBAssetForInstagram(aDriver,accountData[3])) {
+                    return null;
+                }
+
                 break;
             case "Pinterest":
+                if (accountData.length != 2) {
+                    return null;
+                }
+
+                // Data in order: platform, account
+                // Select platform
+                if (!addAccModal.selectPlatform(aDriver,accountData[0])) {
+                    return null;
+                }
+
+                // Enter pinterest account
+                if (!addAccModal.selectAccount(aDriver,accountData[1])) {
+                    return null;
+                }
                 break;
             case "Twitter":
+                if (accountData.length != 2) {
+                    return null;
+                }
+
+                // Data in order: platform, account
+                // Select platform
+                if (!addAccModal.selectPlatform(aDriver,accountData[0])) {
+                    return null;
+                }
+
+                // Enter Twitter account
+                if (!addAccModal.selectAccount(aDriver,accountData[1])) {
+                    return null;
+                }
                 break;
             default: return null;
         }
