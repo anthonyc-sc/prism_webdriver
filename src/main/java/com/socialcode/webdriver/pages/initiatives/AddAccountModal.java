@@ -2,11 +2,14 @@ package com.socialcode.webdriver.pages.initiatives;
 
 import com.socialcode.webdriver.pages.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 /**
  * Created by anthonyc on 1/21/16.
@@ -29,7 +32,7 @@ public class AddAccountModal extends BasePage {
     @FindBy(xpath = "//*[@for = 'account']/../div/div/a/span/span")
     protected WebElement accountSelected;
 
-    @FindBy(xpath = "//*[@class = 'account-sections']/div[3]/button[text()='Add account']")
+    @FindBy(xpath = "//button[text() = 'Add account']")
     protected WebElement addAccountButton;
 
     @FindBy(xpath = "//*[@for = 'asset']/../div")
@@ -40,6 +43,12 @@ public class AddAccountModal extends BasePage {
 
     @FindBy(xpath = "//*[@for = 'asset']/../div/div/a/span/span")
     protected WebElement assetSelected;
+
+    @FindBy(xpath = "//*[@class = 'account-sections']/div/div/form/div[2]/div/div/div/div/a/span")
+    protected WebElement instagramAssetBox;
+
+    @FindBy(xpath = "//*[@class = 'account-sections']/div[3]/div/form/div[2]/div/div/div/div/a/span")
+    protected WebElement fbAssetBox;
 
     public AddAccountModal(WebDriver d) {
         driver = d;
@@ -76,8 +85,23 @@ public class AddAccountModal extends BasePage {
             WebElement element = aDriver.findElement(By.xpath("//span[text()='"+pf+"']"));
             element.click();
         }
-        if (platformSelection.getText().contentEquals(pf)) {
-            return true;
+        waitForAjax(aDriver);
+        try {
+            if (platformSelection.getText().contentEquals(pf)) {
+                return true;
+            }
+        } catch (StaleElementReferenceException e) {
+            // Retry
+            try {
+                Thread.sleep(2000);
+                if (platformSelection.getText().contentEquals(pf)) {
+                    return true;
+                }
+            } catch (StaleElementReferenceException staleEx) {
+                return false;
+            } catch (InterruptedException intEx) {
+
+            }
         }
         return false;
     }
@@ -125,6 +149,46 @@ public class AddAccountModal extends BasePage {
     public InitiativeEditPage submitAddAccount(WebDriver aDriver) {
         addAccountButton.click();
         return (new InitiativeEditPage(aDriver));
+    }
+
+    /**
+     * This method used to select Instagram Asset on the Add Account Modal
+     * @param aDriver
+     * @param asset
+     * @return true if successful; false otherwise
+     */
+    public Boolean selectInstagramAsset(WebDriver aDriver,String asset) {
+        instagramAssetBox.click();
+        if (waitForElementPresence(aDriver,"//li[text() = 'Please enter 1 or more character']/../../div/input")) {
+            WebElement element = aDriver.findElement(By.xpath("//li[text() = 'Please enter 1 or more character']/../../div/input"));
+            element.sendKeys(asset);
+            if (waitForElementPresence(aDriver,"//span[text() = '"+asset+"']")) {
+                WebElement item = aDriver.findElement(By.xpath("//span[text() = '"+asset+"']"));
+                item.click();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * This method used to select FB Asset on the Add Account Modal
+     * @param aDriver
+     * @param fbAsset
+     * @return true if successful; false otherwise
+     */
+    public Boolean selectFBAssetForInstagram(WebDriver aDriver,String fbAsset) {
+        fbAssetBox.click();
+        if (waitForElementPresence(aDriver,"//li[text() = 'Please enter 1 or more character']/../../div/input")) {
+            WebElement element = aDriver.findElement(By.xpath("//li[text() = 'Please enter 1 or more character']/../../div/input"));
+            element.sendKeys(fbAsset);
+            if (waitForElementPresence(aDriver,"//span[text() = '"+fbAsset+"']")) {
+                WebElement item = aDriver.findElement(By.xpath("//span[text() = '"+fbAsset+"']"));
+                item.click();
+                return true;
+            }
+        }
+        return false;
     }
 
 
