@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Smoke Tests" configfailurepolicy="continue" verbose="1" parallel="classes" thread-count="1">
+<suite name="Smoke Tests" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="3">
     <test name="TC1-2: Create an Initiative">
         <classes>
             <class name="com.socialcode.webdriver.tests.initiatives.CreateInitiative"/>
