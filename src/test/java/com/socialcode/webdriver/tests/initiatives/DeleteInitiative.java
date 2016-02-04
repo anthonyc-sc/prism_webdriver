@@ -88,8 +88,13 @@ public class DeleteInitiative extends WebDriverSetup {
         // Close the alert message dialog
         initListPage.closeAlert(driver);
 
-        // Search for deleted initiative and verify it's no longer present
+        // Refresh the page
+        driver.navigate().refresh();
+        initListPage = new InitiativesListPage(driver);
         initListPage.waitForPageLoaded(driver);
+        initListPage.waitForAjax(driver);
+
+        // Search for deleted initiative and verify it's no longer present
         String msg = initListPage.searchInitiativeExpectNoResult(driver,initName);
         assertEquals(msg,"No results found.");
         Thread.sleep(2000);
