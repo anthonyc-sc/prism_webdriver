@@ -60,9 +60,11 @@ public class DeleteInitiativeModal extends BasePage {
     public InitiativesListPage deleteConfirm(WebDriver aDriver) {
         if (waitForElementVisible(aDriver,deleteInitButton)) {
             deleteInitButton.click();
-            waitForPageLoaded(aDriver);
-            waitForAjax(aDriver);
-            return (new InitiativesListPage(aDriver));
+            if (waitForElementNotVisible(aDriver,120,"//*[@id = 'sc-modal-title']")) {
+                waitForPageLoaded(aDriver);
+                waitForAjax(aDriver);
+                return (new InitiativesListPage(aDriver));
+            }
         }
         return null;
     }
