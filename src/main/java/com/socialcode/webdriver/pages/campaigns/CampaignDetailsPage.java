@@ -145,8 +145,14 @@ public class CampaignDetailsPage extends BasePage {
             return "Expect platform " + platform + " ,but get " + dPlatform;
         }
 
-        if (!account.startsWith(dAccount + "@")) {
-            return "Expect account " + account + " ,but get " + dAccount + "@";
+        if (account.contains("@")) {
+            if (!account.startsWith(dAccount + "@")) {
+                return "Expect account " + account + " ,but get " + dAccount;
+            }
+        } else {
+            if (!account.contentEquals(dAccount)) {
+                return "Expect account " + account + " ,but get " + dAccount;
+            }
         }
 
         if (!dStartDate.contentEquals(startDate)) {
