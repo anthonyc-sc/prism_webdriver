@@ -63,6 +63,11 @@ public class DeleteInitiativeModal extends BasePage {
             if (waitForElementNotVisible(aDriver,120,"//*[@id = 'sc-modal-title']")) {
                 waitForPageLoaded(aDriver);
                 waitForAjax(aDriver);
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+
+                }
                 return (new InitiativesListPage(aDriver));
             }
         }
