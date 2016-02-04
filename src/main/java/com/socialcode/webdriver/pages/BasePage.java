@@ -240,6 +240,8 @@ public class BasePage {
         return (foundElement != null);
     }
 
+
+
     /**
      * Wait for Async job to complete processing
      * @param aDriver
@@ -259,4 +261,28 @@ public class BasePage {
             }
         }
     }
+
+
+    public boolean waitForElementNotVisible(final WebDriver aDriver, final int timeout, String elementPath){
+        LOG.info("Start waiting for ElementNotVisible....");
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(aDriver).withTimeout(
+                timeout, SECONDS).pollingEvery(1, SECONDS).ignoring(Exception.class);
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(elementPath)));
+        } catch (Throwable error) {
+            LOG.error("Timeout waiting for element to close");
+            return false;
+        }
+
+        try {
+            WebElement element = aDriver.findElement(By.xpath(elementPath));
+            return false;
+        } catch (Exception e) {
+
+        }
+
+        LOG.info("Completing waiting for ElementNotVisible....");
+        return true;
+    }
+
 }
