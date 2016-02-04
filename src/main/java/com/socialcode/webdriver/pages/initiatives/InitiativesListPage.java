@@ -60,6 +60,8 @@ public class InitiativesListPage extends BasePage {
      */
     public boolean isPageLoaded() {
         LOG.debug("Verifying 'Initiatives List' page is loaded");
+        waitForPageLoaded(driver);
+        waitForAjax(driver);
         return waitForElementVisible(driver,initToolbar) && waitForElementVisible(driver,createInitButton);
     }
 
@@ -304,7 +306,7 @@ public class InitiativesListPage extends BasePage {
     public String searchInitiativeExpectNoResult(WebDriver aDriver,String initName) {
         waitForPageLoaded(aDriver);
         waitForAjax(aDriver);
-        if (waitForElementVisible(aDriver,initiativeSearch)) {
+        if (waitForElementVisible(aDriver,initiativeSearch) && waitForElementClickable(aDriver,searchIcon)) {
             initiativeSearch.sendKeys(initName);
             searchIcon.click();
             if (waitForElementVisible(aDriver,emptyInitListText)) {
