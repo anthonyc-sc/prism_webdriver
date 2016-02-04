@@ -15,7 +15,7 @@
             <class name="com.socialcode.webdriver.tests.campaigns.CreateCampaign"/>
         </classes>
     </test>
-    <test name="TC1-17: Delete SC Campaign Facebook">
+    <test name="TC1-11: Delete SC Campaign-Pinterest&lt;br&gt;TC1-17: Delete SC Campaign-Facebook&lt;br&gt;TC1-23: Delete SC Campaign-Instagram&lt;br&gt;TC1-28: Delete SC Campaign-Twitter">
         <classes>
             <class name="com.socialcode.webdriver.tests.campaigns.DeleteCampaign"/>
         </classes>
