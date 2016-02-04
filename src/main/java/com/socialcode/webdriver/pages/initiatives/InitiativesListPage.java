@@ -283,10 +283,14 @@ public class InitiativesListPage extends BasePage {
      */
     public boolean searchInitiative(WebDriver aDriver,String initName)  {
         waitForPageLoaded(aDriver);
-        initiativeSearch.sendKeys(initName + Keys.ENTER);
-        waitForPageLoaded(aDriver);
-        if (waitForElementPresence(aDriver,60,"//a[text() = '"+initName+"']")) {
-            return true;
+        waitForAjax(aDriver);
+        if (waitForElementVisible(aDriver,initiativeSearch)) {
+            initiativeSearch.sendKeys(initName);
+            searchIcon.click();
+            waitForPageLoaded(aDriver);
+            if (waitForElementPresence(aDriver,60,"//a[text() = '"+initName+"']")) {
+                return true;
+            }
         }
         return false;
     }

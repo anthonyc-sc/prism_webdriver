@@ -59,13 +59,13 @@ public class DeleteCampaign extends WebDriverSetup {
 
         // Go to specific initiative with given initiative ID. Then create new campaign.
         InitiativePage initPage = initListPage.gotoInitiative(initID);
-        Boolean result = initPage.createNewSCCampaginNoRedirect(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
+        Boolean result = initPage.createNewSCCampaginNoRedirect(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,"");
         assertTrue(result);
     }
 
     @Test(dependsOnMethods = { "createCampaignForDeletion" },dataProvider = "getDCampaign")
-    public void TC1_17_Delete_SC_Campaign_Facebook(String cpName) throws Exception {
-        LOG.info("Starting TC1_17_Delete_SC_Campaign_Facebook......");
+    public void TC1_17_Delete_SC_Campaign(String cpName) throws Exception {
+        LOG.info("Starting TC1_17_Delete_SC_Campaign......");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);

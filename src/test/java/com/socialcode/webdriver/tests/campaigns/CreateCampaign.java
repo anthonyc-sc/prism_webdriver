@@ -30,13 +30,13 @@ public class CreateCampaign  extends WebDriverSetup {
 
     @DataProvider(name = "getCampaigns")
     public Object[][] getCampaigns() {
-        String[] cols = {"name","initiative_id","platform","account","insertion_order","total_budget","media_budget","objective", "kpi_goal", "kpi", "start_date", "end_date"};
+        String[] cols = {"name","initiative_id","platform","account","insertion_order","total_budget","media_budget","objective", "kpi_goal", "kpi", "start_date", "end_date","funding_instrument"};
         return data.getDataByElement("campaign",cols);
     }
 
     @Test(enabled = true,dataProvider = "getCampaigns")
-    public void TC1_12_Create_SC_Campaign_Facebook(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag) throws Exception {
-        LOG.info("Starting TC1_12_Create_SC_Campaign_Facebook.....");
+    public void TC1_12_Create_SC_Campaign(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag,String fInstr) throws Exception {
+        LOG.info("Starting TC1_12_Create_SC_Campaign.....");
 
         // Convert start and end date
         String startDate = CommonUtil.getDateByDuration(sDateFlag,0);
@@ -58,7 +58,7 @@ public class CreateCampaign  extends WebDriverSetup {
         //assertNotNull(cpPage);
 
         // Temporary work around for issue ADV-3177
-        Boolean result = initPage.createNewSCCampaginNoRedirect(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
+        Boolean result = initPage.createNewSCCampaginNoRedirect(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
         assertTrue(result);
     }
 

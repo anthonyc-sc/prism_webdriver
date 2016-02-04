@@ -79,6 +79,9 @@ public class NewCampaignModal extends BasePage {
     @FindBy(id = "cancel")
     protected WebElement cancelButton;
 
+    @FindBy(id = "twitter_funding_instrument")
+    protected WebElement twitterFInstrumentBox;
+
 
     public NewCampaignModal(WebDriver aDriver) {
         driver = aDriver;
@@ -119,7 +122,7 @@ public class NewCampaignModal extends BasePage {
      * @return empty string if successful; error message otherwise
      * @throws Exception - this is for time out exception from thread.sleep
      */
-    public String enterCampaignData(String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate)
+    public String enterCampaignData(String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr)
       throws Exception {
 
         waitForAjax(driver);
@@ -140,6 +143,12 @@ public class NewCampaignModal extends BasePage {
 
         if (!inputInsertionOrder(insertionOrder)) {
             return "Unable to select Insertion Order";
+        }
+
+        if (platform.contentEquals("Twitter")) {
+           if (!selectTwitterFundingInstrument(driver,fInstr)) {
+               return "Unable to select Funding Instrument ID for Twitter Campaign";
+           }
         }
 
         if (!type(totalBudgetEdit,totalBudget.toString()).contentEquals(totalBudget.toString())) {
@@ -165,6 +174,7 @@ public class NewCampaignModal extends BasePage {
         if (!type(endDateEdit,endDate).contentEquals(endDate)) {
             return "Unable to enter End Date";
         }
+
         return "";
     }
 
@@ -228,8 +238,8 @@ public class NewCampaignModal extends BasePage {
      * @return Campaign Details Page object if successful; otherwise null
      * @throws Exception
      */
-    public CampaignDetailsPage createNewSCCampaign(String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate) throws Exception {
-        String result = enterCampaignData(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
+    public CampaignDetailsPage createNewSCCampaign(String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr) throws Exception {
+        String result = enterCampaignData(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
 
         if (result.isEmpty()) {
             return submit();
@@ -238,12 +248,22 @@ public class NewCampaignModal extends BasePage {
     }
 
     public CampaignPage createNewPinterestSCCampaign(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate) throws Exception {
-        String result = enterCampaignData(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
+        String result = enterCampaignData(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,"");
 
         if (result.isEmpty()) {
             return submitforPinterest(aDriver,cpName);
         }
         return null;
+    }
+
+    public Boolean selectTwitterFundingInstrument(WebDriver aDriver,String fInstr) {
+        waitForAjax(aDriver);
+        try {
+            return selectByText(twitterFInstrumentBox, fInstr).contentEquals(fInstr);
+        } catch (Exception e) {
+
+        }
+        return false;
     }
 
 }

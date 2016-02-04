@@ -242,9 +242,9 @@ public class InitiativePage extends BasePage {
      * @return Campaign Page object if successful;null otherwise
      * @throws Exception
      */
-    public CampaignPage createNewSCCampaign(WebDriver driver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate) throws Exception {
+    public CampaignPage createNewSCCampaign(WebDriver driver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr) throws Exception {
         NewCampaignModal cpModal = launchNewCampaignModal(driver);
-        CampaignDetailsPage cpDetailPage =  cpModal.createNewSCCampaign(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate);
+        CampaignDetailsPage cpDetailPage =  cpModal.createNewSCCampaign(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
 
         // Verify values display on Campaign Details page
         String result = cpDetailPage.checkCampaignDetails(cpName,platform,account,insertionOrder,startDate,endDate,mediaBudget.toString(),kpiGoal.toString(),kpi,objective);
@@ -290,13 +290,13 @@ public class InitiativePage extends BasePage {
      * @return true if successful;false otherwise
      * @throws Exception
      */
-    public boolean createNewSCCampaginNoRedirect(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate) throws Exception {
+    public boolean createNewSCCampaginNoRedirect(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr) throws Exception {
         NewCampaignModal cpModal = launchNewCampaignModal(aDriver);
         if (platform.contentEquals("Pinterest")) {
             CampaignPage cpPage = cpModal.createNewPinterestSCCampaign(aDriver,cpName, platform, account, insertionOrder, totalBudget, mediaBudget, objective, kpiGoal, kpi, startDate, endDate);
             return (cpPage != null);
         } else {
-            CampaignDetailsPage cpDetailPage = cpModal.createNewSCCampaign(cpName, platform, account, insertionOrder, totalBudget, mediaBudget, objective, kpiGoal, kpi, startDate, endDate);
+            CampaignDetailsPage cpDetailPage = cpModal.createNewSCCampaign(cpName, platform, account, insertionOrder, totalBudget, mediaBudget, objective, kpiGoal, kpi, startDate, endDate,fInstr);
 
             if (cpDetailPage != null) {
                 // Verify values display on Campaign Details page
