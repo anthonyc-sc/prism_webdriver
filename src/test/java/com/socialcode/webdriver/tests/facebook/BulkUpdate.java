@@ -1,5 +1,6 @@
 package com.socialcode.webdriver.tests.facebook;
 
+import com.socialcode.webdriver.pages.campaigns.FbIgBase;
 import com.socialcode.webdriver.pages.facebook.FacebookCampaign;
 import com.socialcode.webdriver.pages.initiatives.InitiativePage;
 import com.socialcode.webdriver.pages.initiatives.InitiativesListPage;
@@ -10,8 +11,6 @@ import com.socialcode.webdriver.tests.WebDriverSetup;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static org.testng.Assert.*;
@@ -28,36 +27,36 @@ public class BulkUpdate extends WebDriverSetup {
 
     public BulkUpdate() {
         data = new TestData();
-        data.load("/data/fb_bulkupdate_data.xml");
+        data.load("/data/bulkupdate_data.xml");
     }
 
-    @DataProvider(name = "getFBCampaignStatus")
-    public Object[][] getFBCampaignStatus() {
+    @DataProvider(name = "getCampaignStatus")
+    public Object[][] getCampaignStatus() {
         String[] cols = {"name","initiative_id","platform","status_text","status_value"};
-        return data.getDataByElement("fb_campaign_status",cols);
+        return data.getDataByElement("campaign_status",cols);
     }
 
-    @DataProvider(name = "getFBCampaignBudget")
-    public Object[][] getFBCampaignBudget() {
+    @DataProvider(name = "getCampaignBudget")
+    public Object[][] getCampaignBudget() {
         String[] cols = {"name","initiative_id","platform","budget"};
-        return data.getDataByElement("fb_campaign_budget",cols);
+        return data.getDataByElement("campaign_budget",cols);
     }
 
-    @DataProvider(name = "getFBCampaignBid")
-    public Object[][] getFBCampaignBid() {
+    @DataProvider(name = "getCampaignBid")
+    public Object[][] getCampaignBid() {
         String[] cols = {"name","initiative_id","platform","bid"};
-        return data.getDataByElement("fb_campaign_bid",cols);
+        return data.getDataByElement("campaign_bid",cols);
     }
 
-    @DataProvider(name = "getFBCampaignEndDate")
-    public Object[][] getFBCampaignEndTime() {
+    @DataProvider(name = "getCampaignEndDate")
+    public Object[][] getCampaignEndTime() {
         String[] cols = {"name","initiative_id","platform","end_date_offset","end_date_offset_unit","end_time"};
-        return data.getDataByElement("fb_campaign_endtime",cols);
+        return data.getDataByElement("campaign_endtime",cols);
     }
 
-    @Test(enabled = true,dataProvider = "getFBCampaignStatus")
-    public void TC1_15_Bulk_Update_FB_AdStatus(String cpName,Integer initID,String platform,String statusText,String statusValue) throws Exception {
-        LOG.info("Starting TC1_15_Bulk_Update_FB_AdStatus.....");
+    @Test(enabled = true,dataProvider = "getCampaignStatus")
+    public void bulk_Update_AdStatus(String cpName,Integer initID,String platform,String statusText,String statusValue) throws Exception {
+        LOG.info("Starting TC1_15_Bulk_Update_AdStatus.....");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
@@ -72,21 +71,21 @@ public class BulkUpdate extends WebDriverSetup {
         initPage.waitForPageLoaded(driver);
 
         // Go to specific campaign for bulk update
-        FacebookCampaign fbCampaign = initPage.goToFacebookCampaign(driver,cpName);
-        fbCampaign.waitForPageLoaded(driver);
+        FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
+        fbIgCampaign.waitForPageLoaded(driver);
 
         // Perform bulk status update
-        fbCampaign = fbCampaign.bulkStatusUpdate(driver,cpName,statusText);
-        assertNotNull(fbCampaign);
+        fbIgCampaign = fbIgCampaign.bulkStatusUpdate(driver,cpName,statusText);
+        assertNotNull(fbIgCampaign);
 
         // Verify success toast
-        assertTrue(fbCampaign.getAlertMessage(driver).contains("Successfully updated campaign status to " + statusValue));
+        assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated campaign status to " + statusValue));
 
         // Close alert box
-        fbCampaign.closeAlert(driver);
+        fbIgCampaign.closeAlert(driver);
 
         // Go through each of the ad sets in the Ad Sets table and verify their statuses are updated correctly
-        List<HashMap<String,String>> adSets = fbCampaign.getAdSetsList(driver);
+        List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
         assertNotNull(adSets);
         assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
 
@@ -97,9 +96,9 @@ public class BulkUpdate extends WebDriverSetup {
         }
     }
 
-    @Test(enabled = true,dataProvider = "getFBCampaignBudget")
-    public void TC1_15_Bulk_Update_FB_AdBudget(String cpName,Integer initID,String platform,Double budget) throws Exception {
-        LOG.info("Starting TC1_15_Bulk_Update_FB_AdBudget.....");
+    @Test(enabled = true,dataProvider = "getCampaignBudget")
+    public void bulk_Update_AdBudget(String cpName,Integer initID,String platform,Double budget) throws Exception {
+        LOG.info("Starting TC1_15_Bulk_Update_AdBudget.....");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
@@ -114,22 +113,22 @@ public class BulkUpdate extends WebDriverSetup {
         initPage.waitForPageLoaded(driver);
 
         // Go to specific campaign for bulk update
-        FacebookCampaign fbCampaign = initPage.goToFacebookCampaign(driver,cpName);
-        fbCampaign.waitForPageLoaded(driver);
+        FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
+        fbIgCampaign.waitForPageLoaded(driver);
 
         // Perform bulk budget update
-        fbCampaign = fbCampaign.bulkBudgetUpdate(driver,cpName,budget);
-        assertNotNull(fbCampaign);
-        fbCampaign.waitForPageLoaded(driver);
+        fbIgCampaign = fbIgCampaign.bulkBudgetUpdate(driver,cpName,budget);
+        assertNotNull(fbIgCampaign);
+        fbIgCampaign.waitForPageLoaded(driver);
 
         // Verify success toast
-        assertTrue(fbCampaign.getAlertMessage(driver).contains("Successfully updated lifetime budget to $" + budget),"Fail to verify success toast.");
+        assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated lifetime budget to $" + budget),"Fail to verify success toast.");
 
         // Close alert box
-        fbCampaign.closeAlert(driver);
+        fbIgCampaign.closeAlert(driver);
 
         // Retrieve list of rows of adsets and verify budget in each row updated to the correct value
-        List<HashMap<String,String>> adSets = fbCampaign.getAdSetsList(driver);
+        List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
         assertNotNull(adSets);
         assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
 
@@ -140,9 +139,9 @@ public class BulkUpdate extends WebDriverSetup {
         Thread.sleep(2000);
     }
 
-    @Test(enabled = true,dataProvider = "getFBCampaignBid")
-    public void TC1_15_Bulk_Update_FB_AdBid(String cpName,Integer initID,String platform,Double bid) throws Exception {
-        LOG.info("Starting TC1_15_Bulk_Update_FB_AdBid.....");
+    @Test(enabled = true,dataProvider = "getCampaignBid")
+    public void bulk_Update_AdBid(String cpName,Integer initID,String platform,Double bid) throws Exception {
+        LOG.info("Starting TC1_15_Bulk_Update_AdBid.....");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
@@ -157,13 +156,13 @@ public class BulkUpdate extends WebDriverSetup {
         initPage.waitForPageLoaded(driver);
 
         // Go to specific campaign for bulk update
-        FacebookCampaign fbCampaign = initPage.goToFacebookCampaign(driver,cpName);
-        fbCampaign.waitForPageLoaded(driver);
+        FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
+        fbIgCampaign.waitForPageLoaded(driver);
 
         // Perform bulk bid update
-        fbCampaign = fbCampaign.bulkBidUpdate(driver,cpName,bid);
-        assertNotNull(fbCampaign);
-        fbCampaign.waitForPageLoaded(driver);
+        fbIgCampaign = fbIgCampaign.bulkBidUpdate(driver,cpName,bid);
+        assertNotNull(fbIgCampaign);
+        fbIgCampaign.waitForPageLoaded(driver);
 
         // Verify success toast
         String bidString = "";
@@ -171,13 +170,13 @@ public class BulkUpdate extends WebDriverSetup {
         if (bidSArray.length == 2) {
             bidString = bidSArray[0] + bidSArray[1];
         }
-        assertTrue(fbCampaign.getAlertMessage(driver).contains("Successfully updated bid amount to " + bidString),"Fail to verify success toast for bulk bid update.");
+        assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated bid amount to " + bidString),"Fail to verify success toast for bulk bid update.");
 
         // Close alert box
-        fbCampaign.closeAlert(driver);
+        fbIgCampaign.closeAlert(driver);
 
         // Retrieve list of rows of adset and verify budget in each row updated to the correct value
-        List<HashMap<String,String>> adSets = fbCampaign.getAdSetsList(driver);
+        List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
         assertNotNull(adSets);
         assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
 
@@ -187,9 +186,9 @@ public class BulkUpdate extends WebDriverSetup {
         }
     }
 
-    @Test(enabled = true,dataProvider = "getFBCampaignEndDate")
-    public void TC1_15_Bulk_Update_FB_EndDate(String cpName,Integer initID,String platform,Integer endDateOffset,String endDateOffsetUnit,String endTime) {
-        LOG.info("Starting TC1_15_Bulk_Update_FB_EndDate......");
+    @Test(enabled = true,dataProvider = "getCampaignEndDate")
+    public void bulk_Update_EndDate(String cpName,Integer initID,String platform,Integer endDateOffset,String endDateOffsetUnit,String endTime) {
+        LOG.info("Starting TC1_15_Bulk_Update_EndDate......");
 
         String endDate = CommonUtil.getDateByDuration(endDateOffsetUnit,endDateOffset);
 
@@ -206,21 +205,21 @@ public class BulkUpdate extends WebDriverSetup {
         initPage.waitForPageLoaded(driver);
 
         // Go to specific campaign for bulk update
-        FacebookCampaign fbCampaign = initPage.goToFacebookCampaign(driver,cpName);
-        fbCampaign.waitForPageLoaded(driver);
+        FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
+        fbIgCampaign.waitForPageLoaded(driver);
 
         // Perform bulk end date
-        fbCampaign = fbCampaign.bulkEndDateUpdate(driver,cpName,endDate,endTime);
-        fbCampaign.waitForPageLoaded(driver);
+        fbIgCampaign = fbIgCampaign.bulkEndDateUpdate(driver,cpName,endDate,endTime);
+        fbIgCampaign.waitForPageLoaded(driver);
 
         // Verify success toast
-        assertTrue(fbCampaign.getAlertMessage(driver).contains("Successfully updated end time to "),"Fail to verify success toast");
+        assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated end time to "),"Fail to verify success toast");
 
         // Close alert box
-        fbCampaign.closeAlert(driver);
+        fbIgCampaign.closeAlert(driver);
 
         // Retrieve list of rows of adset and verify budget in each row updated to the correct value
-        List<HashMap<String,String>> adSets = fbCampaign.getAdSetsList(driver);
+        List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
         assertNotNull(adSets);
         assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
 

@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 public class CampaignPage extends BasePage {
     private static Logger LOG = LoggerFactory.getLogger(CampaignPage.class);
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @FindBy(xpath = "//*[@class = 'sc-card-details']/div/h2")
     protected WebElement campaignNameHeader;

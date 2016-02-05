@@ -3,6 +3,7 @@ package com.socialcode.webdriver.pages.initiatives;
 import com.socialcode.webdriver.pages.BasePage;
 import com.socialcode.webdriver.pages.campaigns.CampaignDetailsPage;
 import com.socialcode.webdriver.pages.campaigns.CampaignPage;
+import com.socialcode.webdriver.pages.campaigns.FbIgBase;
 import com.socialcode.webdriver.pages.campaigns.NewCampaignModal;
 import com.socialcode.webdriver.pages.facebook.FacebookCampaign;
 import org.openqa.selenium.By;
@@ -344,13 +345,13 @@ public class InitiativePage extends BasePage {
      * @param cpName
      * @return Facebook Campaign page object if successful;failure with error message otherwise
      */
-    public FacebookCampaign goToFacebookCampaign(WebDriver aDriver, String cpName) {
+    public FbIgBase goToCampaign(WebDriver aDriver, String cpName) {
         waitForPageLoaded(aDriver);
         if (waitForElementPresence(aDriver,"//a[text() = '"+cpName+"']")) {
             WebElement element = aDriver.findElement(By.xpath("//a[text() = '"+cpName+"']"));
             element.click();
             waitForAjax(aDriver);
-            return (new FacebookCampaign(aDriver,cpName));
+            return (new FbIgBase(aDriver,cpName));
         }
         return null;
     }

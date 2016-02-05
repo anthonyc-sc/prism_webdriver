@@ -121,6 +121,7 @@ public class BasePage {
      */
     public <T> T pageInitElements(WebDriver aDriver,Class<T> expectedPage) {
         waitForPageLoaded(aDriver);
+        waitForAjax(aDriver);
         return PageFactory.initElements(aDriver,expectedPage);
     }
 
