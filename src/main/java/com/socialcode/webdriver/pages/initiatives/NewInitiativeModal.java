@@ -3,6 +3,7 @@ package com.socialcode.webdriver.pages.initiatives;
 import com.socialcode.webdriver.pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
@@ -154,7 +155,28 @@ public class NewInitiativeModal extends BasePage {
      * @return Initiative Edit Page object if successful;failure otherwise
      */
     public InitiativeEditPage submit(WebDriver d,String initName) {
-        submitButton.click();
-        return (new InitiativeEditPage(d,initName));
+        waitForPageLoaded(d);
+        waitForAjax(d);
+        if (waitForElementClickable(d,submitButton)) {
+            try {
+                submitButton.click();
+                return (new InitiativeEditPage(d, initName));
+            } catch (WebDriverException wEx) {
+                try {
+                    Thread.sleep(2000);
+                    submitButton.click();
+                    return (new InitiativeEditPage(d, initName));
+                } catch (InterruptedException intE) {
+
+                } catch (WebDriverException wbE) {
+                    try {
+                        getScreenshot(d, "nim.png");
+                    } catch(Exception wE) {
+                        LOG.error("Unable to take screenshot for New Initiative Modal");
+                    }
+                }
+            }
+        }
+        return null;
     }
 }
