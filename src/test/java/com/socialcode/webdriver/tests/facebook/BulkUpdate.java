@@ -1,10 +1,10 @@
 package com.socialcode.webdriver.tests.facebook;
 
 import com.socialcode.webdriver.pages.campaigns.FbIgBase;
-import com.socialcode.webdriver.pages.facebook.FacebookCampaign;
 import com.socialcode.webdriver.pages.initiatives.InitiativePage;
 import com.socialcode.webdriver.pages.initiatives.InitiativesListPage;
 import com.socialcode.webdriver.pages.login.LoginPage;
+import com.socialcode.webdriver.pages.pinterest.PinterestCampaign;
 import com.socialcode.webdriver.tests.CommonUtil;
 import com.socialcode.webdriver.tests.TestData;
 import com.socialcode.webdriver.tests.WebDriverSetup;
@@ -56,7 +56,7 @@ public class BulkUpdate extends WebDriverSetup {
 
     @Test(enabled = true,dataProvider = "getCampaignStatus")
     public void bulk_Update_AdStatus(String cpName,Integer initID,String platform,String statusText,String statusValue) throws Exception {
-        LOG.info("Starting TC1_15_Bulk_Update_AdStatus.....");
+        LOG.info("Starting bulk_Update_AdStatus.....");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
@@ -70,35 +70,69 @@ public class BulkUpdate extends WebDriverSetup {
         InitiativePage initPage = initListPage.gotoInitiative(initID);
         initPage.waitForPageLoaded(driver);
 
-        // Go to specific campaign for bulk update
-        FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
-        fbIgCampaign.waitForPageLoaded(driver);
+        switch(platform) {
+            case "Facebook":
+            case "Instagram":
+                // Go to specific campaign for bulk update
+                FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
+                fbIgCampaign.waitForPageLoaded(driver);
 
-        // Perform bulk status update
-        fbIgCampaign = fbIgCampaign.bulkStatusUpdate(driver,cpName,statusText);
-        assertNotNull(fbIgCampaign);
+                // Perform bulk status update
+                fbIgCampaign = fbIgCampaign.bulkStatusUpdate(driver,cpName,statusText);
+                assertNotNull(fbIgCampaign);
 
-        // Verify success toast
-        assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated campaign status to " + statusValue));
+                // Verify success toast
+                assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated campaign status to " + statusValue));
 
-        // Close alert box
-        fbIgCampaign.closeAlert(driver);
+                // Close alert box
+                fbIgCampaign.closeAlert(driver);
 
-        // Go through each of the ad sets in the Ad Sets table and verify their statuses are updated correctly
-        List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
-        assertNotNull(adSets);
-        assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
+                // Go through each of the ad sets in the Ad Sets table and verify their statuses are updated correctly
+                List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
+                assertNotNull(adSets);
+                assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
 
-        for (HashMap<String,String> h: adSets) {
-            if (!h.get("Status").equalsIgnoreCase(statusValue)) {
-                fail("Expect staus of campaign " + cpName + " to be " + statusValue + ",but get " + h.get("Status"));
-            }
+                for (HashMap<String,String> h: adSets) {
+                    if (!h.get("Status").equalsIgnoreCase(statusValue)) {
+                        fail("Expect status of campaign " + cpName + " to be " + statusValue + ",but get " + h.get("Status"));
+                    }
+                }
+                break;
+            case "Pinterest":
+                // Go to specific campaign for bulk update
+                PinterestCampaign pinCampaign = initPage.goToPinterestCampaign(driver,cpName);
+                pinCampaign.waitForPageLoaded(driver);
+
+                // Perform bulk status update
+                pinCampaign = pinCampaign.bulkStatusUpdate(driver,cpName,statusText);
+                assertNotNull(pinCampaign);
+
+                // Verify success toast
+                assertTrue(pinCampaign.getAlertMessage(driver).contains("Successfully updated status to " + statusValue));
+
+                // Close alert box
+                pinCampaign.closeAlert(driver);
+
+                // Go through each of the ad sets in the Ad Sets table and verify their statuses are updated correctly
+                List<HashMap<String,String>> ads = pinCampaign.getAdsList(driver);
+                assertNotNull(ads);
+                assertFalse(ads.isEmpty(),"Ads List is empty for campaign" + cpName + "of initiative with id " + initID);
+
+                for (HashMap<String,String> h: ads) {
+                    if (!h.get("Status").equalsIgnoreCase(statusValue)) {
+                        fail("Expect status of campaign " + cpName + " to be " + statusValue + ",but get " + h.get("Status"));
+                    }
+                }
+                break;
+            default:
+                fail("Invalid value for platform. Expect platform to be one of the following: Facebook, Instagram, Pinterest, or Twitter.");
         }
+
     }
 
     @Test(enabled = true,dataProvider = "getCampaignBudget")
     public void bulk_Update_AdBudget(String cpName,Integer initID,String platform,Double budget) throws Exception {
-        LOG.info("Starting TC1_15_Bulk_Update_AdBudget.....");
+        LOG.info("Starting bulk_Update_AdBudget.....");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
@@ -112,36 +146,67 @@ public class BulkUpdate extends WebDriverSetup {
         InitiativePage initPage = initListPage.gotoInitiative(initID);
         initPage.waitForPageLoaded(driver);
 
-        // Go to specific campaign for bulk update
-        FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
-        fbIgCampaign.waitForPageLoaded(driver);
+        switch(platform) {
+            case "Facebook":
+            case "Instagram":
+                // Go to specific campaign for bulk update
+                FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
+                fbIgCampaign.waitForPageLoaded(driver);
 
-        // Perform bulk budget update
-        fbIgCampaign = fbIgCampaign.bulkBudgetUpdate(driver,cpName,budget);
-        assertNotNull(fbIgCampaign);
-        fbIgCampaign.waitForPageLoaded(driver);
+                // Perform bulk budget update
+                fbIgCampaign = fbIgCampaign.bulkBudgetUpdate(driver,cpName,budget);
+                assertNotNull(fbIgCampaign);
+                fbIgCampaign.waitForPageLoaded(driver);
 
-        // Verify success toast
-        assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated lifetime budget to $" + budget),"Fail to verify success toast.");
+                // Verify success toast
+                assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated lifetime budget to $" + budget),"Fail to verify success toast.");
 
-        // Close alert box
-        fbIgCampaign.closeAlert(driver);
+                // Close alert box
+                fbIgCampaign.closeAlert(driver);
 
-        // Retrieve list of rows of adsets and verify budget in each row updated to the correct value
-        List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
-        assertNotNull(adSets);
-        assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
+                // Retrieve list of rows of adsets and verify budget in each row updated to the correct value
+                List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
+                assertNotNull(adSets);
+                assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
 
-        for (HashMap<String,String> ad: adSets) {
-            String budgetDisplay = ad.get("Budget").split("\n")[0];
-            assertEquals(budgetDisplay,String.format("$%.2f",budget));
+                for (HashMap<String,String> ad: adSets) {
+                    String budgetDisplay = ad.get("Budget").split("\n")[0];
+                    assertEquals(budgetDisplay,String.format("$%.2f",budget));
+                }
+                break;
+            case "Pinterest":
+                // Go to specific campaign for bulk update
+                PinterestCampaign pnCampaign = initPage.goToPinterestCampaign(driver,cpName);
+                pnCampaign.waitForPageLoaded(driver);
+
+                pnCampaign.bulkBudgetUpdate(driver,cpName,budget);
+                assertNotNull(pnCampaign);
+                pnCampaign.waitForPageLoaded(driver);
+
+                // Verify success toast
+                assertTrue(pnCampaign.getAlertMessage(driver).contains("Successfully updated budget to " + String.format("$%.2f",budget)),"Fail to verify success toast.");
+
+                // Close alert box
+                pnCampaign.closeAlert(driver);
+
+                // Retrieve list of rows of adsets and verify budget in each row updated to the correct value
+                List<HashMap<String,String>> adsList = pnCampaign.getAdsList(driver);
+                assertNotNull(adsList);
+                assertFalse(adsList.isEmpty(),"Ad list is empty for campaign" + cpName + "of initiative with id " + initID);
+
+                for (HashMap<String,String> ad: adsList) {
+                    String budgetDisplay = ad.get("Daily Budget");
+                    assertEquals(budgetDisplay,String.format("$%.2f",budget));
+                }
+                break;
+            default:
+                fail("Invalid value for platform. Expect to be one of the following: Facebook, Instagram,Pinterest or Twitter.");
         }
-        Thread.sleep(2000);
     }
 
     @Test(enabled = true,dataProvider = "getCampaignBid")
     public void bulk_Update_AdBid(String cpName,Integer initID,String platform,Double bid) throws Exception {
-        LOG.info("Starting TC1_15_Bulk_Update_AdBid.....");
+        LOG.info("Starting bulk_Update_AdBid.....");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
@@ -188,7 +253,7 @@ public class BulkUpdate extends WebDriverSetup {
 
     @Test(enabled = true,dataProvider = "getCampaignEndDate")
     public void bulk_Update_EndDate(String cpName,Integer initID,String platform,Integer endDateOffset,String endDateOffsetUnit,String endTime) {
-        LOG.info("Starting TC1_15_Bulk_Update_EndDate......");
+        LOG.info("Starting bulk_Update_EndDate......");
 
         String endDate = CommonUtil.getDateByDuration(endDateOffsetUnit,endDateOffset);
 
@@ -204,27 +269,59 @@ public class BulkUpdate extends WebDriverSetup {
         InitiativePage initPage = initListPage.gotoInitiative(initID);
         initPage.waitForPageLoaded(driver);
 
-        // Go to specific campaign for bulk update
-        FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
-        fbIgCampaign.waitForPageLoaded(driver);
+        switch(platform) {
+            case "Facebook":
+            case "Instagram":
+                // Go to specific campaign for bulk update
+                FbIgBase fbIgCampaign = initPage.goToCampaign(driver,cpName);
+                fbIgCampaign.waitForPageLoaded(driver);
 
-        // Perform bulk end date
-        fbIgCampaign = fbIgCampaign.bulkEndDateUpdate(driver,cpName,endDate,endTime);
-        fbIgCampaign.waitForPageLoaded(driver);
+                // Perform bulk end date
+                fbIgCampaign = fbIgCampaign.bulkEndDateUpdate(driver,cpName,endDate,endTime);
+                fbIgCampaign.waitForPageLoaded(driver);
 
-        // Verify success toast
-        assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated end time to "),"Fail to verify success toast");
+                // Verify success toast
+                assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated end time to "),"Fail to verify success toast");
 
-        // Close alert box
-        fbIgCampaign.closeAlert(driver);
+                // Close alert box
+                fbIgCampaign.closeAlert(driver);
 
-        // Retrieve list of rows of adset and verify budget in each row updated to the correct value
-        List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
-        assertNotNull(adSets);
-        assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
+                // Retrieve list of rows of adset and verify budget in each row updated to the correct value
+                List<HashMap<String,String>> adSets = fbIgCampaign.getAdSetsList(driver);
+                assertNotNull(adSets);
+                assertFalse(adSets.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
 
-        for (HashMap<String,String> ad: adSets) {
-            assertTrue(ad.get("End Date").contains(CommonUtil.getDateStringByFormat(endDate,"M/d/yy") + "\n" + endTime));
+                for (HashMap<String,String> ad: adSets) {
+                    assertTrue(ad.get("End Date").contains(CommonUtil.getDateStringByFormat(endDate,"M/d/yy") + "\n" + endTime));
+                }
+                break;
+            case "Pinterest":
+                // Go to specific campaign for bulk update
+                PinterestCampaign pinCampaign = initPage.goToPinterestCampaign(driver,cpName);
+                pinCampaign.waitForPageLoaded(driver);
+
+                // Perform bulk end date
+                pinCampaign = pinCampaign.bulkEndDateUpdate(driver,cpName,endDate,"");
+                pinCampaign.waitForPageLoaded(driver);
+
+                // Verify success toast
+                assertTrue(pinCampaign.getAlertMessage(driver).contains("Successfully updated end time to "),"Fail to verify success toast");
+
+                // Close alert box
+                pinCampaign.closeAlert(driver);
+
+                // Retrieve list of rows of adset and verify budget in each row updated to the correct value
+                List<HashMap<String,String>> ads = pinCampaign.getAdsList(driver);
+                assertNotNull(ads);
+                assertFalse(ads.isEmpty(),"Ad Sets is empty for campaign" + cpName + "of initiative with id " + initID);
+
+                for (HashMap<String,String> ad: ads) {
+                    assertTrue(ad.get("End Date").contains(CommonUtil.getDateStringByFormat(endDate,"M/d/yy")));
+                }
+                break;
+            default:
+                fail("Invalid value for platform. Expect to be one of the following: Facebook, Instagram, Pinterest or Twitter.");
         }
+
     }
 }

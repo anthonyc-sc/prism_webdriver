@@ -57,9 +57,16 @@ public class EndDateModal extends BulkUpdateModal {
 
     public Boolean updateEndDateTime(WebDriver aDriver,String endDate,String endTime) {
         waitForPageLoaded(aDriver);
-        if (setEndDate(aDriver,endDate) && setEndTime(aDriver,endTime)) {
-            updateButton.click();
-            return true;
+        if (setEndDate(aDriver,endDate)) {
+            if (!endTime.isEmpty()) {
+                if (setEndTime(aDriver,endTime)) {
+                    updateButton.click();
+                    return true;
+                }
+            } else {
+                updateButton.click();
+                return true;
+            }
         }
         return false;
     }

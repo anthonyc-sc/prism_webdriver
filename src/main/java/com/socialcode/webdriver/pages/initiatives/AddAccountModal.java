@@ -1,10 +1,7 @@
 package com.socialcode.webdriver.pages.initiatives;
 
 import com.socialcode.webdriver.pages.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,30 +74,42 @@ public class AddAccountModal extends BasePage {
      * @return true if successful; false otherwise
      */
     public boolean selectPlatform(WebDriver aDriver,String pf) {
-        if (waitForElementClickable(aDriver,platformListBox)) {
-            platformListBox.click();
-        }
-
-        if (waitForElementClickable(aDriver,aDriver.findElement(By.xpath("//span[text()='"+pf+"']")))) {
-            WebElement element = aDriver.findElement(By.xpath("//span[text()='"+pf+"']"));
-            element.click();
-        }
+        waitForPageLoaded(aDriver);
         waitForAjax(aDriver);
-        try {
-            if (platformSelection.getText().contentEquals(pf)) {
-                return true;
-            }
-        } catch (StaleElementReferenceException e) {
-            // Retry
+        if (waitForElementClickable(aDriver,platformListBox)) {
             try {
-                Thread.sleep(2000);
-                if (platformSelection.getText().contentEquals(pf)) {
-                    return true;
-                }
-            } catch (StaleElementReferenceException staleEx) {
-                return false;
-            } catch (InterruptedException intEx) {
+                getScreenshot(aDriver, "AddAccountModal.png");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            platformListBox.click();
+            waitForAjax(aDriver);
+            if (waitForElementClickable(aDriver,aDriver.findElement(By.xpath("//span[text()='"+pf+"']")))) {
+                try {
+                    WebElement element = aDriver.findElement(By.xpath("//span[text()='"+pf+"']"));
+                    element.click();
+                    waitForPageLoaded(aDriver);
+                    waitForAjax(aDriver);
+                    return platformSelection.getText().contentEquals(pf);
+                } catch (NoSuchElementException exN) {
+                    try {
+                        getScreenshot(aDriver, "AddAccountModal.png");
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } catch (StaleElementReferenceException exS) {
+                    // Retry
+                    try {
+                        Thread.sleep(2000);
+                        if (platformSelection.getText().contentEquals(pf)) {
+                            return true;
+                        }
+                    } catch (StaleElementReferenceException staleEx) {
+                        return false;
+                    } catch (InterruptedException intEx) {
 
+                    }
+                }
             }
         }
         return false;
@@ -116,8 +125,18 @@ public class AddAccountModal extends BasePage {
         accountBox.click();
         if (waitForElementPresence(aDriver,"//span[text()='"+account+"']")) {
             WebElement element = aDriver.findElement(By.xpath("//span[text()='"+account+"']"));
-            element.click();
-            return (accountSelected.getText().contentEquals(account));
+            if (waitForElementClickable(aDriver,element)) {
+                try {
+                    element.click();
+                    return (accountSelected.getText().contentEquals(account));
+                } catch (WebDriverException e) {
+                    try {
+                        getScreenshot(aDriver, "selectAccount.png");
+                    } catch (Exception ex) {
+                        LOG.info("Unable to take screen shot for Add Account Modal");
+                    }
+                }
+            }
         }
         return false;
     }

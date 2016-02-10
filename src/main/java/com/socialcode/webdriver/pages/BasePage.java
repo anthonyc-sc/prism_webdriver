@@ -2,12 +2,14 @@ package com.socialcode.webdriver.pages;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -284,6 +286,11 @@ public class BasePage {
 
         LOG.info("Completing waiting for ElementNotVisible....");
         return true;
+    }
+
+    public synchronized void getScreenshot(WebDriver aDriver,String imgFile) throws Exception {
+        File screenshotFile = ((TakesScreenshot)aDriver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenshotFile,new File(System.getProperty("user.dir") + System.getProperty("file.separator") + imgFile));
     }
 
 }

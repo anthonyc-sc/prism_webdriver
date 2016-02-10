@@ -6,6 +6,7 @@ import com.socialcode.webdriver.pages.campaigns.CampaignPage;
 import com.socialcode.webdriver.pages.campaigns.FbIgBase;
 import com.socialcode.webdriver.pages.campaigns.NewCampaignModal;
 import com.socialcode.webdriver.pages.facebook.FacebookCampaign;
+import com.socialcode.webdriver.pages.pinterest.PinterestCampaign;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -346,13 +347,28 @@ public class InitiativePage extends BasePage {
      * @return Facebook Campaign page object if successful;failure with error message otherwise
      */
     public FbIgBase goToCampaign(WebDriver aDriver, String cpName) {
-        waitForPageLoaded(aDriver);
-        if (waitForElementPresence(aDriver,"//a[text() = '"+cpName+"']")) {
-            WebElement element = aDriver.findElement(By.xpath("//a[text() = '"+cpName+"']"));
-            element.click();
-            waitForAjax(aDriver);
+        if (goToCampaignPage(aDriver,cpName)) {
             return (new FbIgBase(aDriver,cpName));
         }
         return null;
+    }
+
+    public PinterestCampaign goToPinterestCampaign(WebDriver aDriver,String cpName) {
+        if (goToCampaignPage(aDriver,cpName)) {
+            return (new PinterestCampaign(aDriver,cpName));
+        }
+        return null;
+    }
+
+    public Boolean goToCampaignPage(WebDriver aDriver,String cpName) {
+        waitForPageLoaded(aDriver);
+        if (waitForElementPresence(aDriver,"//a[text() = '"+cpName+"']")) {
+            WebElement element = aDriver.findElement(By.xpath("//a[text() = '" + cpName + "']"));
+            element.click();
+            waitForPageLoaded(aDriver);
+            waitForAjax(aDriver);
+            return true;
+        }
+        return false;
     }
 }
