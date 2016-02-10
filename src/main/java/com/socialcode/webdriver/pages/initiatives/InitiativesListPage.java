@@ -2,7 +2,6 @@ package com.socialcode.webdriver.pages.initiatives;
 
 
 import com.socialcode.webdriver.pages.BasePage;
-import com.socialcode.webdriver.pages.campaigns.CampaignPage;
 import com.socialcode.webdriver.pages.campaigns.CampaignsListPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -233,7 +232,10 @@ public class InitiativesListPage extends BasePage {
                     || (!initModal.inputEndDate(endDate))) {
                 return null;
             }
-            return (initModal.submit(aDriver, initName));
+            InitiativeEditPage initEditPage = initModal.submit(aDriver,initName);
+            waitForPageLoaded(aDriver);
+            waitForAjax(aDriver);
+            return (initEditPage);
         }
         return null;
     }

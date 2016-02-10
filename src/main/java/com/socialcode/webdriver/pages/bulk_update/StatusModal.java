@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 public class StatusModal extends BulkUpdateModal {
     private static Logger LOG = LoggerFactory.getLogger(StatusModal.class);
 
-    @FindBy(id = "status")
+    @FindBy(xpath = "//*[@class ='sc-bulk-update']/form/div/select")
     protected WebElement statusSelectBox;
 
     public StatusModal(WebDriver aDriver) {

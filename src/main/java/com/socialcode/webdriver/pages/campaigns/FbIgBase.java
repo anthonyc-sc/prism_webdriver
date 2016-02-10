@@ -1,9 +1,6 @@
 package com.socialcode.webdriver.pages.campaigns;
 
 import com.socialcode.webdriver.pages.bulk_update.BidModal;
-import com.socialcode.webdriver.pages.bulk_update.BudgetModal;
-import com.socialcode.webdriver.pages.bulk_update.EndDateModal;
-import com.socialcode.webdriver.pages.bulk_update.StatusModal;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,23 +18,13 @@ import java.util.List;
 public class FbIgBase extends CampaignPage {
     private static Logger LOG = LoggerFactory.getLogger(FbIgBase.class);
 
+    private final String budgetModalTitle = "Lifetime budget";
+
     @FindBy(xpath = "//*[@data-show-in-table = 'adsets']")
     protected WebElement adSetsTab;
 
-    @FindBy(xpath = "//*[@class = 'table backgrid sc-big-datagrid']")
-    protected WebElement adSetsTable;
-
-    @FindBy(xpath = "//*[@class = 'table backgrid sc-big-datagrid']/thead")
-    protected WebElement adSetsTableHeader;
-
     @FindBy(xpath = "//*[@class = 'table backgrid sc-big-datagrid']/tbody")
     protected WebElement adSetsTableBody;
-
-    @FindBy(xpath = "//*[@class = 'select-all-header-cell']/div/button[2]")
-    protected WebElement ActionsDropdown;
-
-    @FindBy(xpath = "//*[@class = 'select-all-header-cell']/div/button")
-    protected WebElement selectAllCheckBox;
 
     @FindBy(id = "set-status")
     protected WebElement setStatusLink;
@@ -51,71 +38,22 @@ public class FbIgBase extends CampaignPage {
     @FindBy(id = "set-end")
     protected WebElement setEndDateLink;
 
+
     public FbIgBase(WebDriver aDriver,String cpName) {
         super(aDriver,cpName);
     }
 
-    /**
-     *  This method is used to select all adsets, then open the bulk status update modal
-     * @param aDriver
-     * @return Status Modal object if successful;null otherwise
-     */
-    public StatusModal launchBulkStatusUpdateModal(WebDriver aDriver) {
-        if (getActionsDropDown(aDriver)) {
-            if (waitForElementVisible(aDriver,setStatusLink)) {
-                setStatusLink.click();
-                waitForPageLoaded(aDriver);
-                return (new StatusModal(aDriver));
-            }
-        }
-        return null;
-    }
-
-    /**
-     * This method used to select all ad sets row, then click on the Actions header to get the drop down list of actions
-     * @param aDriver
-     * @return true if successful;false otherwise
-     */
-    public boolean getActionsDropDown(WebDriver aDriver) {
-        if (waitForElementVisible(aDriver,selectAllCheckBox)) {
-            selectAllCheckBox.click();
-            if (waitForElementVisible(aDriver,ActionsDropdown)) {
-                ActionsDropdown.click();
-                return true;
-            }
-        }
-        return false;
-    }
 
     /**
      *  This method provides api to test for doing bulk status update
      * @param aDriver
      * @param cpName
      * @param status
-     * @return Facebook Campaign object if successful;null otherwise
+     * @return Campaign object if successful;null otherwise
      */
     public FbIgBase bulkStatusUpdate(WebDriver aDriver,String cpName,String status) {
-        StatusModal stModal = launchBulkStatusUpdateModal(aDriver);
-        if (stModal != null) {
-            if (stModal.updateStatus(aDriver,cpName,status)) {
-                return (new FbIgBase(aDriver,cpName));
-            }
-        }
-        return null;
-    }
-
-    /**
-     * This method is used to select all adsets, then open the bulk budget update modal
-     * @param aDriver
-     * @return Budget Modal object if successful;null otherwise
-     */
-    public BudgetModal launchBulkBudgetUpdateModal(WebDriver aDriver) {
-        if (getActionsDropDown(aDriver)) {
-            if (waitForElementVisible(aDriver,setBudgetLink)) {
-                setBudgetLink.click();
-                waitForPageLoaded(aDriver);
-                return (new BudgetModal(aDriver));
-            }
+        if (bkStatusUpdate(aDriver,cpName,status,setStatusLink) != null) {
+            return (new FbIgBase(aDriver,cpName));
         }
         return null;
     }
@@ -125,14 +63,11 @@ public class FbIgBase extends CampaignPage {
      * @param aDriver
      * @param cpName
      * @param budget
-     * @return Facebook Campaign object if successful;null otherwise
+     * @return Campaign object if successful;null otherwise
      */
     public FbIgBase bulkBudgetUpdate(WebDriver aDriver,String cpName,Double budget) {
-        BudgetModal bgModal = launchBulkBudgetUpdateModal(aDriver);
-        if (bgModal != null) {
-            if (bgModal.bulkBudgetUpdate(aDriver,budget)) {
-                return (new FbIgBase(aDriver,cpName));
-            }
+        if (bkBudgetUpdate(aDriver,cpName,budget,budgetModalTitle,setBudgetLink) != null) {
+            return (new FbIgBase(aDriver,cpName));
         }
         return null;
     }
@@ -141,7 +76,7 @@ public class FbIgBase extends CampaignPage {
     /**
      * This method is used to select all adsets, then open the bulk bid update modal
      * @param aDriver
-     * @return BidM Modal object if successful;null otherwise
+     * @return Bid Modal object if successful;null otherwise
      */
     public BidModal launchBulkBidUpdateModal(WebDriver aDriver) {
         if (getActionsDropDown(aDriver)) {
@@ -159,7 +94,7 @@ public class FbIgBase extends CampaignPage {
      * @param aDriver
      * @param cpName
      * @param bid
-     * @return Facebook Campaign object if successful;null otherwise
+     * @return Campaign object if successful;null otherwise
      */
     public FbIgBase bulkBidUpdate(WebDriver aDriver,String cpName,Double bid) {
         BidModal bidModal = launchBulkBidUpdateModal(aDriver);
@@ -171,23 +106,9 @@ public class FbIgBase extends CampaignPage {
         return null;
     }
 
-    public EndDateModal launchBulkEndDateUpdateModal(WebDriver aDriver) {
-        if (getActionsDropDown(aDriver)) {
-            if (waitForElementVisible(aDriver,setEndDateLink)) {
-                setEndDateLink.click();
-                waitForPageLoaded(aDriver);
-                return (new EndDateModal(aDriver));
-            }
-        }
-        return null;
-    }
-
     public FbIgBase bulkEndDateUpdate(WebDriver aDriver,String cpName,String endDate,String endTime) {
-        EndDateModal endDModal = launchBulkEndDateUpdateModal(aDriver);
-        if (endDModal != null) {
-            if (endDModal.updateEndDateTime(aDriver,endDate,endTime)) {
-                return (new FbIgBase(aDriver,cpName));
-            }
+        if (bkEndDateUpdate(aDriver,cpName,endDate,endTime,setEndDateLink) != null) {
+            return (new FbIgBase(aDriver,cpName));
         }
         return null;
     }

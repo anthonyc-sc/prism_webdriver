@@ -16,8 +16,8 @@ public class BudgetModal extends BulkUpdateModal {
     @FindBy(id = "text")
     protected WebElement budgetEditBox;
 
-    public BudgetModal(WebDriver aDriver) {
-        super(aDriver,"Lifetime budget");
+    public BudgetModal(WebDriver aDriver,String title) {
+        super(aDriver,title);
 
         pageInitElements(driver,this);
     }
@@ -36,4 +36,5 @@ public class BudgetModal extends BulkUpdateModal {
         }
         return false;
     }
+
 }
