@@ -1,14 +1,14 @@
 <campaigns>
     <data name="campaign_status">
         <name>Pinterest</name>
-        <initiative_id type="Integer">341</initiative_id>
-        <platform>Pinterest</platform>
+        <initiative_id type="Integer">77</initiative_id>
+        <platform>AC Pinterest Campaign Test Nov10</platform>
         <status_text>Resume</status_text>
         <status_value>active</status_value>
     </data>
     <data name="campaign_status">
-        <name>Pinterest</name>
-        <initiative_id type="Integer">341</initiative_id>
+        <name>AC Pinterest Campaign Test Nov10</name>
+        <initiative_id type="Integer">77</initiative_id>
         <platform>Pinterest</platform>
         <status_text>Pause</status_text>
         <status_value>paused</status_value>
@@ -28,8 +28,8 @@
         <status_value>paused</status_value>
     </data>
     <data name="campaign_budget">
-        <name>Pinterest</name>
-        <initiative_id type="Integer">341</initiative_id>
+        <name>AC Pinterest Campaign Test Nov10</name>
+        <initiative_id type="Integer">77</initiative_id>
         <platform>Pinterest</platform>
         <budget type="Double">22.50</budget>
     </data>
@@ -46,8 +46,8 @@
         <bid type="Double">12.50</bid>
     </data>
     <data name="campaign_endtime">
-        <name>Pinterest</name>
-        <initiative_id type="Integer">341</initiative_id>
+        <name>AC Pinterest Campaign Test Nov10</name>
+        <initiative_id type="Integer">77</initiative_id>
         <platform>Pinterest</platform>
         <end_date_offset type="Integer">15</end_date_offset>
         <end_date_offset_unit>day</end_date_offset_unit>
