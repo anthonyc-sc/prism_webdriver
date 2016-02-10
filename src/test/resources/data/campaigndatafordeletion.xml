@@ -14,7 +14,7 @@
         <end_date>current_date</end_date>
     </data>
     <data name="campaign">
-        <name>Instagram Campaign SmkTest - Deletion Testk</name>
+        <name>Instagram Campaign SmkTest - Deletion Test</name>
         <initiative_id type="Integer">341</initiative_id>
         <platform>Instagram</platform>
         <account>sc13@socialcode.com</account>
