@@ -302,9 +302,8 @@ public class InitiativePage extends BasePage {
 
             if (cpDetailPage != null) {
                 // Verify values display on Campaign Details page
-                String result = cpDetailPage.checkCampaignDetails(cpName, platform, account, insertionOrder, startDate, endDate, mediaBudget.toString(), kpiGoal.toString(), kpi, objective);
                 String verifyResult = cpDetailPage.checkCampaignDetails(cpName, platform, account, insertionOrder, startDate, endDate, mediaBudget.toString(), kpiGoal.toString(), kpi, objective);
-                System.out.println(verifyResult);
+                LOG.info("CreateNewSCCampaignNoRedirect: verifyResult=" + verifyResult);
                 if (verifyResult.isEmpty()) {
                     return cpDetailPage.saveChangesNoRedirect(aDriver, cpName);
                 }
