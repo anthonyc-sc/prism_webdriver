@@ -77,11 +77,6 @@ public class AddAccountModal extends BasePage {
         waitForPageLoaded(aDriver);
         waitForAjax(aDriver);
         if (waitForElementClickable(aDriver,platformListBox)) {
-            try {
-                getScreenshot(aDriver, "AddAccountModal.png");
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
             platformListBox.click();
             waitForAjax(aDriver);
             if (waitForElementClickable(aDriver,aDriver.findElement(By.xpath("//span[text()='"+pf+"']")))) {
@@ -151,10 +146,30 @@ public class AddAccountModal extends BasePage {
         assetBox.click();
         if (waitForElementVisible(aDriver,assetSearchEdit)) {
             assetSearchEdit.sendKeys(asset);
+            waitForAjax(aDriver);
             if (waitForElementPresence(aDriver,"//span[text()='"+asset+"']")) {
-                WebElement element = aDriver.findElement(By.xpath("//span[text()='"+asset+"']"));
-                element.click();
-                return assetSelected.getText().contentEquals(asset);
+                try {
+                    WebElement element = aDriver.findElement(By.xpath("//span[text()='"+asset+"']"));
+                    element.click();
+                    return assetSelected.getText().contentEquals(asset);
+                } catch (NoSuchElementException nsEx) {
+                    // Retry
+                    try {
+                        Thread.sleep(2000);
+                        WebElement element = aDriver.findElement(By.xpath("//span[text()='"+asset+"']"));
+                        element.click();
+                        return assetSelected.getText().contentEquals(asset);
+                    } catch(InterruptedException intEx) {
+
+                    } catch (NoSuchElementException nsExc) {
+                        try {
+                            getScreenshot(aDriver, "selectasset.png");
+                        } catch (Exception exp) {
+                            LOG.error("Unable to take screenshot on the Add Account Modal");
+                        }
+                        LOG.error("Unable to find selected asset: " + asset);
+                    }
+                }
             }
         }
         return false;
