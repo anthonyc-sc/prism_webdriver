@@ -231,21 +231,21 @@ public class CampaignPage extends BasePage {
     }
 
 
-    public EndDateModal launchBulkEndDateUpdateModal(WebDriver aDriver,WebElement setEndDateLink) {
+    public EndDateModal launchBulkEndDateUpdateModal(WebDriver aDriver,WebElement setEndDateLink,String modalTitle) {
         if (getActionsDropDown(aDriver)) {
             if (waitForElementVisible(aDriver,setEndDateLink)) {
                 setEndDateLink.click();
                 waitForPageLoaded(aDriver);
-                return (new EndDateModal(aDriver));
+                return (new EndDateModal(aDriver,modalTitle));
             }
         }
         return null;
     }
 
-    public CampaignPage bkEndDateUpdate(WebDriver aDriver,String cpName,String endDate,String endTime,WebElement setEndDateLink) {
-        EndDateModal endDModal = launchBulkEndDateUpdateModal(aDriver,setEndDateLink);
+    public CampaignPage bkEndDateUpdate(WebDriver aDriver,String cpName,String startDate,String endDate,String endTime,WebElement setEndDateLink,String modalTitle) {
+        EndDateModal endDModal = launchBulkEndDateUpdateModal(aDriver,setEndDateLink,modalTitle);
         if (endDModal != null) {
-            if (endDModal.updateEndDateTime(aDriver,endDate,endTime)) {
+            if (endDModal.updateDateTime(aDriver,startDate,endDate,endTime)) {
                 return (new CampaignPage(aDriver,cpName));
             }
         }

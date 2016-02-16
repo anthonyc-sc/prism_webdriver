@@ -25,12 +25,12 @@ public class DeleteCampaign extends WebDriverSetup {
 
     public DeleteCampaign() {
         data = new TestData();
-        data.load("/data/campaigndatafordeletion.xml");
+        data.load(dataFolder + "campaigndatafordeletion.xml");
     }
 
     @DataProvider(name = "getCampaigns")
     public Object[][] getCampaigns() {
-        String[] cols = {"name","initiative_id","platform","account","insertion_order","total_budget","media_budget","objective", "kpi_goal", "kpi", "start_date", "end_date"};
+        String[] cols = {"name","initiative_id","platform","account","insertion_order","total_budget","media_budget","objective", "kpi_goal", "kpi", "start_date", "end_date", "funding_instrument"};
         return data.getDataByElement("campaign",cols);
     }
 
@@ -41,7 +41,7 @@ public class DeleteCampaign extends WebDriverSetup {
     }
 
     @Test(dataProvider = "getCampaigns")
-    public void createCampaignForDeletion(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag) throws Exception {
+    public void createCampaignForDeletion(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag,String fInstr) throws Exception {
         LOG.info("Starting createCampaignForDeletion.....");
 
         // Convert start and end date
@@ -59,7 +59,7 @@ public class DeleteCampaign extends WebDriverSetup {
 
         // Go to specific initiative with given initiative ID. Then create new campaign.
         InitiativePage initPage = initListPage.gotoInitiative(initID);
-        Boolean result = initPage.createNewSCCampaginNoRedirect(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,"");
+        Boolean result = initPage.createNewSCCampaginNoRedirect(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
         assertTrue(result);
     }
 
