@@ -1,13 +1,18 @@
 package com.socialcode.webdriver.tests;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.File;
 import java.net.URL;
 
 /**
@@ -21,6 +26,9 @@ public class WebDriverSetup {
     protected final String prismURL = System.getProperty("environment");
     protected final String loginID = System.getProperty("username");
     protected final String password = System.getProperty("password");
+    protected final String environment = System.getProperty("env");
+    protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
+
 
     /**
      * Instantiates Web Driver object
@@ -28,7 +36,6 @@ public class WebDriverSetup {
     @BeforeMethod
     public synchronized void setUp() {
         // Currently only handles Chrome browser. Code needs to be added to support other browsers.
-
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
 
         try {
