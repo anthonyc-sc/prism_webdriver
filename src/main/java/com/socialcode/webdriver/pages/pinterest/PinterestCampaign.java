@@ -22,6 +22,7 @@ public class PinterestCampaign extends CampaignPage {
     private static Logger LOG = LoggerFactory.getLogger(PinterestCampaign.class);
 
     private final String budgetModalTitle = "Daily budget";
+    private final String dateModalTitle = "End Date";
 
     @FindBy(xpath = "//*[@class = 'create-ad-nav']/i")
     protected WebElement pinterestIcon;
@@ -77,7 +78,7 @@ public class PinterestCampaign extends CampaignPage {
     }
 
     public PinterestCampaign bulkEndDateUpdate(WebDriver aDriver,String cpName,String endDate,String endTime) {
-        if (bkEndDateUpdate(aDriver,cpName,endDate,endTime,setEndDateLink) != null) {
+        if (bkEndDateUpdate(aDriver,cpName,"",endDate,endTime,setEndDateLink,dateModalTitle) != null) {
             return (new PinterestCampaign(aDriver,cpName));
         }
         return null;

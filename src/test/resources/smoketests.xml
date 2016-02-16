@@ -22,7 +22,7 @@
     </test>
     <test name="TC1-15: Bulk Update FB AdSets&lt;br&gt;TC1-21: Bulk Update Instagram AdSetss&lt;br&gt;TC1-9: Bulk Update Pinterest Ads">
         <classes>
-            <class name="com.socialcode.webdriver.tests.facebook.BulkUpdate"/>
+            <class name="com.socialcode.webdriver.tests.bulk_update.BulkUpdate"/>
         </classes>
     </test>
 </suite>

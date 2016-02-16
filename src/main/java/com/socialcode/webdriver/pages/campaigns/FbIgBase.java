@@ -19,6 +19,7 @@ public class FbIgBase extends CampaignPage {
     private static Logger LOG = LoggerFactory.getLogger(FbIgBase.class);
 
     private final String budgetModalTitle = "Lifetime budget";
+    private final String dateModalTitle = "End Date";
 
     @FindBy(xpath = "//*[@data-show-in-table = 'adsets']")
     protected WebElement adSetsTab;
@@ -107,7 +108,7 @@ public class FbIgBase extends CampaignPage {
     }
 
     public FbIgBase bulkEndDateUpdate(WebDriver aDriver,String cpName,String endDate,String endTime) {
-        if (bkEndDateUpdate(aDriver,cpName,endDate,endTime,setEndDateLink) != null) {
+        if (bkEndDateUpdate(aDriver,cpName,"",endDate,endTime,setEndDateLink,dateModalTitle) != null) {
             return (new FbIgBase(aDriver,cpName));
         }
         return null;

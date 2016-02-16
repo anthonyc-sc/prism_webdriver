@@ -97,6 +97,10 @@
                                     <name>password</name>
                                     <value>${password}</value>
                                 </property>
+                                <property>
+                                    <name>env</name>
+                                    <value>${env}</value>
+                                </property>
                             </systemProperties>
                             <properties>
                                 <property>

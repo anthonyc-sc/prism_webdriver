@@ -7,6 +7,7 @@ import com.socialcode.webdriver.pages.campaigns.FbIgBase;
 import com.socialcode.webdriver.pages.campaigns.NewCampaignModal;
 import com.socialcode.webdriver.pages.facebook.FacebookCampaign;
 import com.socialcode.webdriver.pages.pinterest.PinterestCampaign;
+import com.socialcode.webdriver.pages.twitter.TwitterCampaign;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -355,6 +356,13 @@ public class InitiativePage extends BasePage {
     public PinterestCampaign goToPinterestCampaign(WebDriver aDriver,String cpName) {
         if (goToCampaignPage(aDriver,cpName)) {
             return (new PinterestCampaign(aDriver,cpName));
+        }
+        return null;
+    }
+
+    public TwitterCampaign goToTwitterCampaign(WebDriver aDriver,String cpName) {
+        if (goToCampaignPage(aDriver,cpName)) {
+            return (new TwitterCampaign(aDriver,cpName));
         }
         return null;
     }

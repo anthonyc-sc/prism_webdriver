@@ -15,26 +15,37 @@ import org.slf4j.LoggerFactory;
 public class EndDateModal extends BulkUpdateModal {
     private static Logger LOG = LoggerFactory.getLogger(EndDateModal.class);
 
-    @FindBy(xpath = "//input[@data-provide = 'datepicker']")
+    @FindBy(xpath = "//input[@name = 'start_time']")
+    protected WebElement startDateEdit;
+
+    @FindBy(xpath = "//input[@name = 'end_time']")
     protected WebElement endDateEdit;
 
-    @FindBy(xpath = "//input[@data-provide = 'timepicker']")
+    @FindBy(xpath = "//input[@name = 'time']")
     protected WebElement endTimeEdit;
 
-    public EndDateModal(WebDriver aDriver) {
-        super (aDriver,"End Date");
+    public EndDateModal(WebDriver aDriver,String modalTitle) {
+        super (aDriver,modalTitle);
 
         pageInitElements(driver,this);
     }
 
     public boolean setEndDate(WebDriver aDriver,String endDate) {
-        if (waitForElementVisible(aDriver,endDateEdit)) {
-            type(endDateEdit,endDate);
+        return setDate(aDriver,endDate,endDateEdit);
+    }
+
+    public boolean setStartDate(WebDriver aDriver,String startDate) {
+        return setDate(aDriver,startDate,startDateEdit);
+    }
+
+    public boolean setDate(WebDriver aDriver,String dateValue,WebElement dateEdit) {
+        if (waitForElementVisible(aDriver,dateEdit)) {
+            type(dateEdit,dateValue);
             if (waitForElementPresence(aDriver,"//td[@class ='active day']")) {
                 WebElement element = aDriver.findElement(By.xpath("//td[@class ='active day']"));
                 element.click();
             }
-            if (endDateEdit.getAttribute("value").contentEquals(endDate)) {
+            if (dateEdit.getAttribute("value").contentEquals(dateValue)) {
                 return true;
             }
         }
@@ -55,19 +66,27 @@ public class EndDateModal extends BulkUpdateModal {
         return false;
     }
 
-    public Boolean updateEndDateTime(WebDriver aDriver,String endDate,String endTime) {
+    public Boolean updateDateTime(WebDriver aDriver,String startDate,String endDate,String endTime) {
         waitForPageLoaded(aDriver);
-        if (setEndDate(aDriver,endDate)) {
-            if (!endTime.isEmpty()) {
-                if (setEndTime(aDriver,endTime)) {
-                    updateButton.click();
-                    return true;
-                }
-            } else {
+
+        Boolean success = true;
+        if (!startDate.isEmpty()) {
+            success = success && setStartDate(aDriver,startDate);
+        }
+
+        success = success && setEndDate(aDriver,endDate);
+
+        if (!endTime.isEmpty()) {
+            success = success && setEndTime(aDriver,endTime);
+        }
+
+        if (success) {
+            if (waitForElementClickable(aDriver,updateButton)) {
                 updateButton.click();
                 return true;
             }
         }
+
         return false;
     }
 }

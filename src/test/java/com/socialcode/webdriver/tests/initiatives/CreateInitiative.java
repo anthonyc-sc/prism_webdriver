@@ -21,7 +21,7 @@ public class CreateInitiative  extends WebDriverSetup {
 
     public CreateInitiative() {
         data = new TestData();
-        data.load("/data/initiativedata.xml");
+        data.load(dataFolder + "initiativedata.xml");
     }
 
     @DataProvider(name = "getInitiatives")
