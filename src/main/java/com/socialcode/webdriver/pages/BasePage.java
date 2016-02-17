@@ -209,6 +209,7 @@ public class BasePage {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementPath)));
         } catch (Throwable error) {
             LOG.error("Timeout waiting for element to be presence.");
+            return false;
         }
         return isVisible(aDriver.findElement(By.xpath(elementPath)));
     }
@@ -287,10 +288,4 @@ public class BasePage {
         LOG.info("Completing waiting for ElementNotVisible....");
         return true;
     }
-
-    public synchronized void getScreenshot(WebDriver aDriver,String imgFile) throws Exception {
-        File screenshotFile = ((TakesScreenshot)aDriver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenshotFile,new File(System.getProperty("user.dir") + System.getProperty("file.separator") + imgFile));
-    }
-
 }
