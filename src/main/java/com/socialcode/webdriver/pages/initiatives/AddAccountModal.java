@@ -97,6 +97,8 @@ public class AddAccountModal extends BasePage {
                             return true;
                         }
                     } catch (StaleElementReferenceException staleEx) {
+                        staleEx.printStackTrace();
+                        LOG.error("StaleElementReferenceException when selecting platform: " + pf);
                         return false;
                     } catch (InterruptedException intEx) {
 

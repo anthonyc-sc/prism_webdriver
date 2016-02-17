@@ -248,12 +248,18 @@ public class InitiativesListPage extends BasePage {
     public NewInitiativeModal launchCreateNewInitiativeModal() throws Exception {
         if (waitForElementClickable(driver,createInitButton)) {
             try {
-                createInitButton.click();
-                return (new NewInitiativeModal(driver));
+                if (waitForElementClickable(driver,createInitButton)) {
+                    createInitButton.click();
+                    waitForPageLoaded(driver);
+                    waitForAjax(driver);
+                    return (new NewInitiativeModal(driver));
+                }
             } catch (Exception e) {
                 // Try again
                 Thread.sleep(5000);
                 createInitButton.click();
+                waitForPageLoaded(driver);
+                waitForAjax(driver);
                 return (new NewInitiativeModal(driver));
             }
         }
