@@ -29,7 +29,6 @@ public class WebDriverSetup {
     protected final String environment = System.getProperty("env");
     protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
 
-
     /**
      * Instantiates Web Driver object
      */
@@ -44,6 +43,10 @@ public class WebDriverSetup {
         } catch (Exception e) {
 
         }
+    }
+
+    public synchronized WebDriver getDriver() {
+        return this.driver;
     }
 
     /**
