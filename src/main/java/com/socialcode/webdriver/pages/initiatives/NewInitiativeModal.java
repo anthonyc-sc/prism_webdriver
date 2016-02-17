@@ -169,11 +169,7 @@ public class NewInitiativeModal extends BasePage {
                 } catch (InterruptedException intE) {
 
                 } catch (WebDriverException wbE) {
-                    try {
-                        getScreenshot(d, "nim.png");
-                    } catch(Exception wE) {
-                        LOG.error("Unable to take screenshot for New Initiative Modal");
-                    }
+                   wbE.printStackTrace();
                 }
             }
         }

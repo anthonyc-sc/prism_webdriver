@@ -29,7 +29,7 @@ public class AddAccountModal extends BasePage {
     @FindBy(xpath = "//*[@for = 'account']/../div/div/a/span/span")
     protected WebElement accountSelected;
 
-    @FindBy(xpath = "//button[text() = 'Add account']")
+    @FindBy(xpath = "//button[@type = 'submit'][text() = 'Add account']")
     protected WebElement addAccountButton;
 
     @FindBy(xpath = "//*[@for = 'asset']/../div")
@@ -79,19 +79,16 @@ public class AddAccountModal extends BasePage {
         if (waitForElementClickable(aDriver,platformListBox)) {
             platformListBox.click();
             waitForAjax(aDriver);
-            if (waitForElementClickable(aDriver,aDriver.findElement(By.xpath("//span[text()='"+pf+"']")))) {
+            if (waitForElementPresence(aDriver,"//*[@class = 'platform-selection']/span[text()='"+pf+"']") &&
+                    waitForElementClickable(aDriver,aDriver.findElement(By.xpath("//*[@class = 'platform-selection']/span[text()='"+pf+"']")))) {
                 try {
-                    WebElement element = aDriver.findElement(By.xpath("//span[text()='"+pf+"']"));
+                    WebElement element = aDriver.findElement(By.xpath("//*[@class = 'platform-selection']/span[text()='"+pf+"']"));
                     element.click();
                     waitForPageLoaded(aDriver);
                     waitForAjax(aDriver);
                     return platformSelection.getText().contentEquals(pf);
                 } catch (NoSuchElementException exN) {
-                    try {
-                        getScreenshot(aDriver, "AddAccountModal.png");
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
+                    exN.printStackTrace();
                 } catch (StaleElementReferenceException exS) {
                     // Retry
                     try {
@@ -125,11 +122,6 @@ public class AddAccountModal extends BasePage {
                     element.click();
                     return (accountSelected.getText().contentEquals(account));
                 } catch (WebDriverException e) {
-                    try {
-                        getScreenshot(aDriver, "selectAccount.png");
-                    } catch (Exception ex) {
-                        LOG.info("Unable to take screen shot for Add Account Modal");
-                    }
                 }
             }
         }
@@ -162,11 +154,6 @@ public class AddAccountModal extends BasePage {
                     } catch(InterruptedException intEx) {
 
                     } catch (NoSuchElementException nsExc) {
-                        try {
-                            getScreenshot(aDriver, "selectasset.png");
-                        } catch (Exception exp) {
-                            LOG.error("Unable to take screenshot on the Add Account Modal");
-                        }
                         LOG.error("Unable to find selected asset: " + asset);
                     }
                 }
@@ -181,8 +168,15 @@ public class AddAccountModal extends BasePage {
      * @return Initiative Edit Page object if successful; failure otherwise
      */
     public InitiativeEditPage submitAddAccount(WebDriver aDriver) {
-        addAccountButton.click();
-        return (new InitiativeEditPage(aDriver));
+        if (waitForElementClickable(aDriver,addAccountButton)) {
+            try {
+                addAccountButton.click();
+                return (new InitiativeEditPage(aDriver));
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     /**

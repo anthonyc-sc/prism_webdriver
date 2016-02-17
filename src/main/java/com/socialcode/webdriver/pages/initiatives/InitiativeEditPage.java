@@ -26,7 +26,8 @@ public class InitiativeEditPage extends BasePage {
     protected WebElement saveButton = null;
 
     @FindBy(xpath = "//*[@class = 'account-assets-header']/button")
-    protected WebElement addAccountButton = null;
+    protected WebElement addAccountBtn = null;
+
 
     public InitiativeEditPage(WebDriver d,String initName) {
         driver = d;
@@ -111,8 +112,8 @@ public class InitiativeEditPage extends BasePage {
     public AddAccountModal launchAddAccountModal(WebDriver aDriver) {
         waitForPageLoaded(aDriver);
         waitForAjax(aDriver);
-        if (waitForElementClickable(aDriver,addAccountButton)) {
-            addAccountButton.click();
+        if (waitForElementClickable(aDriver,addAccountBtn)) {
+            addAccountBtn.click();
             return (new AddAccountModal(aDriver));
         }
         return null;
