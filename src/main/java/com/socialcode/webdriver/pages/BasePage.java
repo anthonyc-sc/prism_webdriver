@@ -108,9 +108,15 @@ public class BasePage {
     public boolean isVisible(final WebElement key) {
         try {
             return key.isDisplayed();
-        } catch (NullPointerException e) {
+        } catch (NullPointerException nullExcpt) {
+            nullExcpt.printStackTrace();
             return false;
-        } catch (StaleElementReferenceException e) {
+        } catch (StaleElementReferenceException StaleExcpt) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException intException) {
+
+            }
             return key.isDisplayed();
         }
     }
