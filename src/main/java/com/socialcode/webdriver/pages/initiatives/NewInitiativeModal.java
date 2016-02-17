@@ -88,16 +88,20 @@ public class NewInitiativeModal extends BasePage {
      * @return true if successful;false otherwise
      */
     public boolean inputCorporationName(String corporation) {
-        corporationBox.click();
-        if (waitForElementPresence(driver,"//li[text()='Please enter 1 or more character']/../../div/input")) {
-            corpSearch.sendKeys(corporation);
-            if (waitForElementPresence(driver,"//div[text()='"+corporation+"']")) {
-                WebElement element = driver.findElement(By.xpath("//div[text()='"+corporation+"']"));
-                if (isVisible(element)) {
-                    element.click();
+        if (waitForElementClickable(driver,corporationBox)) {
+            corporationBox.click();
+            if (waitForElementPresence(driver,"//li[text()='Please enter 1 or more character']/../../div/input")) {
+                corpSearch.sendKeys(corporation);
+                if (waitForElementPresence(driver,"//div[text()='"+corporation+"']")) {
+                    WebElement element = driver.findElement(By.xpath("//div[text()='"+corporation+"']"));
+                    if (isVisible(element)) {
+                        element.click();
+                    }
+                    return true;
                 }
-                return true;
             }
+        } else {
+            LOG.error("Corporation Select Box is not clickable");
         }
         return false;
     }
@@ -108,15 +112,17 @@ public class NewInitiativeModal extends BasePage {
      * @return true if successful;false otherwise
      */
     public boolean inputBrandName(String brand) {
-        brandBox.click();
-        if (waitForElementPresence(driver,"//li[text()='Please enter 1 or more character']/../../div/input")) {
-            brandSearch.sendKeys(brand);
-            if (waitForElementPresence(driver,"//div[text()='"+brand+"']")) {
-                WebElement element = driver.findElement(By.xpath("//div[text()='"+brand+"']"));
-                if (isVisible(element)) {
-                    element.click();
+        if (waitForElementClickable(driver,brandBox)) {
+            brandBox.click();
+            if (waitForElementPresence(driver,"//li[text()='Please enter 1 or more character']/../../div/input")) {
+                brandSearch.sendKeys(brand);
+                if (waitForElementPresence(driver,"//div[text()='"+brand+"']")) {
+                    WebElement element = driver.findElement(By.xpath("//div[text()='"+brand+"']"));
+                    if (isVisible(element)) {
+                        element.click();
+                    }
+                    return true;
                 }
-                return true;
             }
         }
         return false;
@@ -165,6 +171,8 @@ public class NewInitiativeModal extends BasePage {
                 try {
                     Thread.sleep(2000);
                     submitButton.click();
+                    waitForPageLoaded(d);
+                    waitForAjax(d);
                     return (new InitiativeEditPage(d, initName));
                 } catch (InterruptedException intE) {
 
