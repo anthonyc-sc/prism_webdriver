@@ -125,18 +125,20 @@ public class NewCampaignModal extends BasePage {
     public String enterCampaignData(String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr)
       throws Exception {
 
+        waitForPageLoaded(driver);
         waitForAjax(driver);
         Thread.sleep(2000);
-
-        if (!type(campaignNameEdit,cpName).contentEquals(cpName)) {
-            return "Unable to enter campaign name";
-        }
 
         if (!selectByText(platformCBox,platform).contentEquals(platform)) {
             return "Unable to select value for platform";
         }
 
+        waitForPageLoaded(driver);
         waitForAjax(driver);
+        if (!type(campaignNameEdit,cpName).contentEquals(cpName)) {
+            return "Unable to enter campaign name";
+        }
+
         if (!selectByText(accountNameCBox,account).contentEquals(account)) {
             return "Unable to select value for account";
         }
