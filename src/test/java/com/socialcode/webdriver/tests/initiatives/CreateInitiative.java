@@ -26,12 +26,12 @@ public class CreateInitiative  extends WebDriverSetup {
 
     @DataProvider(name = "getInitiatives")
     public Object[][] getInitiatives() {
-        String[] cols = {"name","corporation","brand","start","duration","unit","status","account_data"};
+        String[] cols = {"test","name","corporation","brand","start","duration","unit","status","account_data"};
         return data.getDataByElement("initiative",cols);
     }
 
     @Test(enabled = true,dataProvider = "getInitiatives")
-    public void TC1_2_Create_an_Initiative(String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String status,String acctData) throws Exception {
+    public void TC1_2_Create_an_Initiative(String testCaseName,String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String status,String acctData) throws Exception {
         LOG.info("Starting TC1_2_Create_an_Initiative.....");
 
         // Generate unique initiative name
