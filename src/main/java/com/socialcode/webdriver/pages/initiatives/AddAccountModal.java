@@ -116,14 +116,16 @@ public class AddAccountModal extends BasePage {
      * @return true if successful; false otherwise
      */
     public boolean selectAccount(WebDriver aDriver, String account) {
-        accountBox.click();
-        if (waitForElementPresence(aDriver,"//span[text()='"+account+"']")) {
-            WebElement element = aDriver.findElement(By.xpath("//span[text()='"+account+"']"));
-            if (waitForElementClickable(aDriver,element)) {
-                try {
-                    element.click();
-                    return (accountSelected.getText().contentEquals(account));
-                } catch (WebDriverException e) {
+        if (waitForElementVisible(aDriver,accountBox) && waitForElementClickable(aDriver,accountBox)) {
+            accountBox.click();
+            if (waitForElementPresence(aDriver,"//span[text()='"+account+"']")) {
+                WebElement element = aDriver.findElement(By.xpath("//span[text()='"+account+"']"));
+                if (waitForElementClickable(aDriver,element)) {
+                    try {
+                        element.click();
+                        return (accountSelected.getText().contentEquals(account));
+                    } catch (WebDriverException e) {
+                    }
                 }
             }
         }
@@ -137,26 +139,28 @@ public class AddAccountModal extends BasePage {
      * @return true if successful; false otherwise
      */
     public boolean selectAsset(WebDriver aDriver,String asset) {
-        assetBox.click();
-        if (waitForElementVisible(aDriver,assetSearchEdit)) {
-            assetSearchEdit.sendKeys(asset);
-            waitForAjax(aDriver);
-            if (waitForElementPresence(aDriver,"//span[text()='"+asset+"']")) {
-                try {
-                    WebElement element = aDriver.findElement(By.xpath("//span[text()='"+asset+"']"));
-                    element.click();
-                    return assetSelected.getText().contentEquals(asset);
-                } catch (NoSuchElementException nsEx) {
-                    // Retry
+        if (waitForElementVisible(aDriver,assetBox) && waitForElementClickable(aDriver,assetBox)) {
+            assetBox.click();
+            if (waitForElementVisible(aDriver,assetSearchEdit)) {
+                assetSearchEdit.sendKeys(asset);
+                waitForAjax(aDriver);
+                if (waitForElementPresence(aDriver,"//span[text()='"+asset+"']")) {
                     try {
-                        Thread.sleep(2000);
                         WebElement element = aDriver.findElement(By.xpath("//span[text()='"+asset+"']"));
                         element.click();
                         return assetSelected.getText().contentEquals(asset);
-                    } catch(InterruptedException intEx) {
+                    } catch (NoSuchElementException nsEx) {
+                        // Retry
+                        try {
+                            Thread.sleep(2000);
+                            WebElement element = aDriver.findElement(By.xpath("//span[text()='"+asset+"']"));
+                            element.click();
+                            return assetSelected.getText().contentEquals(asset);
+                        } catch(InterruptedException intEx) {
 
-                    } catch (NoSuchElementException nsExc) {
-                        LOG.error("Unable to find selected asset: " + asset);
+                        } catch (NoSuchElementException nsExc) {
+                            LOG.error("Unable to find selected asset: " + asset);
+                        }
                     }
                 }
             }
@@ -188,14 +192,16 @@ public class AddAccountModal extends BasePage {
      * @return true if successful; false otherwise
      */
     public Boolean selectInstagramAsset(WebDriver aDriver,String asset) {
-        instagramAssetBox.click();
-        if (waitForElementPresence(aDriver,"//li[text() = 'Please enter 1 or more character']/../../div/input")) {
-            WebElement element = aDriver.findElement(By.xpath("//li[text() = 'Please enter 1 or more character']/../../div/input"));
-            element.sendKeys(asset);
-            if (waitForElementPresence(aDriver,"//span[text() = '"+asset+"']")) {
-                WebElement item = aDriver.findElement(By.xpath("//span[text() = '"+asset+"']"));
-                item.click();
-                return true;
+        if (waitForElementVisible(aDriver,instagramAssetBox) && waitForElementClickable(aDriver,instagramAssetBox)) {
+            instagramAssetBox.click();
+            if (waitForElementPresence(aDriver,"//li[text() = 'Please enter 1 or more character']/../../div/input")) {
+                WebElement element = aDriver.findElement(By.xpath("//li[text() = 'Please enter 1 or more character']/../../div/input"));
+                element.sendKeys(asset);
+                if (waitForElementPresence(aDriver,"//span[text() = '"+asset+"']")) {
+                    WebElement item = aDriver.findElement(By.xpath("//span[text() = '"+asset+"']"));
+                    item.click();
+                    return true;
+                }
             }
         }
         return false;
@@ -208,18 +214,18 @@ public class AddAccountModal extends BasePage {
      * @return true if successful; false otherwise
      */
     public Boolean selectFBAssetForInstagram(WebDriver aDriver,String fbAsset) {
-        fbAssetBox.click();
-        if (waitForElementPresence(aDriver,"//li[text() = 'Please enter 1 or more character']/../../div/input")) {
-            WebElement element = aDriver.findElement(By.xpath("//li[text() = 'Please enter 1 or more character']/../../div/input"));
-            element.sendKeys(fbAsset);
-            if (waitForElementPresence(aDriver,"//span[text() = '"+fbAsset+"']")) {
-                WebElement item = aDriver.findElement(By.xpath("//span[text() = '"+fbAsset+"']"));
-                item.click();
-                return true;
+        if (waitForElementVisible(aDriver,fbAssetBox) && waitForElementClickable(aDriver,fbAssetBox)) {
+            fbAssetBox.click();
+            if (waitForElementPresence(aDriver,"//li[text() = 'Please enter 1 or more character']/../../div/input")) {
+                WebElement element = aDriver.findElement(By.xpath("//li[text() = 'Please enter 1 or more character']/../../div/input"));
+                element.sendKeys(fbAsset);
+                if (waitForElementPresence(aDriver,"//span[text() = '"+fbAsset+"']")) {
+                    WebElement item = aDriver.findElement(By.xpath("//span[text() = '"+fbAsset+"']"));
+                    item.click();
+                    return true;
+                }
             }
         }
         return false;
     }
-
-
 }
