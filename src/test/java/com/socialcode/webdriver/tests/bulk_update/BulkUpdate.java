@@ -163,7 +163,7 @@ public class BulkUpdate extends WebDriverSetup {
 
     }
 
-    @Test(enabled = false, dataProvider = "getCampaignBudget")
+    @Test(enabled = true, dataProvider = "getCampaignBudget")
     public void bulk_Update_AdBudget(String cpName, Integer initID, String platform, Double budget) throws Exception {
         LOG.info("Starting bulk_Update_AdBudget.....");
 
@@ -262,7 +262,7 @@ public class BulkUpdate extends WebDriverSetup {
         }
     }
 
-    @Test(enabled = false, dataProvider = "getCampaignBid")
+    @Test(enabled = true, dataProvider = "getCampaignBid")
     public void bulk_Update_AdBid(String cpName, Integer initID, String platform, Double bid) throws Exception {
         LOG.info("Starting bulk_Update_AdBid.....");
 
@@ -309,7 +309,7 @@ public class BulkUpdate extends WebDriverSetup {
         }
     }
 
-    @Test(enabled = false, dataProvider = "getCampaignEndDate")
+    @Test(enabled = true, dataProvider = "getCampaignEndDate")
     public void bulk_Update_EndDate(String cpName, Integer initID, String platform,Integer startDateOffset, String startDateOffsetUnit,Integer endDateOffset, String endDateOffsetUnit, String endTime) {
         LOG.info("Starting bulk_Update_EndDate......");
 
@@ -426,7 +426,7 @@ public class BulkUpdate extends WebDriverSetup {
         }
     }
 
-    @Test(enabled = false, dataProvider = "getTwitterDailyBudget")
+    @Test(enabled = true, dataProvider = "getTwitterDailyBudget")
     public void bulk_Update_TwitterDailydBudget(String cpName, Integer initID, String platform, Double dailyBudget) throws Exception {
         LOG.info("Starting bulk_Update_TwitterDailyBudget.....");
 
