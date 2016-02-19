@@ -20,7 +20,7 @@ public class CustomReportListener implements IReporter {
     private int testMethodColumn = 2;
     private int testErrorColumn = 3;
     private int startRow = 3;
-    private String testCaseDelimeter = "Test Case";
+    private String testCaseDelimeter = "TC";
     private String testResultTemplate = System.getProperty("user.dir") + System.getProperty("file.separator") + ".." +
             System.getProperty("file.separator") + ".." +
             System.getProperty("file.separator") + ".." +
@@ -83,7 +83,7 @@ public class CustomReportListener implements IReporter {
             result.put("Method Call",mCall + ")");
 
             for (int j = 0; j < parameter.length; j++) {
-                if (parameter[j].toString().contains(testCaseDelimeter)) {
+                if (parameter[j].toString().startsWith(testCaseDelimeter)) {
                     result.put("Test Case",parameter[j].toString());
                 }
             }
