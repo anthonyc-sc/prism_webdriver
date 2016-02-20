@@ -120,7 +120,23 @@ public class AddAccountModal extends BasePage {
                         } catch (InterruptedException intEx) {
 
                         }
+                    } catch (WebDriverException wE) {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException iE) {
+
+                        }
+                        try {
+                            WebElement element = aDriver.findElement(By.xpath("//*[@class = 'platform-selection']/span[text()='" + pf + "']"));
+                            element.click();
+                            waitForPageLoaded(aDriver);
+                            waitForAjax(aDriver);
+                            platform = platformSelection.getText();
+                        } catch (Exception Excp) {
+                            return false;
+                        }
                     }
+
                 }
             }
             nTries++;
