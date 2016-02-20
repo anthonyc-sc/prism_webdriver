@@ -80,8 +80,22 @@ public class AddAccountModal extends BasePage {
             waitForPageLoaded(aDriver);
             waitForAjax(aDriver);
             if (waitForElementClickable(aDriver,platformListBox)) {
-                platformListBox.click();
+                try {
+                    platformListBox.click();
+                } catch (Exception cE) {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException inTEx) {
+                    }
+                    try {
+                        platformListBox.click();
+                    } catch (Exception exC) {
+                        LOG.error("Unable to click platform list box");
+                        return false;
+                    }
+                }
                 waitForAjax(aDriver);
+                waitForPageLoaded(aDriver);
                 if (waitForElementPresence(aDriver, "//*[@class = 'platform-selection']/span[text()='" + pf + "']") &&
                         waitForElementClickable(aDriver, aDriver.findElement(By.xpath("//*[@class = 'platform-selection']/span[text()='" + pf + "']")))) {
                     try {
