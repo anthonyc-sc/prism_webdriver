@@ -74,39 +74,45 @@ public class AddAccountModal extends BasePage {
      * @return true if successful; false otherwise
      */
     public boolean selectPlatform(WebDriver aDriver,String pf) {
-        waitForPageLoaded(aDriver);
-        waitForAjax(aDriver);
-        if (waitForElementClickable(aDriver,platformListBox)) {
-            platformListBox.click();
+        String platform = "";
+        Integer nTries = 0;
+        do {
+            waitForPageLoaded(aDriver);
             waitForAjax(aDriver);
-            if (waitForElementPresence(aDriver,"//*[@class = 'platform-selection']/span[text()='"+pf+"']") &&
-                    waitForElementClickable(aDriver,aDriver.findElement(By.xpath("//*[@class = 'platform-selection']/span[text()='"+pf+"']")))) {
-                try {
-                    WebElement element = aDriver.findElement(By.xpath("//*[@class = 'platform-selection']/span[text()='"+pf+"']"));
-                    element.click();
-                    waitForPageLoaded(aDriver);
-                    waitForAjax(aDriver);
-                    return platformSelection.getText().contentEquals(pf);
-                } catch (NoSuchElementException exN) {
-                    exN.printStackTrace();
-                } catch (StaleElementReferenceException exS) {
-                    // Retry
+            if (waitForElementClickable(aDriver,platformListBox)) {
+                platformListBox.click();
+                waitForAjax(aDriver);
+                if (waitForElementPresence(aDriver, "//*[@class = 'platform-selection']/span[text()='" + pf + "']") &&
+                        waitForElementClickable(aDriver, aDriver.findElement(By.xpath("//*[@class = 'platform-selection']/span[text()='" + pf + "']")))) {
                     try {
-                        Thread.sleep(2000);
-                        if (platformSelection.getText().contentEquals(pf)) {
-                            return true;
-                        }
-                    } catch (StaleElementReferenceException staleEx) {
-                        staleEx.printStackTrace();
-                        LOG.error("StaleElementReferenceException when selecting platform: " + pf);
-                        return false;
-                    } catch (InterruptedException intEx) {
+                        WebElement element = aDriver.findElement(By.xpath("//*[@class = 'platform-selection']/span[text()='" + pf + "']"));
+                        element.click();
+                        waitForPageLoaded(aDriver);
+                        waitForAjax(aDriver);
+                        platform = platformSelection.getText();
+                    } catch (NoSuchElementException exN) {
+                        exN.printStackTrace();
+                    } catch (StaleElementReferenceException exS) {
+                        // Retry
+                        try {
+                            Thread.sleep(2000);
+                            if (platformSelection.getText().contentEquals(pf)) {
+                                return true;
+                            }
+                        } catch (StaleElementReferenceException staleEx) {
+                            staleEx.printStackTrace();
+                            LOG.error("StaleElementReferenceException when selecting platform: " + pf);
+                            return false;
+                        } catch (InterruptedException intEx) {
 
+                        }
                     }
                 }
             }
-        }
-        return false;
+            nTries++;
+        } while (!platform.contentEquals(pf) && (nTries < 3));
+
+        return platform.contentEquals(pf);
     }
 
     /**
