@@ -14,11 +14,11 @@
             <class name="com.socialcode.webdriver.tests.initiatives.DeleteInitiative"/>
         </classes>
     </test>
-    <!--test name="TC1-5: Create SC Campaign-Pinterest&lt;br&gt;TC1-12: Create SC Campaign-Facebook&lt;br&gt;TC1-18: Create SC Campaign-Instagram&lt;br&gt;TC1-24: Create SC Campaign-Twitter">
+    <test name="TC1-5: Create SC Campaign-Pinterest&lt;br&gt;TC1-12: Create SC Campaign-Facebook&lt;br&gt;TC1-18: Create SC Campaign-Instagram&lt;br&gt;TC1-24: Create SC Campaign-Twitter">
         <classes>
             <class name="com.socialcode.webdriver.tests.campaigns.CreateCampaign"/>
         </classes>
-    </test!-->
+    </test>
     <test name="TC1-11: Delete SC Campaign-Pinterest&lt;br&gt;TC1-17: Delete SC Campaign-Facebook&lt;br&gt;TC1-23: Delete SC Campaign-Instagram&lt;br&gt;TC1-28: Delete SC Campaign-Twitter">
         <classes>
             <class name="com.socialcode.webdriver.tests.campaigns.DeleteCampaign"/>
