@@ -23,17 +23,17 @@ public class WebDriverSetup {
 
     protected TestData data;
 
-    //protected final String prismURL = System.getProperty("environment");
-    //protected final String loginID = System.getProperty("username");
-    //protected final String password = System.getProperty("password");
-    //protected final String environment = System.getProperty("env");
-    //protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
-
-    protected final String prismURL = "https://staging.socialcodedev.com/advisor-v2/";
-    protected final String loginID="qateam@socialcode.com";
-    protected final String password="oNievooc";
-    protected final String environment = "qa";
+    protected final String prismURL = System.getProperty("environment");
+    protected final String loginID = System.getProperty("username");
+    protected final String password = System.getProperty("password");
+    protected final String environment = System.getProperty("env");
     protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
+
+    //protected final String prismURL = "https://staging.socialcodedev.com/advisor-v2/";
+    //protected final String loginID="qateam@socialcode.com";
+    //protected final String password="oNievooc";
+    //protected final String environment = "qa";
+    //protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
 
     /**
      * Instantiates Web Driver object
