@@ -36,7 +36,7 @@ public class DeleteInitiative extends WebDriverSetup {
         return data.getDataByElement("initiative",cols);
     }
 
-    @Test(dataProvider = "getInitiatives",description = "createInitiativeForDeletionTest")
+    @Test(dataProvider = "getInitiatives",description = "TC: Setup-Create Initiative For Deletion Test")
     public void createInitiativeForDeletion(String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String acctData) throws Exception {
         LOG.info("Starting createInitiativeForDeletion.....");
 
