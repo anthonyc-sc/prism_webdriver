@@ -36,11 +36,11 @@ public class DeleteCampaign extends WebDriverSetup {
 
     @DataProvider(name ="getDCampaign")
     public Object[][] getCampaignToDelete(){
-        String[] cols = {"name"};
+        String[] cols = {"test","name"};
         return data.getDataByElement("campaign",cols);
     }
 
-    @Test(dataProvider = "getCampaigns")
+    @Test(dataProvider = "getCampaigns",description = "TC: Setup - Create Campaigns For Deletion Test")
     public void createCampaignForDeletion(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag,String fInstr) throws Exception {
         LOG.info("Starting createCampaignForDeletion.....");
 
@@ -64,8 +64,8 @@ public class DeleteCampaign extends WebDriverSetup {
     }
 
     @Test(dependsOnMethods = { "createCampaignForDeletion" },dataProvider = "getDCampaign")
-    public void TC1_17_Delete_SC_Campaign(String cpName) throws Exception {
-        LOG.info("Starting TC1_17_Delete_SC_Campaign......");
+    public void delete_SC_Campaign(String testCase,String cpName) throws Exception {
+        LOG.info("Starting delete_SC_Campaign......");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
@@ -98,7 +98,5 @@ public class DeleteCampaign extends WebDriverSetup {
 
         // Close alert message 
         initPage.closeAlert(driver);
-
-        Thread.sleep(2000);
     }
 }
