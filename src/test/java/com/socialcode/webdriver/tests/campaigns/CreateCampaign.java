@@ -30,12 +30,12 @@ public class CreateCampaign  extends WebDriverSetup {
 
     @DataProvider(name = "getCampaigns")
     public Object[][] getCampaigns() {
-        String[] cols = {"name","initiative_id","platform","account","insertion_order","total_budget","media_budget","objective", "kpi_goal", "kpi", "start_date", "end_date","funding_instrument"};
+        String[] cols = {"test","name","initiative_id","platform","account","insertion_order","total_budget","media_budget","objective", "kpi_goal", "kpi", "start_date", "end_date","funding_instrument"};
         return data.getDataByElement("campaign",cols);
     }
 
     @Test(enabled = true,dataProvider = "getCampaigns")
-    public void TC1_12_Create_SC_Campaign(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag,String fInstr) throws Exception {
+    public void create_SC_Campaign(String testCase,String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag,String fInstr) throws Exception {
         LOG.info("Starting TC1_12_Create_SC_Campaign.....");
 
         // Convert start and end date
