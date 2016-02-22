@@ -113,8 +113,23 @@ public class InitiativeEditPage extends BasePage {
         waitForPageLoaded(aDriver);
         waitForAjax(aDriver);
         if (waitForElementClickable(aDriver,addAccountBtn)) {
-            addAccountBtn.click();
-            return (new AddAccountModal(aDriver));
+            try {
+                Thread.sleep(2000);
+                addAccountBtn.click();
+                return (new AddAccountModal(aDriver));
+            } catch(InterruptedException intExcpt) {
+
+            } catch(Exception e) {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException intE) {
+
+                }
+                if (waitForElementClickable(aDriver,addAccountBtn)) {
+                    addAccountBtn.click();
+                    return (new AddAccountModal(aDriver));
+                }
+            }
         }
         return null;
     }
