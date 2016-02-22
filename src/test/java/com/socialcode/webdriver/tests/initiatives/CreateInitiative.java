@@ -31,7 +31,7 @@ public class CreateInitiative  extends WebDriverSetup {
     }
 
     @Test(enabled = true,dataProvider = "getInitiatives")
-    public void TC1_2_Create_an_Initiative(String testCaseName,String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String status,String acctData) throws Exception {
+    public void create_an_Initiative(String testCaseName,String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String status,String acctData) throws Exception {
         LOG.info("Starting TC1_2_Create_an_Initiative.....");
 
         // Generate unique initiative name

@@ -33,36 +33,36 @@ public class BulkUpdate extends WebDriverSetup {
 
     @DataProvider(name = "getCampaignStatus")
     public Object[][] getCampaignStatus() {
-        String[] cols = {"name", "initiative_id", "platform", "status_text", "status_value"};
+        String[] cols = {"test","name", "initiative_id", "platform", "status_text", "status_value"};
         return data.getDataByElement("campaign_status", cols);
     }
 
     @DataProvider(name = "getTwitterDailyBudget")
     public Object[][] getTwitterDailyBudget() {
-        String[] cols = {"name", "initiative_id", "platform", "dailybudget"};
+        String[] cols = {"test","name", "initiative_id", "platform", "dailybudget"};
         return data.getDataByElement("twitter_budget", cols);
     }
 
     @DataProvider(name = "getCampaignBudget")
     public Object[][] getCampaignBudget() {
-        String[] cols = {"name", "initiative_id", "platform", "budget"};
+        String[] cols = {"test","name", "initiative_id", "platform", "budget"};
         return data.getDataByElement("campaign_budget", cols);
     }
 
     @DataProvider(name = "getCampaignBid")
     public Object[][] getCampaignBid() {
-        String[] cols = {"name", "initiative_id", "platform", "bid"};
+        String[] cols = {"test","name", "initiative_id", "platform", "bid"};
         return data.getDataByElement("campaign_bid", cols);
     }
 
     @DataProvider(name = "getCampaignEndDate")
     public Object[][] getCampaignEndTime() {
-        String[] cols = {"name", "initiative_id", "platform", "start_date_offset", "start_date_offset_unit","end_date_offset", "end_date_offset_unit", "end_time"};
+        String[] cols = {"test","name", "initiative_id", "platform", "start_date_offset", "start_date_offset_unit","end_date_offset", "end_date_offset_unit", "end_time"};
         return data.getDataByElement("campaign_endtime", cols);
     }
 
     @Test(enabled = true, dataProvider = "getCampaignStatus")
-    public void bulk_Update_AdStatus(String cpName, Integer initID, String platform, String statusText, String statusValue) throws Exception {
+    public void bulk_Update_AdStatus(String testCase,String cpName, Integer initID, String platform, String statusText, String statusValue) throws Exception {
         LOG.info("Starting bulk_Update_AdStatus.....");
 
         // Navigate to Advisor-V2 application login screen
@@ -164,7 +164,7 @@ public class BulkUpdate extends WebDriverSetup {
     }
 
     @Test(enabled = true, dataProvider = "getCampaignBudget")
-    public void bulk_Update_AdBudget(String cpName, Integer initID, String platform, Double budget) throws Exception {
+    public void bulk_Update_AdBudget(String testCase,String cpName, Integer initID, String platform, Double budget) throws Exception {
         LOG.info("Starting bulk_Update_AdBudget.....");
 
         // Navigate to Advisor-V2 application login screen
@@ -263,7 +263,7 @@ public class BulkUpdate extends WebDriverSetup {
     }
 
     @Test(enabled = true, dataProvider = "getCampaignBid")
-    public void bulk_Update_AdBid(String cpName, Integer initID, String platform, Double bid) throws Exception {
+    public void bulk_Update_AdBid(String testCase,String cpName, Integer initID, String platform, Double bid) throws Exception {
         LOG.info("Starting bulk_Update_AdBid.....");
 
         // Navigate to Advisor-V2 application login screen
@@ -310,7 +310,7 @@ public class BulkUpdate extends WebDriverSetup {
     }
 
     @Test(enabled = true, dataProvider = "getCampaignEndDate")
-    public void bulk_Update_EndDate(String cpName, Integer initID, String platform,Integer startDateOffset, String startDateOffsetUnit,Integer endDateOffset, String endDateOffsetUnit, String endTime) {
+    public void bulk_Update_EndDate(String testCase,String cpName, Integer initID, String platform,Integer startDateOffset, String startDateOffsetUnit,Integer endDateOffset, String endDateOffsetUnit, String endTime) {
         LOG.info("Starting bulk_Update_EndDate......");
 
         String endDate = CommonUtil.getDateByDuration(endDateOffsetUnit, endDateOffset);
@@ -427,7 +427,7 @@ public class BulkUpdate extends WebDriverSetup {
     }
 
     @Test(enabled = true, dataProvider = "getTwitterDailyBudget")
-    public void bulk_Update_TwitterDailydBudget(String cpName, Integer initID, String platform, Double dailyBudget) throws Exception {
+    public void bulk_Update_TwitterDailydBudget(String testCase,String cpName, Integer initID, String platform, Double dailyBudget) throws Exception {
         LOG.info("Starting bulk_Update_TwitterDailyBudget.....");
 
         // Navigate to Advisor-V2 application login screen
