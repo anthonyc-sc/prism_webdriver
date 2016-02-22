@@ -3,8 +3,15 @@ package com.socialcode.webdriver.tests.listeners;
 import java.io.PrintStream;
 import java.util.*;
 
+import com.socialcode.webdriver.tests.WebDriverSetup;
 import jxl.format.*;
+import jxl.format.Border;
+import jxl.format.BorderLineStyle;
 import jxl.format.Colour;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
 import java.io.File;
@@ -19,7 +26,7 @@ public class CustomReportListener implements IReporter {
     private int testResultColumn = 1;
     private int testMethodColumn = 2;
     private int testErrorColumn = 3;
-    private int startRow = 3;
+    private int startRow = 4;
     private String testCaseDelimeter = "TC";
     private String testResultTemplate = System.getProperty("user.dir") + System.getProperty("file.separator") + ".." +
             System.getProperty("file.separator") + ".." +
@@ -37,6 +44,7 @@ public class CustomReportListener implements IReporter {
         List<HashMap<String,Object>> testResults = new ArrayList<HashMap<String,Object>>();
 
         // Iterating over each suite included in the TestNG xml file
+        String browser = "";
         for (ISuite suite : suites) {
             // Get suite name
             String suiteName = suite.getName();
@@ -44,10 +52,16 @@ public class CustomReportListener implements IReporter {
             //  Getting the results for this test suite
             Map<String,ISuiteResult> suiteResults = suite.getResults();
 
+            WebDriver aDriver = null;
             for (ISuiteResult sr : suiteResults.values()) {
                 // Get Test object in each test suite result object
                 ITestContext tc = sr.getTestContext();
 
+                if (tc.getAllTestMethods().length > 0) {
+                    WebDriverSetup wDriver = (WebDriverSetup)(tc.getAllTestMethods()[0].getInstance());
+                    aDriver = wDriver.getDriver();
+                    browser = getBrowserAndVersion(aDriver);
+                }
                 // Per test specified in TestNG xml, get the list of Failed , Passed and Skipped test result
                 IResultMap failedTests = tc.getFailedTests();
                 IResultMap passedTests = tc.getPassedTests();
@@ -55,12 +69,12 @@ public class CustomReportListener implements IReporter {
 
                 // get individual test result in the list.
                 getTestStatus(failedTests,testResults);
-                getTestStatus(passedTests,testResults);
                 getTestStatus(skippedTests,testResults);
+                getTestStatus(passedTests,testResults);
 
             }
         }
-        writeTestReportToExcel(testResults);
+        writeTestReportToExcel(testResults,browser);
     }
 
 
@@ -120,40 +134,67 @@ public class CustomReportListener implements IReporter {
         }
     }
 
-    public void writeTestReportToExcel(List<HashMap<String,Object>> testResults) {
+    public void writeTestReportToExcel(List<HashMap<String,Object>> testResults,String browser) {
         try {
             File f = new File(testResultTemplate);
             if (!f.exists()) {
                 System.out.println(testResultTemplate + " file Not Exists!");
+                return;
             }
 
             Workbook rWorkbook = Workbook.getWorkbook(f);
             WritableWorkbook workbook = Workbook.createWorkbook(new File(testResultOutput), rWorkbook);
             WritableSheet sheet = workbook.getSheet(0);
 
-            WritableFont times12font = new WritableFont(WritableFont.TIMES, 12);
+            WritableFont times14font = new WritableFont(WritableFont.TIMES, 14,WritableFont.BOLD,false,UnderlineStyle.NO_UNDERLINE,Colour.BLACK);
+            WritableCellFormat format14 = new WritableCellFormat (times14font);
+            format14.setBorder(Border.ALL, BorderLineStyle.THIN,Colour.BLACK);
+
+            String build = System.getenv("BUILD_NUMBER");
+            Date date = new Date();
+            Label label = new Label(0,2,"Build #" + build + " Ran On: " + date.toString() + ", Browser: " + browser,format14);
+            sheet.addCell(label);
+
+            WritableFont times12font = new WritableFont(WritableFont.TIMES, 12, WritableFont.NO_BOLD, false, UnderlineStyle.NO_UNDERLINE, Colour.BLACK);
             WritableCellFormat format = new WritableCellFormat (times12font);
+            format.setBackground(Colour.LIGHT_GREEN);
+            format.setBorder(Border.ALL,BorderLineStyle.THIN,Colour.BLACK);
 
             for (HashMap<String, Object> tr : testResults) {
+                WritableCellFormat fmt = format;
+
+                if (tr.containsKey("Result")) {
+                    if (tr.get("Result").toString().contentEquals("Failed")) {
+                        WritableFont times12Font = new WritableFont(WritableFont.TIMES, 12, WritableFont.BOLD, false, UnderlineStyle.NO_UNDERLINE, Colour.RED);
+                        WritableCellFormat times12format = new WritableCellFormat(times12Font);
+                        times12format.setBackground(Colour.VERY_LIGHT_YELLOW);
+                        times12format.setBorder(Border.ALL, BorderLineStyle.THIN, Colour.BLACK);
+                        fmt = times12format;
+                    } else if (tr.get("Result").toString().contentEquals("Skipped")) {
+                        WritableFont times12Font = new WritableFont(WritableFont.TIMES, 12, WritableFont.BOLD, false, UnderlineStyle.NO_UNDERLINE, Colour.DARK_BLUE);
+                        WritableCellFormat times12format = new WritableCellFormat(times12Font);
+                        times12format.setBackground(Colour.IVORY);
+                        times12format.setBorder(Border.ALL, BorderLineStyle.THIN, Colour.BLACK);
+                        fmt = times12format;
+                    }
+                }
+
                 if (tr.containsKey("Test Case")) {
-                    Label label = new Label(testCaseColumn,startRow,tr.get("Test Case").toString(),format);
-                    sheet.addCell(label);
+                    Label labelT = new Label(testCaseColumn,startRow,tr.get("Test Case").toString(),fmt);
+                    sheet.addCell(labelT);
 
                     if (tr.containsKey("Result")) {
-                        WritableCellFormat fmt = format;
-                        if (tr.get("Result").toString().contentEquals("Failed")) {
-                            WritableFont times12Font = new WritableFont(WritableFont.TIMES,12,WritableFont.BOLD,false, UnderlineStyle.NO_UNDERLINE, Colour.RED);
-                            WritableCellFormat times12format = new WritableCellFormat (times12Font);
-                            fmt = times12format;
-                        }
                         Label labelR = new Label(testResultColumn,startRow,tr.get("Result").toString(),fmt);
                         sheet.addCell(labelR);
                     }
 
                     if (tr.containsKey("Method Call")) {
-                        Label labelM = new Label(testMethodColumn,startRow,tr.get("Method Call").toString(),format);
+                        Label labelM = new Label(testMethodColumn,startRow,tr.get("Method Call").toString(),fmt);
                         sheet.addCell(labelM);
                     }
+
+                    Label labelE = new Label(testErrorColumn,startRow,"",fmt);
+                    sheet.addCell(labelE);
                     if (tr.containsKey("Error")) {
                         WritableHyperlink lnk =  new WritableHyperlink(testErrorColumn,startRow,new File(tr.get("Error").toString()),"Click Here To See Error Detail");
                         sheet.addHyperlink(lnk);
@@ -168,5 +209,31 @@ public class CustomReportListener implements IReporter {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getBrowserAndVersion(WebDriver browserDriver) {
+        String browser_version = null;
+        Capabilities cap = ((RemoteWebDriver) browserDriver).getCapabilities();
+        String browsername = cap.getBrowserName().substring(0,1).toUpperCase() +  cap.getBrowserName().substring(1);
+
+        // This block to find out IE Version number
+        if ("internet explorer".equalsIgnoreCase(browsername)) {
+            String uAgent = (String) ((JavascriptExecutor) browserDriver).executeScript("return navigator.userAgent;");
+            System.out.println(uAgent);
+            //uAgent return as "MSIE 8.0 Windows" for IE8
+            if (uAgent.contains("MSIE") && uAgent.contains("Windows")) {
+                browser_version = uAgent.substring(uAgent.indexOf("MSIE")+5, uAgent.indexOf("Windows")-2);
+            } else if (uAgent.contains("Trident/7.0")) {
+                browser_version = "11.0";
+            } else {
+                browser_version = "0.0";
+            }
+        } else
+        {
+            //Browser version for Firefox and Chrome
+            browser_version = cap.getVersion();// .split(".")[0];
+        }
+        String browserversion = browser_version.substring(0, browser_version.indexOf("."));
+        return browsername + " version " + browserversion;
     }
 }

@@ -1,5 +1,6 @@
 <campaigns>
     <data name="campaign_status">
+        <test>TC1-9: Bulk Update: Pinterest Status Resume</test>
         <name>Pinterest</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Pinterest</platform>
@@ -7,6 +8,7 @@
         <status_value>active</status_value>
     </data>
     <data name="campaign_status">
+        <test>TC1-9: Bulk Update: Pinterest Status Pause</test>
         <name>Pinterest</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Pinterest</platform>
@@ -14,6 +16,7 @@
         <status_value>paused</status_value>
     </data>
     <data name="campaign_status">
+        <test>TC1-21: Bulk Update: Instagram Status Resume</test>
         <name>Instagram</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Instagram</platform>
@@ -21,6 +24,7 @@
         <status_value>active</status_value>
     </data>
     <data name="campaign_status">
+        <test>TC1-21: Bulk Update: Instagram Status Pause</test>
         <name>Instagram</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Instagram</platform>
@@ -28,36 +32,42 @@
         <status_value>paused</status_value>
     </data>
     <data name="campaign_budget">
+        <test>TC1-26: Bulk Update: Twitter Total Budget</test>
         <name>Twitter</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Twitter</platform>
         <budget type="Double">1.85</budget>
     </data>
     <data name="twitter_budget">
+        <test>TC1-26: Bulk Update: Twitter Daily Budget</test>
         <name>Twitter</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Twitter</platform>
         <dailybudget type="Double">0.55</dailybudget>
     </data>
     <data name="campaign_budget">
+        <test>TC1-9: Bulk Update: Pinterest Budget</test>
         <name>Pinterest</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Pinterest</platform>
         <budget type="Double">22.50</budget>
     </data>
     <data name="campaign_budget">
+        <test>TC1-21: Bulk Update: Instagram Budget</test>
         <name>Instagram</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Instagram</platform>
         <budget type="Double">128.50</budget>
     </data>
     <data name="campaign_bid">
+        <test>TC1-21: Bulk Update: Instagram Bid</test>
         <name>Instagram</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Instagram</platform>
         <bid type="Double">12.50</bid>
     </data>
     <data name="campaign_endtime">
+        <test>TC1-26: Bulk Update: Twitter Start/End Dates</test>
         <name>Twitter</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Twitter</platform>
@@ -68,6 +78,7 @@
         <end_time>na</end_time>
     </data>
     <data name="campaign_endtime">
+        <test>TC1-9: Bulk Update: Pinterest End Date</test>
         <name>Pinterest</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Pinterest</platform>
@@ -78,6 +89,7 @@
         <end_time>na</end_time>
     </data>
     <data name="campaign_endtime">
+        <test>TC1-21: Bulk Update: Instagram End Date</test>
         <name>Instagram</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Instagram</platform>
@@ -88,6 +100,7 @@
         <end_time>3:30am</end_time>
     </data>
     <data name="campaign_status">
+        <test>TC1-15: Bulk Update: Facebook Status Resume</test>
         <name>Facebook</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Facebook</platform>
@@ -95,6 +108,7 @@
         <status_value>active</status_value>
     </data>
     <data name="campaign_status">
+        <test>TC1-15: Bulk Update: Facebook Status Pause</test>
         <name>Facebook</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Facebook</platform>
@@ -102,18 +116,21 @@
         <status_value>paused</status_value>
     </data>
     <data name="campaign_budget">
+        <test>TC1-15: Bulk Update: Facebook Budget</test>
         <name>Facebook</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Facebook</platform>
         <budget type="Double">210.50</budget>
     </data>
     <data name="campaign_bid">
+        <test>TC1-15: Bulk Update: Facebook Bid</test>
         <name>Facebook</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Facebook</platform>
         <bid type="Double">22.50</bid>
     </data>
     <data name="campaign_endtime">
+        <test>TC1-15: Bulk Update: Facebook End Date and Time</test>
         <name>Facebook</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Facebook</platform>

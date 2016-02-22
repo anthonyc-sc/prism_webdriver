@@ -32,11 +32,11 @@ public class DeleteInitiative extends WebDriverSetup {
 
     @DataProvider(name ="getDInit")
     public Object[][] getInitToDelete(){
-        String[] cols = {"name"};
+        String[] cols = {"test","name"};
         return data.getDataByElement("initiative",cols);
     }
 
-    @Test(dataProvider = "getInitiatives")
+    @Test(dataProvider = "getInitiatives",description = "createInitiativeForDeletionTest")
     public void createInitiativeForDeletion(String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String acctData) throws Exception {
         LOG.info("Starting createInitiativeForDeletion.....");
 
@@ -59,7 +59,7 @@ public class DeleteInitiative extends WebDriverSetup {
     }
 
     @Test(dependsOnMethods = { "createInitiativeForDeletion" },dataProvider = "getDInit")
-    public void TC1_3_Delete_an_Initiative(String initName) throws Exception {
+    public void delete_an_Initiative(String testCase,String initName) throws Exception {
         LOG.info("Starting TC1_3_Delete_an_Initiative.....");
 
         // Navigate to Advisor-V2 application login screen

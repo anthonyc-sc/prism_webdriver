@@ -9,11 +9,11 @@
             <class name="com.socialcode.webdriver.tests.initiatives.CreateInitiative"/>
         </classes>
     </test>
-    <!--test name="TC1-3: Delete an Initiative">
+    <test name="TC1-3: Delete an Initiative">
         <classes>
             <class name="com.socialcode.webdriver.tests.initiatives.DeleteInitiative"/>
         </classes>
-    </test!-->
+    </test>
     <!--test name="TC1-5: Create SC Campaign-Pinterest&lt;br&gt;TC1-12: Create SC Campaign-Facebook&lt;br&gt;TC1-18: Create SC Campaign-Instagram&lt;br&gt;TC1-24: Create SC Campaign-Twitter">
         <classes>
             <class name="com.socialcode.webdriver.tests.campaigns.CreateCampaign"/>
@@ -24,9 +24,9 @@
             <class name="com.socialcode.webdriver.tests.campaigns.DeleteCampaign"/>
         </classes>
     </test!-->
-    <!--test name="TC1-15: Bulk Update FB AdSets&lt;br&gt;TC1-21: Bulk Update Instagram AdSetss&lt;br&gt;TC1-9: Bulk Update Pinterest Ads">
+    <test name="TC1-15: Bulk Update FB AdSets&lt;br&gt;TC1-21: Bulk Update Instagram AdSetss&lt;br&gt;TC1-9: Bulk Update Pinterest Ads">
         <classes>
             <class name="com.socialcode.webdriver.tests.bulk_update.BulkUpdate"/>
         </classes>
-    </test!-->
+    </test>
 </suite>
