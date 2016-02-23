@@ -179,23 +179,23 @@ public class CustomReportListener implements IReporter {
                     }
                 }
 
-                if (tr.containsKey("Test Case")) {
+                if (tr.containsKey("Test Case") && (tr.get("Test Case") != null)) {
                     Label labelT = new Label(testCaseColumn,startRow,tr.get("Test Case").toString(),fmt);
                     sheet.addCell(labelT);
 
-                    if (tr.containsKey("Result")) {
+                    if (tr.containsKey("Result") && (tr.get("Result") != null)) {
                         Label labelR = new Label(testResultColumn,startRow,tr.get("Result").toString(),fmt);
                         sheet.addCell(labelR);
                     }
 
-                    if (tr.containsKey("Method Call")) {
+                    if (tr.containsKey("Method Call") && (tr.get("Method Call") != null)) {
                         Label labelM = new Label(testMethodColumn,startRow,tr.get("Method Call").toString(),fmt);
                         sheet.addCell(labelM);
                     }
 
                     Label labelE = new Label(testErrorColumn,startRow,"",fmt);
                     sheet.addCell(labelE);
-                    if (tr.containsKey("Error")) {
+                    if (tr.containsKey("Error") && (tr.get("Error") != null)) {
                         WritableHyperlink lnk =  new WritableHyperlink(testErrorColumn,startRow,new File(tr.get("Error").toString()),"Click Here To See Error Detail");
                         sheet.addHyperlink(lnk);
                     }
