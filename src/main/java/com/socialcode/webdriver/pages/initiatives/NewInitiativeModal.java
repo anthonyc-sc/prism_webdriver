@@ -135,8 +135,9 @@ public class NewInitiativeModal extends BasePage {
      */
     public boolean inputStartDate(String startDate) {
         if (isVisible(startDateEdit)) {
-            startDateEdit.sendKeys(startDate);
-            return true;
+            if (type(startDateEdit,startDate).contentEquals(startDate)) {
+                return true;
+            }
         }
         return false;
     }
@@ -148,8 +149,9 @@ public class NewInitiativeModal extends BasePage {
      */
     public boolean inputEndDate(String endDate) {
         if (isVisible(endDateEdit)) {
-            endDateEdit.sendKeys(endDate);
-            return true;
+            if (type(endDateEdit,endDate).contentEquals(endDate)) {
+               return true;
+            }
         }
         return false;
     }
