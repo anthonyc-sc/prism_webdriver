@@ -34,7 +34,7 @@ public class BasePage {
      * @return value set if web element key is not null;otherwise, error message
      */
     protected String type(WebElement key,String value) {
-        if ((key != null) && waitForElementClickable(driver, key)) {
+        if (key != null) {
             try {
                 key.click();
                 key.clear();
