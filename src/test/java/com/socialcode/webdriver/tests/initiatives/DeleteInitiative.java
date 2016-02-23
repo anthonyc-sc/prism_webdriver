@@ -60,7 +60,7 @@ public class DeleteInitiative extends WebDriverSetup {
 
     @Test(dependsOnMethods = { "createInitiativeForDeletion" },dataProvider = "getDInit")
     public void delete_an_Initiative(String testCase,String initName) throws Exception {
-        LOG.info("Starting TC1_3_Delete_an_Initiative.....");
+        LOG.info("Starting delete_an_Initiative.....");
 
         // Navigate to Advisor-V2 application login screen
         driver.get(prismURL);
