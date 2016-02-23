@@ -34,7 +34,7 @@ public class CreateCampaign  extends WebDriverSetup {
         return data.getDataByElement("campaign",cols);
     }
 
-    @Test(enabled = true,dataProvider = "getCampaigns")
+    @Test(enabled = true,groups = {"campaigns"},dataProvider = "getCampaigns")
     public void create_SC_Campaign(String testCase,String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag,String fInstr) throws Exception {
         LOG.info("Starting TC1_12_Create_SC_Campaign.....");
 
