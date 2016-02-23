@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.net.URL;
@@ -18,6 +19,7 @@ import java.net.URL;
 /**
  * Created by anthonyc on 12/9/15.
  */
+
 public class WebDriverSetup {
     protected RemoteWebDriver driver;
 
@@ -32,13 +34,13 @@ public class WebDriverSetup {
     //protected final String prismURL = "https://staging.socialcodedev.com/advisor-v2/";
     //protected final String loginID="qateam@socialcode.com";
     //protected final String password="oNievooc";
-    //protected final String environment = "qa";
+    //protected final String environment = "stage";
     //protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
 
     /**
      * Instantiates Web Driver object
      */
-    @BeforeMethod
+    @BeforeMethod(groups = "campaigns")
     public synchronized void setUp() {
         // Currently only handles Chrome browser. Code needs to be added to support other browsers.
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
@@ -58,7 +60,7 @@ public class WebDriverSetup {
     /**
      * Quits Web Driver object
      */
-    @AfterMethod
+    @AfterMethod(groups = "campaigns")
     public synchronized void tearDown() {
         driver.quit();
     }
