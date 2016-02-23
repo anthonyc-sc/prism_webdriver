@@ -40,7 +40,7 @@ public class DeleteCampaign extends WebDriverSetup {
         return data.getDataByElement("campaign",cols);
     }
 
-    @Test(dataProvider = "getCampaigns",description = "TC: Setup - Create Campaigns For Deletion Test")
+    @Test(description = "Test Setup - Create Campaigns For Deletion Test",dataProvider = "getCampaigns")
     public void createCampaignForDeletion(String cpName,Integer initID,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String sDateFlag,String endDateFlag,String fInstr) throws Exception {
         LOG.info("Starting createCampaignForDeletion.....");
 
@@ -63,7 +63,7 @@ public class DeleteCampaign extends WebDriverSetup {
         assertTrue(result);
     }
 
-    @Test(dependsOnMethods = { "createCampaignForDeletion" },dataProvider = "getDCampaign")
+    @Test(description = "TC: Delete SC Campaign",dependsOnMethods = { "createCampaignForDeletion" },dataProvider = "getDCampaign")
     public void delete_SC_Campaign(String testCase,String cpName) throws Exception {
         LOG.info("Starting delete_SC_Campaign......");
 
