@@ -34,16 +34,39 @@ public class BasePage {
      * @return value set if web element key is not null;otherwise, error message
      */
     protected String type(WebElement key,String value) {
-        if (key != null) {
-            key.click();
-            key.clear();
-            key.sendKeys(value);
-            // Retry if value displayed not match with expected
-            if (!key.getAttribute("value").contentEquals(value)) {
+        if ((key != null) && waitForElementClickable(driver, key)) {
+            try {
+                key.click();
                 key.clear();
                 key.sendKeys(value);
+                // Retry if value displayed not match with expected
+                if (!key.getAttribute("value").contentEquals(value)) {
+                    key.clear();
+                    key.sendKeys(value);
+                }
+                return key.getAttribute("value");
+            } catch (WebDriverException wEx) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException intEx) {
+
+                }
+                // retry
+                try {
+                    key.click();
+                    key.clear();
+                    key.sendKeys(value);
+                    // Retry if value displayed not match with expected
+                    if (!key.getAttribute("value").contentEquals(value)) {
+                        key.clear();
+                        key.sendKeys(value);
+                    }
+                    return key.getAttribute("value");
+                } catch (WebDriverException exc) {
+                    exc.printStackTrace();
+                    return "Unable to send value to webelement " + key;
+                }
             }
-            return key.getAttribute("value");
         }
         return "WebElement " + key + " is null";
     }

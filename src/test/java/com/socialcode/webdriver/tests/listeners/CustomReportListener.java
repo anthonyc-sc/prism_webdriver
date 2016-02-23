@@ -64,8 +64,8 @@ public class CustomReportListener implements IReporter {
                 }
                 // Per test specified in TestNG xml, get the list of Failed , Passed and Skipped test result
                 IResultMap failedTests = tc.getFailedTests();
-                IResultMap passedTests = tc.getPassedTests();
                 IResultMap skippedTests = tc.getSkippedTests();
+                IResultMap passedTests = tc.getPassedTests();
 
                 // get individual test result in the list.
                 getTestStatus(failedTests,testResults);
@@ -180,27 +180,27 @@ public class CustomReportListener implements IReporter {
                 }
 
                 if (tr.containsKey("Test Case") && (tr.get("Test Case") != null)) {
-                    Label labelT = new Label(testCaseColumn,startRow,tr.get("Test Case").toString(),fmt);
+                    Label labelT = new Label(testCaseColumn, startRow, tr.get("Test Case").toString(), fmt);
                     sheet.addCell(labelT);
-
-                    if (tr.containsKey("Result") && (tr.get("Result") != null)) {
-                        Label labelR = new Label(testResultColumn,startRow,tr.get("Result").toString(),fmt);
-                        sheet.addCell(labelR);
-                    }
-
-                    if (tr.containsKey("Method Call") && (tr.get("Method Call") != null)) {
-                        Label labelM = new Label(testMethodColumn,startRow,tr.get("Method Call").toString(),fmt);
-                        sheet.addCell(labelM);
-                    }
-
-                    Label labelE = new Label(testErrorColumn,startRow,"",fmt);
-                    sheet.addCell(labelE);
-                    if (tr.containsKey("Error") && (tr.get("Error") != null)) {
-                        WritableHyperlink lnk =  new WritableHyperlink(testErrorColumn,startRow,new File(tr.get("Error").toString()),"Click Here To See Error Detail");
-                        sheet.addHyperlink(lnk);
-                    }
-                    startRow++;
                 }
+
+                if (tr.containsKey("Result") && (tr.get("Result") != null)) {
+                    Label labelR = new Label(testResultColumn,startRow,tr.get("Result").toString(),fmt);
+                    sheet.addCell(labelR);
+                }
+
+                if (tr.containsKey("Method Call") && (tr.get("Method Call") != null)) {
+                    Label labelM = new Label(testMethodColumn,startRow,tr.get("Method Call").toString(),fmt);
+                    sheet.addCell(labelM);
+                }
+
+                Label labelE = new Label(testErrorColumn,startRow,"",fmt);
+                sheet.addCell(labelE);
+                if (tr.containsKey("Error") && (tr.get("Error") != null)) {
+                    WritableHyperlink lnk =  new WritableHyperlink(testErrorColumn,startRow,new File(tr.get("Error").toString()),"Click Here To See Error Detail");
+                    sheet.addHyperlink(lnk);
+                }
+                startRow++;
             }
 
             workbook.write();
