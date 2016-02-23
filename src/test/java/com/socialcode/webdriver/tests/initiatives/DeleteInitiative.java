@@ -36,7 +36,7 @@ public class DeleteInitiative extends WebDriverSetup {
         return data.getDataByElement("initiative",cols);
     }
 
-    @Test(dataProvider = "getInitiatives",description = "TC: Setup-Create Initiative For Deletion Test")
+    @Test(description = "Test Setup-Create Initiative For Deletion Test",dataProvider = "getInitiatives")
     public void createInitiativeForDeletion(String initName,String corporation,String brand,String startDateFlag,Integer duration,String unit,String acctData) throws Exception {
         LOG.info("Starting createInitiativeForDeletion.....");
 
@@ -58,7 +58,7 @@ public class DeleteInitiative extends WebDriverSetup {
         assertNotNull(initPage,"Fail to create new initiative.");
     }
 
-    @Test(dependsOnMethods = { "createInitiativeForDeletion" },dataProvider = "getDInit")
+    @Test(description = "TC: Delete Initiatives",dependsOnMethods = { "createInitiativeForDeletion" },dataProvider = "getDInit")
     public void delete_an_Initiative(String testCase,String initName) throws Exception {
         LOG.info("Starting delete_an_Initiative.....");
 

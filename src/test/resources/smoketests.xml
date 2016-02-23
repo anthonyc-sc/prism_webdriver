@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Smoke Tests" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="1">
+<suite name="Smoke Tests" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="com.socialcode.webdriver.tests.listeners.ScreenshotListener"/>
         <listener class-name="com.socialcode.webdriver.tests.listeners.CustomReportListener"/>

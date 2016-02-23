@@ -96,12 +96,15 @@ public class CustomReportListener implements IReporter {
             }
             result.put("Method Call",mCall + ")");
 
+            boolean foundTestParam = false;
             for (int j = 0; j < parameter.length; j++) {
                 if (parameter[j].toString().startsWith(testCaseDelimeter)) {
                     result.put("Test Case",parameter[j].toString());
+                    foundTestParam = true;
+                    break;
                 }
             }
-            if (parameter.length == 0) {
+            if ((parameter.length == 0) || (!foundTestParam)) {
                 result.put("Test Case",((ITestResult)sResultSet[i]).getMethod().getDescription());
             }
 
