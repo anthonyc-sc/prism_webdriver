@@ -40,7 +40,7 @@ public class WebDriverSetup {
     /**
      * Instantiates Web Driver object
      */
-    @BeforeMethod(groups = "campaigns")
+    @BeforeMethod(groups = {"campaigns","create_campaigns","delete_campaigns","bulk_update","initiative","create_initiative","delete_initiative"})
     public synchronized void setUp() {
         // Currently only handles Chrome browser. Code needs to be added to support other browsers.
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
@@ -60,7 +60,7 @@ public class WebDriverSetup {
     /**
      * Quits Web Driver object
      */
-    @AfterMethod(groups = "campaigns")
+    @AfterMethod(groups = {"campaigns","create_campaigns","delete_campaigns","bulk_update","initiative","create_initiative","delete_initiative"})
     public synchronized void tearDown() {
         driver.quit();
     }

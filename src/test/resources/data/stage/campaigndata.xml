@@ -1,5 +1,629 @@
 <campaigns>
     <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - App Installs Per Click</test>
+        <name>Pinterest Campaign SmkTest App Installs Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Installs</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - App Installs Per App Install</test>
+        <name>Pinterest Campaign SmkTest App Installs Per App Install</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Installs</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per app install</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - Pin Engagements Per Click</test>
+        <name>Pinterest Campaign SmkTest Pin Engagements Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Pin Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - Pin Engagements Per Impression</test>
+        <name>Pinterest Campaign SmkTest Pin Engagements Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Pin Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - Pin Engagements Per Engagement</test>
+        <name>Pinterest Campaign SmkTest Pin Engagements Per Engagement</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Pin Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - Website Conversions Per Click</test>
+        <name>Pinterest Campaign SmkTest Website Conversions Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - Website Conversions Per Impression</test>
+        <name>Pinterest Campaign SmkTest Website Conversions Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - Website Conversions Per Purchase</test>
+        <name>Pinterest Campaign SmkTest Website Conversions Per Purchase</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per purchase</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - Website Clicks Per Click</test>
+        <name>Pinterest Campaign SmkTest Website Clicks Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Clicks</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-5: Create Pinterest Campaign - Website Clicks Per Impression</test>
+        <name>Pinterest Campaign SmkTest Website Clicks Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Pinterest</platform>
+        <account>Meghan Callen</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Clicks</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - App Installs Per Click</test>
+        <name>Twitter Campaign SmkTest App Installs Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Installs</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - App Installs Per 1000 Impressions</test>
+        <name>Twitter Campaign SmkTest App Installs Per 1000 Impressions</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Installs</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per 1000 impressions</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - App Installs Per Install</test>
+        <name>Twitter Campaign SmkTest App Installs Per Install</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Installs</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per install</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Engagement Per Engagement</test>
+        <name>Twitter Campaign SmkTest Engagement Per Engagement</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Engagement Per Card Engagement</test>
+        <name>Twitter Campaign SmkTest Engagement Per Card Engagement</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per card engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Engagement Per Click</test>
+        <name>Twitter Campaign SmkTest Engagement Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Engagement Per Favorite</test>
+        <name>Twitter Campaign SmkTest Engagement Per Favorite</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per favorite</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Engagement Per 1000 Impressions</test>
+        <name>Twitter Campaign SmkTest Engagement Per 1000 Impressions</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per 1000 impressions</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Engagement Per Reply</test>
+        <name>Twitter Campaign SmkTest Engagement Per Reply</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per reply</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Engagement Per Retweet</test>
+        <name>Twitter Campaign SmkTest Engagement Per Retweet</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per retweet</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Wb Clicks/Conversions Per Click</test>
+        <name>Twitter Campaign SmkTest - Wb Clicks/Conversions Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Clicks/Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Wb Clicks/Conversions Per Action</test>
+        <name>Twitter Campaign SmkTest - Wb Clicks/Conversions Per Action</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Clicks/Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per action</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Wb Clicks/Conversions Per 1000 Impressions</test>
+        <name>Twitter Campaign SmkTest - Wb Clicks/Conversions Per 1000 Impressions</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Clicks/Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per 1000 impressions</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Wb Clicks/Conversions Per Link Click</test>
+        <name>Twitter Campaign SmkTest - Wb Clicks/Conversions Per Link Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Clicks/Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per link click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - App Engagements Per App Eng</test>
+        <name>Twitter Campaign SmkTest App Engagments Per App Eng</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per app engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - App Engagements Per Click</test>
+        <name>Twitter Campaign SmkTest App Engagments Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - App Engagements Per 1000 Impressions</test>
+        <name>Twitter Campaign SmkTest App Engagments Per 1000 Impressions</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per 1000 impressions</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Custom Per Click</test>
+        <name>Twitter Campaign SmkTest Custom Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Custom</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Custom Per Engagement</test>
+        <name>Twitter Campaign SmkTest Custom Per Engagement</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Custom</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Custom Per 1000 Impressions</test>
+        <name>Twitter Campaign SmkTest Custom Per 1000 Impressions</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Custom</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per 1000 impressions</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Followers Per Followers</test>
+        <name>Twitter Campaign SmkTest Followers Per Followers</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Followers</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per follower</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Followers Per Click</test>
+        <name>Twitter Campaign SmkTest Followers Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Followers</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Followers Per 1000 Impressions</test>
+        <name>Twitter Campaign SmkTest Followers Per 1000 Impressions</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Followers</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per 1000 impressions</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Leads On Twitter Per Lead</test>
+        <name>Twitter Campaign SmkTest Leads On Twitter Per Lead</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Leads on Twitter</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per lead</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Leads On Twitter Per Click</test>
+        <name>Twitter Campaign SmkTest Leads On Twitter Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Leads on Twitter</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Leads On Twitter Per 1000 Impressions</test>
+        <name>Twitter Campaign SmkTest Leads On Twitter Per 1000 Impressions</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Leads on Twitter</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per 1000 impressions</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Video Views On Twitter Per Video View</test>
+        <name>Twitter Campaign SmkTest Video Views On Twitter Per Video View</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Video Views on Twitter</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per video view</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Video Views On Twitter Per Click</test>
+        <name>Twitter Campaign SmkTest Video Views On Twitter Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Video Views on Twitter</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Video Views On Twitter Per 1000 Impressions</test>
+        <name>Twitter Campaign SmkTest Video Views On Twitter Per 1000 Impressions</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode Tech</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Video Views on Twitter</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per 1000 impressions</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>Visa ending in 3898</funding_instrument>
+    </data>
+    <data name="campaign">
         <test>TC1-12: Create FB Campaign - W Site Conversions Per Click</test>
         <name>FB Campaign SmkTest - W Site Conversions Per Click</name>
         <initiative_id type="Integer">1022</initiative_id>
@@ -336,6 +960,134 @@
         <funding_instrument></funding_instrument>
     </data>
     <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Post Eng Per Comment</test>
+        <name>FB Campaign SmkTest Post Eng Per Comment</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per comment</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Post Eng Per Engagement</test>
+        <name>FB Campaign SmkTest Post Eng Per Engagement</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Post Eng Per Imp</test>
+        <name>FB Campaign SmkTest Post Eng Per Imp</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Post Eng Per Link Click</test>
+        <name>FB Campaign SmkTest Post Eng Per Link Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per link click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Post Eng Per Share</test>
+        <name>FB Campaign SmkTest Post Eng Per Share</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per share</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Post Eng Per Storied Engagement</test>
+        <name>FB Campaign SmkTest Post Eng Per Storied Engagement</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per storied engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Post Eng Per Video Play</test>
+        <name>FB Campaign SmkTest Post Eng Per Video Play</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per video play</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Post Eng Per Video View</test>
+        <name>FB Campaign SmkTest Post Eng Per Video View</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per video view</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
         <test>TC1-12: Create FB Campaign - Offer Claims Per Click</test>
         <name>FB Campaign SmkTest Offer Claims Per Click</name>
         <initiative_id type="Integer">1022</initiative_id>
@@ -347,6 +1099,38 @@
         <objective>Offer Claims</objective>
         <kpi_goal type="Double">1.01</kpi_goal>
         <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Offer Claims Per Impression</test>
+        <name>FB Campaign SmkTest Offer Claims Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Offer Claims</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Offer Claims Per Offer Claim</test>
+        <name>FB Campaign SmkTest Offer Claims Per Offer Claims</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Offer Claims</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per offer claim</kpi>
         <start_date>current_date</start_date>
         <end_date>current_date</end_date>
         <funding_instrument></funding_instrument>
@@ -368,6 +1152,22 @@
         <funding_instrument></funding_instrument>
     </data>
     <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Brand Awareness Per Impression</test>
+        <name>FB Campaign SmkTest Brand Awareness Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Brand Awareness</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
         <test>TC1-12: Create FB Campaign - Lead Gen Per Click</test>
         <name>FB Campaign SmkTest Lead Gen Per Click</name>
         <initiative_id type="Integer">1022</initiative_id>
@@ -384,6 +1184,54 @@
         <funding_instrument></funding_instrument>
     </data>
     <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Lead Gen Per Impression</test>
+        <name>FB Campaign SmkTest Lead Gen Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Lead Generation</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Lead Gen Per Lead</test>
+        <name>FB Campaign SmkTest Lead Gen Per Lead</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Lead Generation</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per lead</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Lead Gen Per Link Click</test>
+        <name>FB Campaign SmkTest Lead Gen Per Link Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Lead Generation</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per link click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
         <test>TC1-12: Create FB Campaign - Local Awareness Per Click</test>
         <name>FB Campaign SmkTest Local Awareness Per Click</name>
         <initiative_id type="Integer">1022</initiative_id>
@@ -395,6 +1243,54 @@
         <objective>Local Awareness</objective>
         <kpi_goal type="Double">1.01</kpi_goal>
         <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Local Awareness Per Impression</test>
+        <name>FB Campaign SmkTest Local Awareness Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Local Awareness</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Local Awareness Per Link Click</test>
+        <name>FB Campaign SmkTest Local Awareness Per Link Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Local Awareness</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per link click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - Local Awareness Per Conversion</test>
+        <name>FB Campaign SmkTest Local Awareness Per Conversion</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Local Awareness</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per conversion</kpi>
         <start_date>current_date</start_date>
         <end_date>current_date</end_date>
         <funding_instrument></funding_instrument>
@@ -448,27 +1344,11 @@
         <funding_instrument></funding_instrument>
     </data>
     <data name="campaign">
-        <test>TC1-24: Create Twitter Campaign</test>
-        <name>Twitter Campaign SmkTest App Installs Per Click</name>
+        <test>TC1-18: Create Instagram Campaign - App Installs Per Click</test>
+        <name>Instagram Campaign SmkTest App Installs Per Click</name>
         <initiative_id type="Integer">1022</initiative_id>
-        <platform>Twitter</platform>
-        <account>SocialCode Tech</account>
-        <insertion_order>SC Item Edit Test</insertion_order>
-        <total_budget type="Double">115.01</total_budget>
-        <media_budget type="Double">109.53</media_budget>
-        <objective>App Installs</objective>
-        <kpi_goal type="Double">1.01</kpi_goal>
-        <kpi>Per click</kpi>
-        <start_date>current_date</start_date>
-        <end_date>current_date</end_date>
-        <funding_instrument>Visa ending in 3898</funding_instrument>
-    </data>
-    <data name="campaign">
-        <test>TC1-5: Create Pinterest Campaign</test>
-        <name>Pinterest Campaign SmkTest App Installs Per Click</name>
-        <initiative_id type="Integer">1022</initiative_id>
-        <platform>Pinterest</platform>
-        <account>Meghan Callen</account>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
         <insertion_order>SC Item Edit Test</insertion_order>
         <total_budget type="Double">115.01</total_budget>
         <media_budget type="Double">109.53</media_budget>
@@ -480,8 +1360,8 @@
         <funding_instrument></funding_instrument>
     </data>
     <data name="campaign">
-        <test>TC1-18: Create Instagram Campaign</test>
-        <name>Instagram Campaign SmkTest App Installs Per Click</name>
+        <test>TC1-18: Create Instagram Campaign - App Installs Per Impression</test>
+        <name>Instagram Campaign SmkTest App Installs Per Impression</name>
         <initiative_id type="Integer">1022</initiative_id>
         <platform>Instagram</platform>
         <account>sc13@socialcode.com</account>
@@ -490,7 +1370,359 @@
         <media_budget type="Double">109.53</media_budget>
         <objective>App Installs</objective>
         <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - App Installs Per Install</test>
+        <name>Instagram Campaign SmkTest App Installs Per Install</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Installs</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per install</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - App Engagements Per Engagement</test>
+        <name>Instagram Campaign SmkTest App Engagements Per Engagement</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - App Engagements Per Click</test>
+        <name>Instagram Campaign SmkTest App Engagements Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
         <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - App Engagements Per Impression</test>
+        <name>Instagram Campaign SmkTest App Engagements Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>App Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Post Engagements Per Engagement</test>
+        <name>Instagram Campaign SmkTest Post Engagements Per Engagement</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Post Engagements Per Click</test>
+        <name>Instagram Campaign SmkTest Post Engagements Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Post Engagements Per Comment</test>
+        <name>Instagram Campaign SmkTest Post Engagements Per Comment</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per comment</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Post Engagements Per Impression</test>
+        <name>Instagram Campaign SmkTest Post Engagements Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Post Engagements Per Link Click</test>
+        <name>Instagram Campaign SmkTest Post Engagements Per Link Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per link click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Post Engagements Per Video Play</test>
+        <name>Instagram Campaign SmkTest Post Engagements Per Video Play</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per video play</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Post Engagements Per Video View</test>
+        <name>Instagram Campaign SmkTest Post Engagements Per Video View</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Post Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per video view</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Video Views On Instagram Per Video View</test>
+        <name>Instagram Campaign SmkTest Video Views On Instagram Per Video View</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Video Views on Instagram</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per video view</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Video Views On Instagram Per Click</test>
+        <name>Instagram Campaign SmkTest Video Views On Instagram Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Video Views on Instagram</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Video Views On Instagram Per Impression</test>
+        <name>Instagram Campaign SmkTest Video Views On Instagram Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Video Views on Instagram</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Video Views On Instagram Per Video Play</test>
+        <name>Instagram Campaign SmkTest Video Views On Instagram Per Video Play</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Video Views on Instagram</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per video play</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Clicks To Website Per Click</test>
+        <name>Instagram Campaign SmkTest Clicks To Website Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Clicks to Website</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Clicks To Website Per Impression</test>
+        <name>Instagram Campaign SmkTest Clicks To Website Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Clicks to Website</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Website Conversions Per Conversion</test>
+        <name>Instagram Campaign SmkTest Website Conversions Per Conversion</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per conversion</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Website Conversions Per Click</test>
+        <name>Instagram Campaign SmkTest Website Conversions Per Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Website Conversions Per Impression</test>
+        <name>Instagram Campaign SmkTest Website Conversions Per Impression</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per impression</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Website Conversions Per Link Click</test>
+        <name>Instagram Campaign SmkTest Website Conversions Per Link Click</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per link click</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+    <data name="campaign">
+        <test>TC1-18: Create Instagram Campaign - Website Conversions RT On Spend</test>
+        <name>Instagram Campaign SmkTest Website Conversions RT On Spend</name>
+        <initiative_id type="Integer">1022</initiative_id>
+        <platform>Instagram</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SC Item Edit Test</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">109.53</media_budget>
+        <objective>Website Conversions</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Return on spend</kpi>
         <start_date>current_date</start_date>
         <end_date>current_date</end_date>
         <funding_instrument></funding_instrument>
