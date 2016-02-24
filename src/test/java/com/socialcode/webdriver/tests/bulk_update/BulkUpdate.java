@@ -61,7 +61,7 @@ public class BulkUpdate extends WebDriverSetup {
         return data.getDataByElement("campaign_endtime", cols);
     }
 
-    @Test(enabled = true, dataProvider = "getCampaignStatus")
+    @Test(enabled = true, groups = {"bulk_update"},dataProvider = "getCampaignStatus")
     public void bulk_Update_AdStatus(String testCase,String cpName, Integer initID, String platform, String statusText, String statusValue) throws Exception {
         LOG.info("Starting bulk_Update_AdStatus.....");
 
@@ -163,7 +163,7 @@ public class BulkUpdate extends WebDriverSetup {
 
     }
 
-    @Test(enabled = true, dataProvider = "getCampaignBudget")
+    @Test(enabled = true,groups = {"bulk_update"},dataProvider = "getCampaignBudget")
     public void bulk_Update_AdBudget(String testCase,String cpName, Integer initID, String platform, Double budget) throws Exception {
         LOG.info("Starting bulk_Update_AdBudget.....");
 
@@ -262,7 +262,7 @@ public class BulkUpdate extends WebDriverSetup {
         }
     }
 
-    @Test(enabled = true, dataProvider = "getCampaignBid")
+    @Test(enabled = true,groups = {"bulk_update"},dataProvider = "getCampaignBid")
     public void bulk_Update_AdBid(String testCase,String cpName, Integer initID, String platform, Double bid) throws Exception {
         LOG.info("Starting bulk_Update_AdBid.....");
 
@@ -309,7 +309,7 @@ public class BulkUpdate extends WebDriverSetup {
         }
     }
 
-    @Test(enabled = true, dataProvider = "getCampaignEndDate")
+    @Test(enabled = true,groups = {"bulk_update"},dataProvider = "getCampaignEndDate")
     public void bulk_Update_EndDate(String testCase,String cpName, Integer initID, String platform,Integer startDateOffset, String startDateOffsetUnit,Integer endDateOffset, String endDateOffsetUnit, String endTime) {
         LOG.info("Starting bulk_Update_EndDate......");
 
@@ -426,7 +426,7 @@ public class BulkUpdate extends WebDriverSetup {
         }
     }
 
-    @Test(enabled = true, dataProvider = "getTwitterDailyBudget")
+    @Test(enabled = true,groups = {"bulk_update"},dataProvider = "getTwitterDailyBudget")
     public void bulk_Update_TwitterDailydBudget(String testCase,String cpName, Integer initID, String platform, Double dailyBudget) throws Exception {
         LOG.info("Starting bulk_Update_TwitterDailyBudget.....");
 
