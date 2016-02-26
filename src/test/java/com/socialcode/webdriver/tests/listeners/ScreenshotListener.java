@@ -25,8 +25,11 @@ public class ScreenshotListener extends TestListenerAdapter {
             WebDriver aDriver = t.getDriver();
 
             File screenshotFile = ((TakesScreenshot) aDriver).getScreenshotAs(OutputType.FILE);
+            String createdTime = new Long(System.currentTimeMillis()).toString();
             FileUtils.copyFile(screenshotFile, new File(System.getProperty("user.dir") + System.getProperty("file.separator") +
-            System.currentTimeMillis() + "_" + failingTest.getName() + ".png"));
+            createdTime + "_" + failingTest.getName() + ".png"));
+            failingTest.setAttribute("Screen Shot",System.getProperty("user.dir") + System.getProperty("file.separator") +
+                    createdTime + "_" + failingTest.getName() + ".png");
         } catch (Exception e) {
             e.printStackTrace();
             LOG.error("Unable to take screenshot for test: " + failingTest.getName());
