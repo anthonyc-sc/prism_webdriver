@@ -57,7 +57,7 @@
         <name>Instagram</name>
         <initiative_id type="Integer">1310</initiative_id>
         <platform>Instagram</platform>
-        <budget type="Double">128.50</budget>
+        <budget type="Double">155.50</budget>
     </data>
     <data name="campaign_bid">
         <test>TC1-21: Bulk Update: Instagram Bid</test>
