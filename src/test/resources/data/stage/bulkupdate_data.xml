@@ -36,14 +36,14 @@
         <name>Twitter</name>
         <initiative_id type="Integer">1310</initiative_id>
         <platform>Twitter</platform>
-        <budget type="Double">1.85</budget>
+        <budget type="Double">1.50</budget>
     </data>
     <data name="twitter_budget">
         <test>TC1-26: Bulk Update: Twitter Daily Budget</test>
         <name>Twitter</name>
         <initiative_id type="Integer">1310</initiative_id>
         <platform>Twitter</platform>
-        <dailybudget type="Double">0.55</dailybudget>
+        <dailybudget type="Double">0.25</dailybudget>
     </data>
     <data name="campaign_budget">
         <test>TC1-9: Bulk Update: Pinterest Budget</test>
