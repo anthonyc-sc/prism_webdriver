@@ -26,6 +26,7 @@ public class CustomReportListener implements IReporter {
     private int testResultColumn = 1;
     private int testMethodColumn = 2;
     private int testErrorColumn = 3;
+    private int screenShotColumn = 4;
     private int startRow = 4;
     private String testCaseDelimeter = "TC";
     private String testResultTemplate = System.getProperty("user.dir") + System.getProperty("file.separator") + ".." +
@@ -133,6 +134,10 @@ public class CustomReportListener implements IReporter {
                     System.out.println("Error Stream");
                 }
             }
+
+            if (((ITestResult)sResultSet[i]).getAttribute("Screen Shot") != null) {
+                result.put("Screen Shot",((ITestResult)sResultSet[i]).getAttribute("Screen Shot"));
+            }
             testResults.add(result);
         }
     }
@@ -201,6 +206,13 @@ public class CustomReportListener implements IReporter {
                 sheet.addCell(labelE);
                 if (tr.containsKey("Error") && (tr.get("Error") != null)) {
                     WritableHyperlink lnk =  new WritableHyperlink(testErrorColumn,startRow,new File(tr.get("Error").toString()),"Click Here To See Error Detail");
+                    sheet.addHyperlink(lnk);
+                }
+
+                Label labelF = new Label(screenShotColumn,startRow,"",fmt);
+                sheet.addCell(labelF);
+                if (tr.containsKey("Screen Shot") && (tr.get("Screen Shot") != null)) {
+                    WritableHyperlink lnk = new WritableHyperlink(screenShotColumn,startRow,new File(tr.get("Screen Shot").toString()),"Click Here To See Screen Shot");
                     sheet.addHyperlink(lnk);
                 }
                 startRow++;
