@@ -2,7 +2,7 @@
     <data name="campaign">
         <test>TC1-5: Create Pinterest Campaign - Pin Engagements Per Engagement</test>
         <name>Pinterest Campaign SmkTest Pin Engagements Per Engagement</name>
-        <initiative_id type="Integer">1022</initiative_id>
+        <initiative_id type="Integer">1310</initiative_id>
         <platform>Pinterest</platform>
         <account>Meghan Callen</account>
         <insertion_order>SC Item Edit Test</insertion_order>
@@ -18,7 +18,7 @@
     <data name="campaign">
         <test>TC1-24: Create Twitter Campaign - Engagement Per Engagement</test>
         <name>Twitter Campaign SmkTest Engagement Per Engagement</name>
-        <initiative_id type="Integer">1022</initiative_id>
+        <initiative_id type="Integer">1310</initiative_id>
         <platform>Twitter</platform>
         <account>SocialCode Tech</account>
         <insertion_order>SC Item Edit Test</insertion_order>
@@ -34,7 +34,7 @@
     <data name="campaign">
         <test>TC1-12: Create FB Campaign - App Installs Per Install</test>
         <name>FB Campaign SmkTest App Installs Per Install</name>
-        <initiative_id type="Integer">1022</initiative_id>
+        <initiative_id type="Integer">1310</initiative_id>
         <platform>Facebook</platform>
         <account>sc13@socialcode.com</account>
         <insertion_order>SC Item Edit Test</insertion_order>
@@ -50,7 +50,7 @@
     <data name="campaign">
         <test>TC1-18: Create Instagram Campaign - App Installs Per Click</test>
         <name>Instagram Campaign SmkTest App Installs Per Click</name>
-        <initiative_id type="Integer">1022</initiative_id>
+        <initiative_id type="Integer">1310</initiative_id>
         <platform>Instagram</platform>
         <account>sc13@socialcode.com</account>
         <insertion_order>SC Item Edit Test</insertion_order>
