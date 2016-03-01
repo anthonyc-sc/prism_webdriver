@@ -1,6 +1,8 @@
 package com.socialcode.webdriver.tests.listeners;
 
 import java.io.PrintStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 import com.socialcode.webdriver.tests.WebDriverSetup;
@@ -212,8 +214,9 @@ public class CustomReportListener implements IReporter {
                 Label labelF = new Label(screenShotColumn,startRow,"",fmt);
                 sheet.addCell(labelF);
                 if (tr.containsKey("Screen Shot") && (tr.get("Screen Shot") != null)) {
-                    WritableHyperlink lnk = new WritableHyperlink(screenShotColumn,startRow,new File(tr.get("Screen Shot").toString()),"Click Here To See Screen Shot");
-                    sheet.addHyperlink(lnk);
+                    Path p = Paths.get(tr.get("Screen Shot").toString());
+                    WritableHyperlink lnkS = new WritableHyperlink(screenShotColumn,startRow,p.toFile(),"Click Here To See Screen Shot");
+                    sheet.addHyperlink(lnkS);
                 }
                 startRow++;
             }
