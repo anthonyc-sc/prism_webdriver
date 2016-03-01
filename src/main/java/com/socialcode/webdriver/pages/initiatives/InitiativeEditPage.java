@@ -3,6 +3,7 @@ package com.socialcode.webdriver.pages.initiatives;
 import com.socialcode.webdriver.pages.BasePage;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
@@ -90,15 +91,18 @@ public class InitiativeEditPage extends BasePage {
      * @throws Exception
      */
     public InitiativePage saveChanges() throws Exception {
-        if (isVisible(saveButton)) {
+        if (isVisible(saveButton) && waitForElementClickable(driver,saveButton)) {
             try {
                 saveButton.click();
                 return (new InitiativePage(driver));
-            } catch (Exception e) {
+            } catch (WebDriverException e) {
                 // Wait some time and try again
                 Thread.sleep(5000);
-                saveButton.click();
-                return (new InitiativePage(driver));
+                if (waitForElementClickable(driver,saveButton)) {
+                    saveButton.click();
+                    return (new InitiativePage(driver));
+                }
+                e.printStackTrace();
             }
         }
         return null;
