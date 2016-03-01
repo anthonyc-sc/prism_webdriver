@@ -28,8 +28,8 @@ public class ScreenshotListener extends TestListenerAdapter {
             String createdTime = new Long(System.currentTimeMillis()).toString();
             FileUtils.copyFile(screenshotFile, new File(System.getProperty("user.dir") + System.getProperty("file.separator") +
             createdTime + "_" + failingTest.getName() + ".png"));
-            failingTest.setAttribute("Screen Shot",System.getProperty("user.dir") + System.getProperty("file.separator") +
-                    createdTime + "_" + failingTest.getName() + ".png");
+            failingTest.setAttribute("Screen Shot","." + System.getProperty("file.separator") +
+                    createdTime + "_"+ failingTest.getName() + ".png");
         } catch (Exception e) {
             e.printStackTrace();
             LOG.error("Unable to take screenshot for test: " + failingTest.getName());

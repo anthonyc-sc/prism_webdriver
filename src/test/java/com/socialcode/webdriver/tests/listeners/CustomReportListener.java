@@ -131,7 +131,7 @@ public class CustomReportListener implements IReporter {
                 try {
                     String ErrorFileName = methodName + "_" + System.currentTimeMillis() + ".txt";
                     th.printStackTrace(new PrintStream(new File(ErrorFileName)));
-                    result.put("Error",System.getProperty("user.dir") + System.getProperty("file.separator") + ErrorFileName);
+                    result.put("Error","." + System.getProperty("file.separator") + ErrorFileName);
                 } catch (Exception e) {
                     System.out.println("Error Stream");
                 }
