@@ -74,7 +74,6 @@ public class LoginPage extends BasePage {
     public InitiativesListPage submit() {
         submitButton.click();
         waitForPageLoaded(driver);
-        waitForAjax(driver);
         return (new InitiativesListPage(driver));
     }
 }
