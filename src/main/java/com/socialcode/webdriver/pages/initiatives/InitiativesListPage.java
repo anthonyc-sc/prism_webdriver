@@ -47,7 +47,7 @@ public class InitiativesListPage extends BasePage {
 
         pageInitElements(driver,this);
 
-        if (!isPageLoaded()) {
+        if (!isPageLoaded(d)) {
             assert false : "This is not 'Initiatives List' page";
         }
         LOG.info("VERIFIED - 'Initiatives List' page is loaded");
@@ -57,11 +57,11 @@ public class InitiativesListPage extends BasePage {
      * Checks if 'Initiatives List' page is loaded
      * @return true if page is loaded; false otherwise
      */
-    public boolean isPageLoaded() {
+    public synchronized boolean isPageLoaded(WebDriver aDriver) {
         LOG.debug("Verifying 'Initiatives List' page is loaded");
-        waitForPageLoaded(driver);
-        waitForAjax(driver);
-        return waitForElementVisible(driver,initToolbar) && waitForElementVisible(driver,createInitButton);
+        waitForPageLoaded(aDriver);
+        waitForAjax(aDriver);
+        return waitForElementVisible(aDriver,initToolbar) && waitForElementVisible(aDriver,createInitButton);
     }
 
     /**
@@ -88,7 +88,7 @@ public class InitiativesListPage extends BasePage {
             return null;
         }
 
-        return (initEditPage.saveChanges());
+        return (initEditPage.saveChanges(aDriver));
     }
 
     /**
@@ -208,7 +208,7 @@ public class InitiativesListPage extends BasePage {
         if (initEditPage == null) {
             return null;
         }
-        return (initEditPage.saveChanges());
+        return (initEditPage.saveChanges(aDriver));
     }
 
     /**
