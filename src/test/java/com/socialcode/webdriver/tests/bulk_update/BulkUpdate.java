@@ -12,6 +12,7 @@ import com.socialcode.webdriver.tests.WebDriverSetup;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static org.testng.Assert.*;
@@ -386,19 +387,11 @@ public class BulkUpdate extends WebDriverSetup {
                 String expectedStartDate = "";
                 String expectedEndDate = "";
                 try {
-                    String accountTimeZone = twitterCampaign.getCampaignList(driver).get(0).get("Start Date").split(" ")[1];
-                    String time = "";
-                    if (accountTimeZone.contentEquals("PST")) {
-                        time = "4:00pm";
-                    } else if (accountTimeZone.contentEquals("EST")) {
-                        time = "7:00pm";
-                    }
-                    expectedStartDate = CommonUtil.convertUTCDateByTimezone(startDate,accountTimeZone,"M/d/yy") + "\n" + time + " " + accountTimeZone;
-                    expectedEndDate = CommonUtil.convertUTCDateByTimezone(endDate,accountTimeZone,"M/d/yy") + "\n" + time + " " + accountTimeZone;
+                    String accountTimeZone = twitterCampaign.getAccountTimezone().substring(0,3);
+                    expectedStartDate = CommonUtil.convertUTCDateByTimezone(startDate + " 12:00am UTC",accountTimeZone,"M/d/yy h:mma z");
+                    expectedEndDate = CommonUtil.convertUTCDateByTimezone(endDate + " 12:00am UTC",accountTimeZone,"M/d/yy h:mma z");
                 } catch (NullPointerException e) {
-                   fail("Unable to retrieve campaign start date for SC Campaign " + cpName);
-                } catch (ArrayIndexOutOfBoundsException arEx) {
-                    fail("Fail to split start date for SC Campaign " + cpName);
+                   fail("Unable to retrieve account time zone for SC Campaign " + cpName);
                 }
 
                 // Perform bulk date update
@@ -417,8 +410,10 @@ public class BulkUpdate extends WebDriverSetup {
                 assertFalse(cpList.isEmpty(),"Twitter campaign list is empty for SC campaign" + cpName);
 
                 for (HashMap<String, String> cp : cpList) {
-                    assertTrue(cp.get("Start Date").contentEquals(expectedStartDate),"Expect start date: " + expectedStartDate + ",but get: " + cp.get("Start Date"));
-                    assertTrue(cp.get("End Date").contentEquals(expectedEndDate),"Expect end date: " + expectedEndDate + ",but get: " + cp.get("End Date"));
+                    String actualStartDate = cp.get("Start Date").replace("\n"," ").toLowerCase();
+                    assertTrue(actualStartDate.contentEquals(expectedStartDate.toLowerCase()),"Expect start date: " + expectedStartDate + ",but get: " + cp.get("Start Date"));
+                    String actualEndDate = cp.get("End Date").replace("\n"," ").toLowerCase();
+                    assertTrue(actualEndDate.contentEquals(expectedEndDate.toLowerCase()),"Expect end date: " + expectedEndDate + ",but get: " + cp.get("End Date"));
                 }
                 break;
             default:

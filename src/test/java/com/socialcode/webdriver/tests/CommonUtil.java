@@ -31,19 +31,17 @@ public class CommonUtil {
         return sdf.format(c.getTime());
     }
 
-    public static String convertUTCDateByTimezone(String utcDate,String timeZone,String format) {
-        SimpleDateFormat sdf = new SimpleDateFormat(format);
+    public static String convertUTCDateByTimezone(String utcDate,String timeZone,String inFormat) {
+        SimpleDateFormat sdf = new SimpleDateFormat(inFormat);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-        String newDateString = "";
         try {
-            Calendar c = Calendar.getInstance();
-            c.setTime(sdf.parse(utcDate));
+            Date tempDate = sdf.parse(utcDate);
             sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
-            return sdf.format(c.getTime());
+            return sdf.format(tempDate);
         } catch (Exception e) {
 
         }
-        return newDateString;
+        return "";
     }
 
     public static String getDateStringByFormat(String input,String format) {
