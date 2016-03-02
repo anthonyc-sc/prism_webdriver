@@ -90,17 +90,21 @@ public class InitiativeEditPage extends BasePage {
      * @return Initiative Page object if successful; null otherwise
      * @throws Exception
      */
-    public InitiativePage saveChanges() throws Exception {
-        if (isVisible(saveButton) && waitForElementClickable(driver,saveButton)) {
+    public InitiativePage saveChanges(WebDriver aDriver) throws Exception {
+        if (isVisible(saveButton) && waitForElementClickable(aDriver,saveButton)) {
             try {
                 saveButton.click();
-                return (new InitiativePage(driver));
+                return (new InitiativePage(aDriver));
             } catch (WebDriverException e) {
                 // Wait some time and try again
-                Thread.sleep(5000);
-                if (waitForElementClickable(driver,saveButton)) {
-                    saveButton.click();
-                    return (new InitiativePage(driver));
+                Thread.sleep(10000);
+                if (waitForElementClickable(aDriver,saveButton)) {
+                    try {
+                        saveButton.click();
+                        return (new InitiativePage(aDriver));
+                    } catch (WebDriverException e2) {
+                        e2.printStackTrace();
+                    }
                 }
                 e.printStackTrace();
             }

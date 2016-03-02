@@ -122,19 +122,19 @@ public class NewCampaignModal extends BasePage {
      * @return empty string if successful; error message otherwise
      * @throws Exception - this is for time out exception from thread.sleep
      */
-    public String enterCampaignData(String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr)
+    public String enterCampaignData(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr)
       throws Exception {
 
-        waitForPageLoaded(driver);
-        waitForAjax(driver);
+        waitForPageLoaded(aDriver);
+        waitForAjax(aDriver);
         Thread.sleep(2000);
 
         if (!selectByText(platformCBox,platform).contentEquals(platform)) {
             return "Unable to select value for platform";
         }
 
-        waitForPageLoaded(driver);
-        waitForAjax(driver);
+        waitForPageLoaded(aDriver);
+        waitForAjax(aDriver);
         if (!type(campaignNameEdit,cpName).contentEquals(cpName)) {
             return "Unable to enter campaign name";
         }
@@ -148,7 +148,7 @@ public class NewCampaignModal extends BasePage {
         }
 
         if (platform.contentEquals("Twitter")) {
-           if (!selectTwitterFundingInstrument(driver,fInstr)) {
+           if (!selectTwitterFundingInstrument(aDriver,fInstr)) {
                return "Unable to select Funding Instrument ID for Twitter Campaign";
            }
         }
@@ -202,12 +202,12 @@ public class NewCampaignModal extends BasePage {
      * Clicks Submit button on the New Campaign Modal
      * @return Campaign Details Page object
      */
-    public CampaignDetailsPage submit() {
-        if (waitForElementVisible(driver,submitButton))  {
+    public CampaignDetailsPage submit(WebDriver aDriver) {
+        if (waitForElementVisible(aDriver,submitButton))  {
             submitButton.click();
-            waitForPageLoaded(driver);
-            waitForAjax(driver);
-            return (new CampaignDetailsPage(driver));
+            waitForPageLoaded(aDriver);
+            waitForAjax(aDriver);
+            return (new CampaignDetailsPage(aDriver));
         }
         return null;
     }
@@ -240,17 +240,17 @@ public class NewCampaignModal extends BasePage {
      * @return Campaign Details Page object if successful; otherwise null
      * @throws Exception
      */
-    public CampaignDetailsPage createNewSCCampaign(String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr) throws Exception {
-        String result = enterCampaignData(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
+    public CampaignDetailsPage createNewSCCampaign(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr) throws Exception {
+        String result = enterCampaignData(aDriver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
 
         if (result.isEmpty()) {
-            return submit();
+            return submit(aDriver);
         }
         return null;
     }
 
     public CampaignPage createNewPinterestSCCampaign(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate) throws Exception {
-        String result = enterCampaignData(cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,"");
+        String result = enterCampaignData(aDriver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,"");
 
         if (result.isEmpty()) {
             return submitforPinterest(aDriver,cpName);
