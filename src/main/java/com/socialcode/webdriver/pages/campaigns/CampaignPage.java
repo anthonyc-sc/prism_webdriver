@@ -47,6 +47,9 @@ public class CampaignPage extends BasePage {
     @FindBy(xpath = "//*[@class = 'select-all-header-cell']/div/button[2]")
     protected WebElement ActionsDropdown;
 
+    @FindBy(xpath = "//*[@id = 'campaign-details']/../ul/li[6]/div[2]")
+    protected WebElement accountTimezone;
+
     public CampaignPage(WebDriver aDriver,String scName) {
         driver = aDriver;
 
@@ -252,5 +255,11 @@ public class CampaignPage extends BasePage {
         return null;
     }
 
+    public String getAccountTimezone() {
+        if (waitForElementVisible(driver,accountTimezone)) {
+            return accountTimezone.getText();
+        }
+        return "";
+    }
 
 }
