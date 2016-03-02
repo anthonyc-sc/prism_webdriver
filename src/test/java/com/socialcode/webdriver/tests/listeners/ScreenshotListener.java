@@ -19,7 +19,7 @@ public class ScreenshotListener extends TestListenerAdapter {
     private static Logger LOG = LoggerFactory.getLogger(ScreenshotListener.class);
 
     @Override
-    public void onTestFailure(ITestResult failingTest) {
+    public synchronized void onTestFailure(ITestResult failingTest) {
         try {
             WebDriverSetup t = (WebDriverSetup)failingTest.getInstance();
             WebDriver aDriver = t.getDriver();
