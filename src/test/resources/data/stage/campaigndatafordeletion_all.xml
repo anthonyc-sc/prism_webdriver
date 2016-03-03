@@ -50,9 +50,9 @@
     <data name="campaign">
         <test>TC1-28: Delete Twitter Campaign</test>
         <name>Twitter Campaign SmkTest - Deletion Test</name>
-        <initiative_id type="Integer">1310</initiative_id>
+        <initiative_id type="Integer">1323</initiative_id>
         <platform>Twitter</platform>
-        <account>SocialCode Tech</account>
+        <account>SocialCode</account>
         <insertion_order>SC Item Edit Test</insertion_order>
         <total_budget type="Double">115.01</total_budget>
         <media_budget type="Double">109.53</media_budget>
@@ -61,6 +61,6 @@
         <kpi>Per click</kpi>
         <start_date>current_date</start_date>
         <end_date>current_date</end_date>
-        <funding_instrument>Visa ending in 3898</funding_instrument>
+        <funding_instrument>SocialCode House IO 1H 2016</funding_instrument>
     </data>
 </campaigns>
