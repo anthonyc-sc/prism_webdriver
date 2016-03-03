@@ -279,7 +279,7 @@ public class BasePage {
      * Wait for Async job to complete processing
      * @param aDriver
      */
-    public void waitForAjax(final WebDriver aDriver)
+    public synchronized void waitForAjax(final WebDriver aDriver)
     {
         while (true)
         {
