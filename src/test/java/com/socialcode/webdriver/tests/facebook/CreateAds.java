@@ -4,23 +4,13 @@ import com.socialcode.webdriver.pages.ads.NewAdsModal;
 import com.socialcode.webdriver.pages.campaigns.CampaignPage;
 import com.socialcode.webdriver.pages.initiatives.InitiativesListPage;
 import com.socialcode.webdriver.pages.login.LoginPage;
-import com.socialcode.webdriver.tests.CommonUtil;
-import com.socialcode.webdriver.tests.TestData;
 import com.socialcode.webdriver.tests.WebDriverSetup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.LocalFileDetector;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.net.URL;
-
-import static org.testng.Assert.*;
 import static org.testng.Assert.assertNotNull;
 
 /**
@@ -38,7 +28,7 @@ public class CreateAds extends WebDriverSetup {
         driver.get(prismURL);
 
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit();
+        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
         assertNotNull(initListPage,"Fail to login to Prism.");
 
         driver.get("https://staging.socialcodedev.com/advisor-v2/#initiative/341/campaign/710");
