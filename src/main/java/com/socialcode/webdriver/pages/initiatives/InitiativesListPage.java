@@ -60,7 +60,6 @@ public class InitiativesListPage extends BasePage {
     public synchronized boolean isPageLoaded(WebDriver aDriver) {
         LOG.debug("Verifying 'Initiatives List' page is loaded");
         waitForPageLoaded(aDriver);
-        waitForAjax(aDriver);
         return waitForElementVisible(aDriver,initToolbar) && waitForElementVisible(aDriver,createInitButton);
     }
 
