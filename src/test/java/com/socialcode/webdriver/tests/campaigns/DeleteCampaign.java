@@ -25,7 +25,7 @@ public class DeleteCampaign extends WebDriverSetup {
 
     public DeleteCampaign() {
         data = new TestData();
-        data.load(dataFolder + "campaigndatafordeletion.xml");
+        data.load(dataFolder + "campaigndatafordeletion_" + platF + ".xml");
     }
 
     @DataProvider(name = "getCampaigns")

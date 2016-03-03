@@ -28,7 +28,7 @@ public class BulkUpdate extends WebDriverSetup {
 
     public BulkUpdate() {
         data = new TestData();
-        data.load(dataFolder + "bulkupdate_data.xml");
+        data.load(dataFolder + "bulkupdate_data_" + platF + ".xml");
     }
 
     @DataProvider(name = "getCampaignStatus")

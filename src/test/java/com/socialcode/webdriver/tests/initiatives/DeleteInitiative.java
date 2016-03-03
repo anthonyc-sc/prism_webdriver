@@ -21,7 +21,7 @@ public class DeleteInitiative extends WebDriverSetup {
 
     public DeleteInitiative() {
         data = new TestData();
-        data.load(dataFolder + "initiativedatafordeletion.xml");
+        data.load(dataFolder + "initiativedatafordeletion_" + platF + ".xml");
     }
 
     @DataProvider(name = "getInitiatives")
