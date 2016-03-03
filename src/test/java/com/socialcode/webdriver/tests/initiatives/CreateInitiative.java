@@ -46,7 +46,7 @@ public class CreateInitiative  extends WebDriverSetup {
         driver.get(prismURL);
 
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit();
+        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
         assertNotNull(initListPage,"Fail to login to Prism.");
 
         // Create new initiative
