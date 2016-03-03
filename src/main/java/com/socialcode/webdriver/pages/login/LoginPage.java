@@ -31,7 +31,7 @@ public class LoginPage extends BasePage {
 
         pageInitElements(driver,this);
 
-        if (!isPageLoaded()) {
+        if (!isPageLoaded(d)) {
             assert false : "This is not 'Login' page";
         }
         LOG.info("VERIFIED - 'Login' page is loaded");
@@ -41,10 +41,10 @@ public class LoginPage extends BasePage {
      * Check if current page is loaded
      * @return true if loaded; false otherwise
      */
-    public boolean isPageLoaded() {
+    public boolean isPageLoaded(WebDriver aDriver) {
         LOG.debug("Verifying 'Login' page is loaded");
-        waitForPageLoaded(driver);
-        return waitForElementVisible(driver,authPanel);
+        waitForPageLoaded(aDriver);
+        return waitForElementVisible(aDriver,authPanel);
     }
 
     /**
@@ -70,10 +70,11 @@ public class LoginPage extends BasePage {
     /**
      * Clicks submit button of the login page
      * @return Initiative List Page object
+     * @param aDriver
      */
-    public InitiativesListPage submit() {
+    public InitiativesListPage submit(WebDriver aDriver) {
         submitButton.click();
-        waitForPageLoaded(driver);
-        return (new InitiativesListPage(driver));
+        waitForPageLoaded(aDriver);
+        return (new InitiativesListPage(aDriver));
     }
 }

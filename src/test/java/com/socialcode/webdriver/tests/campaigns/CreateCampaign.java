@@ -1,8 +1,5 @@
 package com.socialcode.webdriver.tests.campaigns;
 
-import com.socialcode.webdriver.pages.campaigns.CampaignDetailsPage;
-import com.socialcode.webdriver.pages.campaigns.CampaignPage;
-import com.socialcode.webdriver.pages.campaigns.NewCampaignModal;
 import com.socialcode.webdriver.pages.initiatives.InitiativePage;
 import com.socialcode.webdriver.pages.initiatives.InitiativesListPage;
 import com.socialcode.webdriver.pages.login.LoginPage;
@@ -48,7 +45,7 @@ public class CreateCampaign  extends WebDriverSetup {
         driver.get(prismURL);
 
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit();
+        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
         assertNotNull(initListPage,"Fail to login to Prism.");
 
         // Go to specific initiative with given initiative ID. Then create new campaign.
