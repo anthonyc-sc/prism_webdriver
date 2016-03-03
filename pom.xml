@@ -106,6 +106,10 @@
                                     <name>env</name>
                                     <value>${env}</value>
                                 </property>
+                                <property>
+                                    <name>platform</name>
+                                    <value>${platform}</value>
+                                </property>
                             </systemProperties>
                             <properties>
                                 <property>

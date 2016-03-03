@@ -30,12 +30,14 @@ public class WebDriverSetup {
     protected final String password = System.getProperty("password");
     protected final String environment = System.getProperty("env");
     protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
+    protected String platF = System.getProperty("platform");
 
     //protected final String prismURL = "https://staging.socialcodedev.com/advisor-v2/";
     //protected final String loginID="qateam@socialcode.com";
     //protected final String password="oNievooc";
     //protected final String environment = "stage";
     //protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
+
 
     /**
      * Instantiates Web Driver object

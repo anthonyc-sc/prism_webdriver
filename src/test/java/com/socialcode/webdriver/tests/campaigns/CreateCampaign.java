@@ -22,7 +22,7 @@ public class CreateCampaign  extends WebDriverSetup {
 
     public CreateCampaign() {
         data = new TestData();
-        data.load(dataFolder + "campaigndata.xml");
+        data.load(dataFolder + "campaigndata_"+ platF + ".xml");
     }
 
     @DataProvider(name = "getCampaigns")
