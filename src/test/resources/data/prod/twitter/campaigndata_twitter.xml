@@ -1,0 +1,18 @@
+<campaigns>
+    <data name="campaign">
+        <test>TC1-24: Create Twitter Campaign - Engagement Per Engagement</test>
+        <name>Twitter Campaign SmkTest Engagement Per Engagement</name>
+        <initiative_id type="Integer">9588</initiative_id>
+        <platform>Twitter</platform>
+        <account>SocialCode</account>
+        <insertion_order>SocialCode Test IO</insertion_order>
+        <total_budget type="Double">115.01</total_budget>
+        <media_budget type="Double">104.55</media_budget>
+        <objective>Engagements</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per engagement</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument>SocialCode House IO 1H 2016</funding_instrument>
+    </data>
+</campaigns>

@@ -1,0 +1,18 @@
+<campaigns>
+    <data name="campaign">
+        <test>TC1-12: Create FB Campaign - App Installs Per Install</test>
+        <name>FB Campaign SmkTest App Installs Per Install</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Facebook</platform>
+        <account>sc13@socialcode.com</account>
+        <insertion_order>SocialCode Test IO</insertion_order>
+        <total_budget type="Double">250.01</total_budget>
+        <media_budget type="Double">227.28</media_budget>
+        <objective>App Installs</objective>
+        <kpi_goal type="Double">1.01</kpi_goal>
+        <kpi>Per install</kpi>
+        <start_date>current_date</start_date>
+        <end_date>current_date</end_date>
+        <funding_instrument></funding_instrument>
+    </data>
+</campaigns>

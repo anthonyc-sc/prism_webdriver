@@ -293,24 +293,27 @@ public class InitiativePage extends BasePage {
      * @return true if successful;false otherwise
      * @throws Exception
      */
-    public boolean createNewSCCampaginNoRedirect(WebDriver aDriver,String cpName,String platform,String account,String insertionOrder,Double totalBudget,Double mediaBudget,String objective,Double kpiGoal,String kpi,String startDate,String endDate,String fInstr) throws Exception {
+    public CampaignPage createNewCampaign(WebDriver aDriver, String cpName, String platform, String account, String insertionOrder, Double totalBudget, Double mediaBudget, String objective, Double kpiGoal, String kpi, String startDate, String endDate, String fInstr) throws Exception {
         NewCampaignModal cpModal = launchNewCampaignModal(aDriver);
         if (platform.contentEquals("Pinterest")) {
             CampaignPage cpPage = cpModal.createNewPinterestSCCampaign(aDriver,cpName, platform, account, insertionOrder, totalBudget, mediaBudget, objective, kpiGoal, kpi, startDate, endDate);
-            return (cpPage != null);
+            return cpPage;
         } else {
             CampaignDetailsPage cpDetailPage = cpModal.createNewSCCampaign(aDriver,cpName, platform, account, insertionOrder, totalBudget, mediaBudget, objective, kpiGoal, kpi, startDate, endDate,fInstr);
 
+            String verifyResult = "";
             if (cpDetailPage != null) {
                 // Verify values display on Campaign Details page
-                String verifyResult = cpDetailPage.checkCampaignDetails(cpName, platform, account, insertionOrder, startDate, endDate, mediaBudget.toString(), kpiGoal.toString(), kpi, objective);
+                verifyResult = cpDetailPage.checkCampaignDetails(cpName, platform, account, insertionOrder, startDate, endDate, mediaBudget.toString(), kpiGoal.toString(), kpi, objective);
                 LOG.info("CreateNewSCCampaignNoRedirect: verifyResult=" + verifyResult);
                 if (verifyResult.isEmpty()) {
-                    return cpDetailPage.saveChangesNoRedirect(aDriver, cpName);
+                    return cpDetailPage.saveChanges(aDriver, cpName);
                 }
+                System.out.println(verifyResult);
+                LOG.error(verifyResult);
             }
         }
-        return false;
+        return null;
     }
 
 

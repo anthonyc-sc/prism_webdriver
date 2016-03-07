@@ -1,0 +1,46 @@
+<initiatives>
+    <data name="initiative">
+        <test>TC1-2: Create an Initiative - Twitter</test>
+        <name>Twitter : </name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">1</duration>
+        <unit>day</unit>
+        <status>Active</status>
+        <account_data>Twitter,SocialCode Tech</account_data>
+    </data>
+    <data name="initiative">
+        <test>TC1-2: Create an Initiative - Pinterest</test>
+        <name>Pinterest : </name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">1</duration>
+        <unit>day</unit>
+        <status>Active</status>
+        <account_data>Pinterest,Meghan Callen</account_data>
+    </data>
+    <data name="initiative">
+        <test>TC1-2: Create an Initiative - Instagram</test>
+        <name>Instagram : </name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">1</duration>
+        <unit>day</unit>
+        <status>Active</status>
+        <account_data>Instagram,socialcodeinc,sc13@socialcode.com,Things My Dog Says</account_data>
+    </data>
+    <data name="initiative">
+        <test>TC1-2: Create an Initiative - FB 1 Day</test>
+        <name>FB Automation Initiative-1 Day :</name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">1</duration>
+        <unit>day</unit>
+        <status>Active</status>
+        <account_data>Facebook,sc13@socialcode.com,Things My Dog Says</account_data>
+    </data>
+</initiatives>

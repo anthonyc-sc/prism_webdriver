@@ -65,11 +65,8 @@ public class BulkUpdate extends WebDriverSetup {
     public void bulk_Update_AdStatus(String testCase,String cpName, Integer initID, String platform, String statusText, String statusValue) throws Exception {
         LOG.info("Starting bulk_Update_AdStatus.....");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage, "Fail to login to Prism.");
         initListPage.waitForPageLoaded(driver);
 
@@ -167,11 +164,8 @@ public class BulkUpdate extends WebDriverSetup {
     public void bulk_Update_AdBudget(String testCase,String cpName, Integer initID, String platform, Double budget) throws Exception {
         LOG.info("Starting bulk_Update_AdBudget.....");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage, "Fail to login to Prism.");
         initListPage.waitForPageLoaded(driver);
 
@@ -266,11 +260,8 @@ public class BulkUpdate extends WebDriverSetup {
     public void bulk_Update_AdBid(String testCase,String cpName, Integer initID, String platform, Double bid) throws Exception {
         LOG.info("Starting bulk_Update_AdBid.....");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage, "Fail to login to Prism.");
         initListPage.waitForPageLoaded(driver);
 
@@ -315,11 +306,8 @@ public class BulkUpdate extends WebDriverSetup {
 
         String endDate = CommonUtil.getDateByDuration(endDateOffsetUnit, endDateOffset);
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage, "Fail to login to Prism.");
         initListPage.waitForPageLoaded(driver);
 
@@ -424,11 +412,8 @@ public class BulkUpdate extends WebDriverSetup {
     public void bulk_Update_TwitterDailydBudget(String testCase,String cpName, Integer initID, String platform, Double dailyBudget) throws Exception {
         LOG.info("Starting bulk_Update_TwitterDailyBudget.....");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage, "Fail to login to Prism.");
         initListPage.waitForPageLoaded(driver);
 

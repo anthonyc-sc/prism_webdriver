@@ -1,0 +1,27 @@
+<campaigns>
+    <data name="campaign_endtime">
+        <test>TC1-26: Bulk Update: Twitter Start/End Dates</test>
+        <name>Twitter</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Twitter</platform>
+        <start_date_offset type="Integer">10</start_date_offset>
+        <start_date_offset_unit>day</start_date_offset_unit>
+        <end_date_offset type="Integer">15</end_date_offset>
+        <end_date_offset_unit>day</end_date_offset_unit>
+        <end_time>na</end_time>
+    </data>
+    <data name="campaign_budget">
+        <test>TC1-26: Bulk Update: Twitter Total Budget</test>
+        <name>Twitter</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Twitter</platform>
+        <budget type="Double">1.50</budget>
+    </data>
+    <data name="twitter_budget">
+        <test>TC1-26: Bulk Update: Twitter Daily Budget</test>
+        <name>Twitter</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Twitter</platform>
+        <dailybudget type="Double">0.25</dailybudget>
+    </data>
+</campaigns>

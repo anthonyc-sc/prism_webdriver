@@ -1,5 +1,6 @@
 package com.socialcode.webdriver.tests.campaigns;
 
+import com.socialcode.webdriver.pages.campaigns.CampaignPage;
 import com.socialcode.webdriver.pages.initiatives.InitiativePage;
 import com.socialcode.webdriver.pages.initiatives.InitiativesListPage;
 import com.socialcode.webdriver.pages.login.LoginPage;
@@ -41,12 +42,12 @@ public class CreateCampaign  extends WebDriverSetup {
         assertFalse(startDate.isEmpty(),"Start Date is empty.");
         assertFalse(endDate.isEmpty(),"End Date is empty.");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage,"Fail to login to Prism.");
+
+        initListPage.waitForPageLoaded(driver);
+        initListPage.waitForAjax(driver);
 
         // Go to specific initiative with given initiative ID. Then create new campaign.
         InitiativePage initPage = initListPage.gotoInitiative(initID);
@@ -55,8 +56,8 @@ public class CreateCampaign  extends WebDriverSetup {
         //assertNotNull(cpPage);
 
         // Temporary work around for issue ADV-3177
-        Boolean result = initPage.createNewSCCampaginNoRedirect(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
-        assertTrue(result);
+        CampaignPage cpPage = initPage.createNewCampaign(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
+        assertNotNull(cpPage);
     }
 
 }

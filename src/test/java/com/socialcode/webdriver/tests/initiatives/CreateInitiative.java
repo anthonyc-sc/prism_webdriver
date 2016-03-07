@@ -6,12 +6,20 @@ import com.socialcode.webdriver.pages.login.LoginPage;
 import com.socialcode.webdriver.tests.CommonUtil;
 import com.socialcode.webdriver.tests.TestData;
 import com.socialcode.webdriver.tests.WebDriverSetup;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.Date;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * Created by anthonyc on 12/1/15.
@@ -42,19 +50,17 @@ public class CreateInitiative  extends WebDriverSetup {
         assertFalse(startDate.isEmpty(),"Can't compute start_date");
         assertFalse(endDate.isEmpty(),"Can't compute end_date");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
-        // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        // Navigate to Prism application
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage,"Fail to login to Prism.");
+
+      //  InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
 
         // Create new initiative
         InitiativePage initPage = initListPage.createInitiativeWithAccount(driver,initiativeName,corporation,brand,startDate,endDate,acctData);
         assertNotNull(initPage,"Fail to create new initiative.");
 
         // Verify initiative fields for the newly created initiative
-        Thread.sleep(5000);
         verifyNewInitiativeFields(initPage,initiativeName,startDate,endDate,status);
     }
 
@@ -69,5 +75,9 @@ public class CreateInitiative  extends WebDriverSetup {
         String expectedInitDates = CommonUtil.convertDateString(startDate) + "—" + CommonUtil.convertDateString(endDate);
         assertEquals(initPage.getInitDateRange(),expectedInitDates,"Expect date range " + expectedInitDates + ",but get: " + initPage.getInitDateRange());  // Verify init date range
     }
+
+
+
+
 
 }

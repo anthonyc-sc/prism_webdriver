@@ -15,6 +15,8 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by anthonyc on 12/9/15.
@@ -25,19 +27,24 @@ public class WebDriverSetup {
 
     protected TestData data;
 
+    //protected final String prismURL = "https://beta.socialcode.com/advisor/#initiative";
     protected final String prismURL = System.getProperty("environment");
-    protected final String loginID = System.getProperty("username");
-    protected final String password = System.getProperty("password");
-    protected final String environment = System.getProperty("env");
-    protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
-    protected String platF = System.getProperty("platform");
 
-    //protected final String prismURL = "https://staging.socialcodedev.com/advisor-v2/";
+    protected final String environment = System.getProperty("env");
+    //protected final String environment = "prod";
+    protected String platF = System.getProperty("platform");
+    //protected final String platF = "all";
+    protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator") + platF + System.getProperty("file.separator");
+    protected List<String> cookie = null;
+    protected String cookieName = "bouncer";
+    protected String cookieValue = System.getProperty("cookie");
+    protected String cookieExpiration = "Fri Mar 18 14:30:57 PDT 2016";
+    protected String isSecure = "False";
+
     //protected final String loginID="qateam@socialcode.com";
     //protected final String password="oNievooc";
-    //protected final String environment = "stage";
-    //protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator");
-
+    //protected final String loginID = System.getProperty("username");
+    //protected final String password = System.getProperty("password");
 
     /**
      * Instantiates Web Driver object
@@ -48,6 +55,14 @@ public class WebDriverSetup {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
 
         try {
+            cookie = new ArrayList<String>();
+            cookie.add(cookieName);
+            cookie.add("\"" + cookieValue + "\"");
+            cookie.add(prismURL.split("/")[2]);
+            cookie.add("/");
+            cookie.add(cookieExpiration);
+            cookie.add(isSecure);
+
             driver = new RemoteWebDriver(new URL("http://localhost:9515"), DesiredCapabilities.chrome());
             driver.manage().window().maximize();
         } catch (Exception e) {

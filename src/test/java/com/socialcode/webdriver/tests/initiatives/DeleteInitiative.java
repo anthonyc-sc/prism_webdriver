@@ -46,11 +46,8 @@ public class DeleteInitiative extends WebDriverSetup {
         assertFalse(startDate.isEmpty(),"Can't compute start_date");
         assertFalse(endDate.isEmpty(),"Can't compute end_date");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage,"Fail to login to Prism.");
 
         // Create new initiative
@@ -62,11 +59,8 @@ public class DeleteInitiative extends WebDriverSetup {
     public void delete_an_Initiative(String testCase,String initName) throws Exception {
         LOG.info("Starting delete_an_Initiative.....");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage,"Fail to login to Prism.");
         initListPage.waitForPageLoaded(driver);
         initListPage.waitForAjax(driver);

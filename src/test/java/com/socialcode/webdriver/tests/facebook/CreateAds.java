@@ -28,33 +28,27 @@ public class CreateAds extends WebDriverSetup {
         driver.get(prismURL);
 
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage,"Fail to login to Prism.");
 
         driver.get("https://staging.socialcodedev.com/advisor-v2/#initiative/341/campaign/710");
-        Thread.sleep(10000);
-        CampaignPage cpPage = new CampaignPage(driver,"Test");
-        Thread.sleep(5000);
-        cpPage.launchCreateNewAdsWindow(driver);
 
-        Thread.sleep(5000);
+        //CampaignPage cpPage = new CampaignPage(driver,"Test");
+        //cpPage.launchCreateNewAdsWindow(driver);
 
-        NewAdsModal nAdsModal = new NewAdsModal(driver);
-        nAdsModal.enterAdClusterName("Testing");
-        nAdsModal.clickStartBulkUploadLink(driver);
-        Thread.sleep(5000);
+        //NewAdsModal nAdsModal = new NewAdsModal(driver);
+        //nAdsModal.enterAdClusterName("Testing");
+        //nAdsModal.clickStartBulkUploadLink(driver);
 
-        driver.setFileDetector(new LocalFileDetector());
-        WebElement element = driver.findElement(By.className("dz-hidden-input"));
-        String js = "arguments[0].style.height='auto'; arguments[0].style.visibility='visible';";
-        ((JavascriptExecutor) driver).executeScript(js, element);
+        //driver.setFileDetector(new LocalFileDetector());
+        //WebElement element = driver.findElement(By.className("dz-hidden-input"));
+        //String js = "arguments[0].style.height='auto'; arguments[0].style.visibility='visible';";
+        //((JavascriptExecutor) driver).executeScript(js, element);
 
-        String path = System.getProperty("user.home") + System.getProperty("file.separator") + "csv" + System.getProperty("file.separator") + "fb_mai.csv";
-        element.sendKeys(path);
-        Thread.sleep(10000);
-        WebElement elementS = driver.findElement(By.xpath("//button[text()='Upload and create ads']"));
+        //String path = System.getProperty("user.home") + System.getProperty("file.separator") + "csv" + System.getProperty("file.separator") + "fb_mai.csv";
+        //element.sendKeys(path);
+        //WebElement elementS = driver.findElement(By.xpath("//button[text()='Upload and create ads']"));
 
-        elementS.click();
-        Thread.sleep(10000);
+        //elementS.click();
     }
 }
