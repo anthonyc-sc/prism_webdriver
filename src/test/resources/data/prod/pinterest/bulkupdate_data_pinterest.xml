@@ -1,0 +1,36 @@
+<campaigns>
+    <data name="campaign_status">
+        <test>TC1-9: Bulk Update: Pinterest Status Resume</test>
+        <name>Pinterest</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Pinterest</platform>
+        <status_text>Resume</status_text>
+        <status_value>active</status_value>
+    </data>
+    <data name="campaign_status">
+        <test>TC1-9: Bulk Update: Pinterest Status Pause</test>
+        <name>Pinterest</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Pinterest</platform>
+        <status_text>Pause</status_text>
+        <status_value>paused</status_value>
+    </data>
+    <data name="campaign_budget">
+        <test>TC1-9: Bulk Update: Pinterest Budget</test>
+        <name>Pinterest</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Pinterest</platform>
+        <budget type="Double">22.50</budget>
+    </data>
+    <data name="campaign_endtime">
+        <test>TC1-9: Bulk Update: Pinterest End Date</test>
+        <name>Pinterest</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Pinterest</platform>
+        <start_date_offset type="Integer">0</start_date_offset>
+        <start_date_offset_unit>na</start_date_offset_unit>
+        <end_date_offset type="Integer">15</end_date_offset>
+        <end_date_offset_unit>day</end_date_offset_unit>
+        <end_time>na</end_time>
+    </data>
+</campaigns>

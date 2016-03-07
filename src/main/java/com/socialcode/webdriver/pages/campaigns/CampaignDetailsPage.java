@@ -87,13 +87,9 @@ public class CampaignDetailsPage extends BasePage {
      * @return CampaignPage object if Campaign Page is loaded; failure otherwise
      */
     public CampaignPage saveChanges(WebDriver aDriver,String cpName) {
-        try {
-            Thread.sleep(5000);
-        } catch (Exception e) {
-
-        }
         waitForAjax(aDriver);
         saveChangesButton.click();
+        waitForPageLoaded(aDriver);
         return (new CampaignPage(aDriver,cpName));
     }
 

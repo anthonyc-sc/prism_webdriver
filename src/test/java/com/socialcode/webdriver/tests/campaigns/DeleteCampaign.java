@@ -50,28 +50,22 @@ public class DeleteCampaign extends WebDriverSetup {
         assertFalse(startDate.isEmpty(),"Start Date is empty.");
         assertFalse(endDate.isEmpty(),"End Date is empty.");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage,"Fail to login to Prism.");
 
         // Go to specific initiative with given initiative ID. Then create new campaign.
         InitiativePage initPage = initListPage.gotoInitiative(initID);
-        Boolean result = initPage.createNewSCCampaginNoRedirect(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
-        assertTrue(result);
+        CampaignPage cpPage = initPage.createNewCampaign(driver,cpName,platform,account,insertionOrder,totalBudget,mediaBudget,objective,kpiGoal,kpi,startDate,endDate,fInstr);
+        assertNotNull(cpPage);
     }
 
     @Test(description = "TC: Delete SC Campaign",groups = {"campaigns","delete_campaigns"},dependsOnMethods = { "createCampaignForDeletion" },dataProvider = "getDCampaign")
     public void delete_SC_Campaign(String testCase,String cpName) throws Exception {
         LOG.info("Starting delete_SC_Campaign......");
 
-        // Navigate to Advisor-V2 application login screen
-        driver.get(prismURL);
-
         // Log in with default username and password and verify initiative list page is displayed
-        InitiativesListPage initListPage = (new LoginPage(driver)).enterLoginId(loginID).enterPassword(password).submit(driver);
+        InitiativesListPage initListPage = LoginPage.launchApplicationPage(driver,prismURL,cookie);
         assertNotNull(initListPage,"Fail to login to Prism.");
 
         // Go to Campaign tab

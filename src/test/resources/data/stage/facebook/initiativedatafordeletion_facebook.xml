@@ -1,0 +1,12 @@
+<initiatives>
+    <data name="initiative">
+        <test>TC1-3: Delete initiative - FB</test>
+        <name>FB Initiative For Deletion Test</name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">7</duration>
+        <unit>day</unit>
+        <account_data>Facebook,sc13@socialcode.com,Things My Dog Says</account_data>
+    </data>
+</initiatives>

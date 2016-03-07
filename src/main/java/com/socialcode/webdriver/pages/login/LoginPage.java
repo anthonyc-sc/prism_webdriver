@@ -2,11 +2,18 @@ package com.socialcode.webdriver.pages.login;
 
 import com.socialcode.webdriver.pages.BasePage;
 import com.socialcode.webdriver.pages.initiatives.InitiativesListPage;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * Created by anthonyc on 12/1/15.
@@ -76,5 +83,29 @@ public class LoginPage extends BasePage {
         submitButton.click();
         waitForPageLoaded(aDriver);
         return (new InitiativesListPage(aDriver));
+    }
+
+    /**
+     * This method is used to log in to Prism application via cookie
+     * @param aDriver  current Web Driver instance in use
+     * @param appURL   Prism application URL
+     * @param cookie   user cookie
+     * @return         InitiativesListPage object if cookie is valid;else null is returned
+     */
+    public synchronized static InitiativesListPage launchApplicationPage(WebDriver aDriver, String appURL, List<String> cookie) {
+        if (cookie.size() == 6) {
+            aDriver.get(appURL);
+            String name = cookie.get(0);
+            String value = cookie.get(1);
+            String domain = cookie.get(2);
+            String path = cookie.get(3);
+            Date expiry = new Date(cookie.get(4));
+            boolean isSecure = new Boolean(cookie.get(5));
+            Cookie ck = new Cookie(name,value,domain,path,expiry,isSecure);
+            aDriver.manage().addCookie(ck);
+            aDriver.get(appURL);
+            return (new InitiativesListPage(aDriver));
+        }
+        return null;
     }
 }

@@ -1,0 +1,43 @@
+<campaigns>
+    <data name="campaign_status">
+        <test>TC1-21: Bulk Update: Instagram Status Resume</test>
+        <name>Instagram</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Instagram</platform>
+        <status_text>Resume</status_text>
+        <status_value>active</status_value>
+    </data>
+    <data name="campaign_status">
+        <test>TC1-21: Bulk Update: Instagram Status Pause</test>
+        <name>Instagram</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Instagram</platform>
+        <status_text>Pause</status_text>
+        <status_value>paused</status_value>
+    </data>
+    <data name="campaign_budget">
+        <test>TC1-21: Bulk Update: Instagram Budget</test>
+        <name>Instagram</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Instagram</platform>
+        <budget type="Double">155.50</budget>
+    </data>
+    <data name="campaign_bid">
+        <test>TC1-21: Bulk Update: Instagram Bid</test>
+        <name>Instagram</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Instagram</platform>
+        <bid type="Double">12.50</bid>
+    </data>
+    <data name="campaign_endtime">
+        <test>TC1-21: Bulk Update: Instagram End Date</test>
+        <name>Instagram</name>
+        <initiative_id type="Integer">9561</initiative_id>
+        <platform>Instagram</platform>
+        <start_date_offset type="Integer">0</start_date_offset>
+        <start_date_offset_unit>na</start_date_offset_unit>
+        <end_date_offset type="Integer">7</end_date_offset>
+        <end_date_offset_unit>day</end_date_offset_unit>
+        <end_time>3:30am</end_time>
+    </data>
+</campaigns>

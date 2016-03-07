@@ -110,6 +110,10 @@
                                     <name>platform</name>
                                     <value>${platform}</value>
                                 </property>
+                                <property>
+                                    <name>cookie</name>
+                                    <value>${cookie}</value>
+                                </property>
                             </systemProperties>
                             <properties>
                                 <property>

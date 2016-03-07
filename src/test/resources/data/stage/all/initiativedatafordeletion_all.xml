@@ -1,0 +1,45 @@
+<initiatives>
+    <data name="initiative">
+        <test>TC1-3: Delete initiative - FB</test>
+        <name>FB Initiative For Deletion Test</name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">7</duration>
+        <unit>day</unit>
+        <account_data>Facebook,sc13@socialcode.com,Things My Dog Says</account_data>
+    </data>
+    <data name="initiative">
+        <test>TC1-3: Delete initiative - Instagram</test>
+        <name>Instagram Initiative For Deletion Test</name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">1</duration>
+        <unit>day</unit>
+        <status>Active</status>
+        <account_data>Instagram,socialcodeinc,sc13@socialcode.com,Things My Dog Says</account_data>
+    </data>
+    <data name="initiative">
+        <test>TC1-3: Delete initiative - Pinterest</test>
+        <name>Pinterest Initiative For Deletion Test</name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">1</duration>
+        <unit>day</unit>
+        <status>Active</status>
+        <account_data>Pinterest,Meghan Callen</account_data>
+    </data>
+    <data name="initiative">
+        <test>TC1-3: Delete initiative - Twitter</test>
+        <name>Twitter Initiative For Deletion Test</name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">1</duration>
+        <unit>day</unit>
+        <status>Active</status>
+        <account_data>Twitter,SocialCode Tech</account_data>
+    </data>
+</initiatives>

@@ -1,0 +1,13 @@
+<initiaves>
+    <data name="initiative">
+        <test>TC1-2: Create an Initiative - Pinterest</test>
+        <name>Pinterest : </name>
+        <corporation>SocialCode</corporation>
+        <brand>SocialCode</brand>
+        <start>current_date</start>
+        <duration type="Integer">1</duration>
+        <unit>day</unit>
+        <status>Active</status>
+        <account_data>Pinterest,Meghan Callen</account_data>
+    </data>
+</initiaves>
