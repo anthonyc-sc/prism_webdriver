@@ -63,7 +63,8 @@ public class WebDriverSetup {
             cookie.add(cookieExpiration);
             cookie.add(isSecure);
 
-            driver = new RemoteWebDriver(new URL("http://localhost:9515"), DesiredCapabilities.chrome());
+          //  driver = new RemoteWebDriver(new URL("http://localhost:9515"), DesiredCapabilities.chrome());
+            driver = new RemoteWebDriver(new URL("http://192.168.70.107:4444/wd/hub"),DesiredCapabilities.chrome());
             driver.manage().window().maximize();
         } catch (Exception e) {
 
