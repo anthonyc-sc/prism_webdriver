@@ -40,20 +40,14 @@ public class WebDriverSetup {
     protected String cookieValue = System.getProperty("cookie");
     protected String cookieExpiration = "Fri Mar 18 14:30:57 PDT 2016";
     protected String isSecure = "False";
-
-    //protected final String loginID="qateam@socialcode.com";
-    //protected final String password="oNievooc";
-    //protected final String loginID = System.getProperty("username");
-    //protected final String password = System.getProperty("password");
+    protected String browser  = System.getProperty("browser");
+    protected String hubURL = System.getProperty("hub");
 
     /**
      * Instantiates Web Driver object
      */
     @BeforeMethod(groups = {"campaigns","create_campaigns","delete_campaigns","bulk_update","initiative","create_initiative","delete_initiative"})
     public synchronized void setUp() {
-        // Currently only handles Chrome browser. Code needs to be added to support other browsers.
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
-
         try {
             cookie = new ArrayList<String>();
             cookie.add(cookieName);
@@ -63,8 +57,12 @@ public class WebDriverSetup {
             cookie.add(cookieExpiration);
             cookie.add(isSecure);
 
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
           //  driver = new RemoteWebDriver(new URL("http://localhost:9515"), DesiredCapabilities.chrome());
-            driver = new RemoteWebDriver(new URL("http://192.168.70.107:4444/wd/hub"),DesiredCapabilities.chrome());
+            DesiredCapabilities capability = new DesiredCapabilities();
+            capability.setBrowserName(browser);
+
+            driver = new RemoteWebDriver(new URL(hubURL),capability);
             driver.manage().window().maximize();
         } catch (Exception e) {
 
