@@ -119,6 +119,10 @@
                                     <value>${browser}</value>
                                 </property>
                                 <property>
+                                    <name>version</name>
+                                    <value>${version}</value>
+                                </property>
+                                <property>
                                     <name>hub</name>
                                     <value>${hub}</value>
                                 </property>
