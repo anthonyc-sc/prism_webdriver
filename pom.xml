@@ -114,6 +114,14 @@
                                     <name>cookie</name>
                                     <value>${cookie}</value>
                                 </property>
+                                <property>
+                                    <name>browser</name>
+                                    <value>${browser}</value>
+                                </property>
+                                <property>
+                                    <name>hub</name>
+                                    <value>${hub}</value>
+                                </property>
                             </systemProperties>
                             <properties>
                                 <property>
