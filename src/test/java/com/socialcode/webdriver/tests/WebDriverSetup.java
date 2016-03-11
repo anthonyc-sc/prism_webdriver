@@ -39,10 +39,6 @@ public class WebDriverSetup {
     protected String browserVersion = System.getProperty("version");
     protected String hubURL = System.getProperty("hub");
 
-    //protected final String prismURL = "https://beta.socialcode.com/advisor/#initiative";
-    //protected final String platF = "all";
-    //protected final String environment = "prod";
-
     /**
      * Instantiates Web Driver object
      */
