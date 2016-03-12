@@ -94,6 +94,8 @@ public class LoginPage extends BasePage {
      */
     public synchronized static InitiativesListPage launchApplicationPage(WebDriver aDriver, String appURL, List<String> cookie) {
         if (cookie.size() == 6) {
+            System.out.println("valid cookie: name=" + cookie.get(0) + ",value=" + cookie.get(1) + ",domain=" + cookie.get(3) + ",path=" + cookie.get(4) + ",expiry=" + new Date(cookie.get(4)) + ",isSecure=" + (new Boolean(cookie.get(5))).toString());
+
             aDriver.get(appURL);
             String name = cookie.get(0);
             String value = cookie.get(1);
@@ -104,8 +106,11 @@ public class LoginPage extends BasePage {
             Cookie ck = new Cookie(name,value,domain,path,expiry,isSecure);
             aDriver.manage().addCookie(ck);
             aDriver.get(appURL);
+
+            System.out.println("Should be already logged in at this point");
             return (new InitiativesListPage(aDriver));
         }
+        System.out.println("invalid cookie");
         return null;
     }
 }
