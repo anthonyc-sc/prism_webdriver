@@ -59,7 +59,7 @@ public class WebDriverSetup {
             driver = new RemoteWebDriver(new URL(hubURL),capability);
             driver.manage().window().maximize();
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 
