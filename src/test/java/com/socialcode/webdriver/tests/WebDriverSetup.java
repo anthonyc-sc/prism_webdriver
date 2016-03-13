@@ -30,7 +30,7 @@ public class WebDriverSetup {
     protected final String prismURL = System.getProperty("environment");
     protected final String environment = System.getProperty("env");
     protected String platF = System.getProperty("platform");
-    protected String dataFolder = System.getProperty("file.separator")+ "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator") + platF + System.getProperty("file.separator");
+    protected String dataFolder = "data" + System.getProperty("file.separator") + environment.toLowerCase() + System.getProperty("file.separator") + platF + System.getProperty("file.separator");
     protected List<String> cookie = null;
     protected String cookieName = "bouncer";
     protected String cookieValue = System.getProperty("cookie");
