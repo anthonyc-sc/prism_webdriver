@@ -24,7 +24,7 @@ public class TestData {
     public void load(String path) {
         try {
             SAXReader reader = new SAXReader();
-            oData = reader.read(this.getClass().getResourceAsStream(path));
+            oData = reader.read(this.getClass().getClassLoader().getResourceAsStream(path));
         } catch (DocumentException e) {
             assert false : "Load test data : " + path + " failed!";
         }
