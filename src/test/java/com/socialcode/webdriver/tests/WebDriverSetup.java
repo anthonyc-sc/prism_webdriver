@@ -60,6 +60,8 @@ public class WebDriverSetup {
             capability.setVersion(browserVersion);
             capability.setPlatform(Platform.extractFromSysProperty("os"));
 
+            System.out.println(Platform.extractFromSysProperty("os").toString());
+
             if (browser.contentEquals("chrome")) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("start-maximized");
