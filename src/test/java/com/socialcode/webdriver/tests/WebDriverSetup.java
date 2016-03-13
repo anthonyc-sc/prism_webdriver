@@ -2,6 +2,7 @@ package com.socialcode.webdriver.tests;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -57,6 +58,7 @@ public class WebDriverSetup {
             DesiredCapabilities capability = new DesiredCapabilities();
             capability.setBrowserName(browser);
             capability.setVersion(browserVersion);
+            capability.setPlatform(Platform.extractFromSysProperty("os"));
 
             if (browser.contentEquals("chrome")) {
                 ChromeOptions options = new ChromeOptions();
