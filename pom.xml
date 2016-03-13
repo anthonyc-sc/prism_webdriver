@@ -126,6 +126,10 @@
                                     <name>hub</name>
                                     <value>${hub}</value>
                                 </property>
+                                <property>
+                                    <name>os</name>
+                                    <value>${os}</value>
+                                </property>
                             </systemProperties>
                             <properties>
                                 <property>
