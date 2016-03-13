@@ -60,7 +60,7 @@ public class WebDriverSetup {
             capability.setVersion(browserVersion);
             capability.setPlatform(Platform.extractFromSysProperty("os"));
 
-            System.out.println(Platform.extractFromSysProperty("os").toString());
+            System.out.println(Platform.fromString(System.getProperty("os")));
 
             if (browser.contentEquals("chrome")) {
                 ChromeOptions options = new ChromeOptions();
