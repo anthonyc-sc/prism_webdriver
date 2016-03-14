@@ -65,6 +65,8 @@ public class WebDriverSetup {
             if (browser.contentEquals("chrome")) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("start-maximized");
+                options.addArguments("allow-running-insecure-content");
+                options.addArguments("ignore-certificate-errors");
                 capability.setCapability(ChromeOptions.CAPABILITY,options);
             }
 
