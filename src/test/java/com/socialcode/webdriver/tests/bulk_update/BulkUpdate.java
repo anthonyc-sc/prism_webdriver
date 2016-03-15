@@ -374,7 +374,8 @@ public class BulkUpdate extends WebDriverSetup {
                 String expectedStartDate = "";
                 String expectedEndDate = "";
                 try {
-                    String accountTimeZone = twitterCampaign.getAccountTimezone().substring(0,3);
+                   String accountTimeZone = twitterCampaign.getAccountTimezone().substring(0,3).replace("D","S");
+
                     expectedStartDate = CommonUtil.convertUTCDateByTimezone(startDate + " 12:00am UTC",accountTimeZone,"M/d/yy h:mma z");
                     expectedEndDate = CommonUtil.convertUTCDateByTimezone(endDate + " 12:00am UTC",accountTimeZone,"M/d/yy h:mma z");
                 } catch (NullPointerException e) {
