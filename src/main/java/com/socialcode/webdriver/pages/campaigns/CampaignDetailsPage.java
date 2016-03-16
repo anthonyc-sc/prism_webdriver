@@ -159,7 +159,7 @@ public class CampaignDetailsPage extends BasePage {
             return "Expect end date " + endDate + " ,but get " + dEndDate;
         }
 
-        if (!dBudget.contentEquals("$" + budget)) {
+        if (!dBudget.contentEquals(String.format( "$%.2f",Double.parseDouble(budget)))) {
             return "Expect budget " + budget + " ,but get " + dBudget;
         }
 
