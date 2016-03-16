@@ -128,7 +128,7 @@ public class CampaignDetailsPage extends BasePage {
         String dAccount = accountItem.getText();
         String dStartDate = startDateDisplay.getAttribute("value");
         String dEndDate = endDateDisplay.getAttribute("value");
-        String dBudget = budgetDisplay.getAttribute("value");
+        String dBudget = budgetDisplay.getText();
         String dObjective = (new Select(objectiveSelection)).getFirstSelectedOption().getText();
         String dKpiGoal = kpiGoalDisplay.getAttribute("value");
         String dKpi = (new Select(kpiDisplay)).getFirstSelectedOption().getText();
@@ -159,7 +159,7 @@ public class CampaignDetailsPage extends BasePage {
             return "Expect end date " + endDate + " ,but get " + dEndDate;
         }
 
-        if (!dBudget.contentEquals(budget)) {
+        if (!dBudget.contentEquals("$" + budget)) {
             return "Expect budget " + budget + " ,but get " + dBudget;
         }
 
