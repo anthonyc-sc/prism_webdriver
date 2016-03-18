@@ -7,7 +7,7 @@
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>
-        <status>Active</status>
+        <status>Open</status>
         <account_data>Pinterest,Meghan Callen</account_data>
     </data>
 </initiatives>

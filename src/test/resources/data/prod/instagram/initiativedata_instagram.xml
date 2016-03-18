@@ -7,7 +7,7 @@
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>
-        <status>Active</status>
+        <status>Open</status>
         <account_data>Instagram,socialcodeinc,sc13@socialcode.com,Things My Dog Says</account_data>
     </data>
 </initiatives>
