@@ -35,7 +35,7 @@ public class WebDriverSetup {
     protected List<String> cookie = null;
     protected String cookieName = "bouncer";
     protected String cookieValue = System.getProperty("cookie");
-    protected String cookieExpiration = "Fri Mar 18 14:30:57 PDT 2016";
+    protected String cookieExpiration = "Fri Dec 30 14:30:57 PDT 2016";
     protected String isSecure = "False";
     protected String browser  = System.getProperty("browser");
     protected String browserVersion = System.getProperty("version");
