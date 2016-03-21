@@ -47,6 +47,7 @@ public class WebDriverSetup {
     @BeforeMethod(groups = {"campaigns","create_campaigns","delete_campaigns","bulk_update","initiative","create_initiative","delete_initiative"})
     public synchronized void setUp() {
         try {
+            System.out.println("Inside WebDriver setUp()");
             cookie = new ArrayList<String>();
             cookie.add(cookieName);
             cookie.add("\"" + cookieValue + "\"");
@@ -87,6 +88,7 @@ public class WebDriverSetup {
      */
     @AfterMethod(groups = {"campaigns","create_campaigns","delete_campaigns","bulk_update","initiative","create_initiative","delete_initiative"})
     public synchronized void tearDown() {
+        System.out.println("Inside WebDriver tearDown()");
         if (driver != null) {
             driver.quit();
         }
