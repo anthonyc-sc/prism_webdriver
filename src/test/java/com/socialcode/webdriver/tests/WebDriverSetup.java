@@ -87,6 +87,8 @@ public class WebDriverSetup {
      */
     @AfterMethod(groups = {"campaigns","create_campaigns","delete_campaigns","bulk_update","initiative","create_initiative","delete_initiative"})
     public synchronized void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
