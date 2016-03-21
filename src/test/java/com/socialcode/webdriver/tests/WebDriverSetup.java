@@ -71,7 +71,9 @@ public class WebDriverSetup {
                 capability.setCapability(ChromeOptions.CAPABILITY,options);
             }
 
-            driver = new RemoteWebDriver(new URL(hubURL),capability);
+        //    driver = new RemoteWebDriver(new URL(hubURL),capability);
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
+            driver = new RemoteWebDriver(new URL("http://localhost:9515"), capability);
 
            // driver.manage().window().maximize();
         } catch (Exception e) {
