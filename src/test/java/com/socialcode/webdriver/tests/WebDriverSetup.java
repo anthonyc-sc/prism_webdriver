@@ -63,19 +63,18 @@ public class WebDriverSetup {
 
             System.out.println(Platform.fromString(System.getProperty("os")));
 
-          /*  if (browser.contentEquals("chrome")) {
+            if (browser.contentEquals("chrome")) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("start-maximized");
                 options.addArguments("allow-running-insecure-content");
                 options.addArguments("ignore-certificate-errors");
                 capability.setCapability(ChromeOptions.CAPABILITY,options);
-            } */
+            }
 
-        //    driver = new RemoteWebDriver(new URL(hubURL),capability);
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
-            driver = new RemoteWebDriver(new URL("http://localhost:9515"), capability);
-
-           // driver.manage().window().maximize();
+            driver = new RemoteWebDriver(new URL(hubURL),capability);
+            //   System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/chromedriver/chromedriver");
+            //   driver = new RemoteWebDriver(new URL("http://localhost:9515"), capability);
+            // driver.manage().window().maximize();
         } catch (Exception e) {
             e.printStackTrace();
         }
