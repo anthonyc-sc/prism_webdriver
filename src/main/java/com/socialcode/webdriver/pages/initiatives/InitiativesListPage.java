@@ -39,7 +39,7 @@ public class InitiativesListPage extends BasePage {
     @FindBy(className = "initiative-card-empty-sc")
     protected WebElement emptyInitListText;
 
-    @FindBy(xpath = "//*[@id = 'initiative-toolbar-options']/ul/li[2]/a[text() = 'campaigns']")
+    @FindBy(xpath = "//*[@id = 'initiative-toolbar-options']/ul/li[3]/a[text() = 'campaigns']")
     protected WebElement campaignsTab;
 
     public InitiativesListPage(WebDriver d) {
