@@ -58,7 +58,7 @@ public class WebDriverSetup {
 
             DesiredCapabilities capability = new DesiredCapabilities();
             capability.setBrowserName(browser);
-            capability.setVersion(browserVersion);
+           // capability.setVersion(browserVersion);
             capability.setPlatform(Platform.fromString(System.getProperty("os")));
 
             System.out.println(Platform.fromString(System.getProperty("os")));
