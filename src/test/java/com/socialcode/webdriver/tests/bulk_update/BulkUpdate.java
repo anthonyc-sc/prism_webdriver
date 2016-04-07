@@ -86,7 +86,7 @@ public class BulkUpdate extends WebDriverSetup {
                 assertNotNull(fbIgCampaign);
 
                 // Verify success toast
-                assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated effective status to " + statusValue));
+                assertTrue(fbIgCampaign.getAlertMessage(driver).contains("Successfully updated campaign status to " + statusValue));
 
                 // Close alert box
                 fbIgCampaign.closeAlert(driver);
