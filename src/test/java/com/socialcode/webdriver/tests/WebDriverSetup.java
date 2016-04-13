@@ -56,7 +56,7 @@ public class WebDriverSetup {
 
             DesiredCapabilities capability = new DesiredCapabilities();
             capability.setBrowserName(browser);
-            capability.setVersion(browserVersion);
+            //capability.setVersion(browserVersion);
            // capability.setCapability(CapabilityType.PROXY,
             //        new Proxy().setHttpProxy("localhost:8080"));
             capability.setPlatform(Platform.fromString(System.getProperty("os")));
