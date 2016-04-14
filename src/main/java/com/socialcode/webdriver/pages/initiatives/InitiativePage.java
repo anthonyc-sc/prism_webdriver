@@ -38,7 +38,7 @@ public class InitiativePage extends BasePage {
     @FindBy(xpath = "//span[text()='SocialCode']/../../div[3]/div")
     protected WebElement pacingLabel;
 
-    @FindBy(xpath = "//span[text()='SocialCode']/../../div[3]/div[2]")
+    @FindBy(xpath = "//div[@class = 'sc-card-status-label']/../../div[3]/div[2]")
     protected WebElement pacingValue;
 
     @FindBy(xpath = "//span[text()='SocialCode']/../../div[4]/div")
