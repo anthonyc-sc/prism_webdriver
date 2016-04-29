@@ -134,44 +134,54 @@ public class CampaignDetailsPage extends BasePage {
         String dKpi = kpiDisplay.getText();
 
         if (!dCpName.contentEquals(cpName)) {
+            System.out.println("Expect campaign name " + cpName + " ,but get " + dCpName);
             return "Expect campaign name " + cpName + " ,but get " + dCpName;
         }
 
         if (!dPlatform.contentEquals(platform)) {
+            System.out.println("Expect platform " + platform + " ,but get " + dPlatform);
             return "Expect platform " + platform + " ,but get " + dPlatform;
         }
 
         if (account.contains("@")) {
             if (!account.startsWith(dAccount + "@")) {
+                System.out.println("Expect account " + account + " ,but get " + dAccount);
                 return "Expect account " + account + " ,but get " + dAccount;
             }
         } else {
             if (!account.contentEquals(dAccount)) {
+                System.out.println("Expect account " + account + " ,but get " + dAccount);
                 return "Expect account " + account + " ,but get " + dAccount;
             }
         }
 
         if (!dStartDate.contentEquals(startDate)) {
+            System.out.println("Expect start date " + startDate + " ,but get " + dStartDate);
             return "Expect start date " + startDate + " ,but get " + dStartDate;
         }
 
         if (!dEndDate.contentEquals(endDate)) {
+            System.out.println("Expect end date " + endDate + " ,but get " + dEndDate);
             return "Expect end date " + endDate + " ,but get " + dEndDate;
         }
 
         if (!dBudget.contentEquals(String.format( "$%.2f",Double.parseDouble(budget)))) {
+            System.out.println("Expect budget " + budget + " ,but get " + dBudget);
             return "Expect budget " + budget + " ,but get " + dBudget;
         }
 
         if (!dObjective.contentEquals(objective)) {
+            System.out.println("Expect objective " + objective + " ,but get " + dObjective);
             return "Expect objective " + objective + " ,but get " + dObjective;
         }
 
         if (!dKpiGoal.contentEquals(kpiGoal)) {
+            System.out.println("Expect KPI Goal " + kpiGoal + " ,but get " + kpiGoal);
             return "Expect KPI Goal " + kpiGoal + " ,but get " + kpiGoal;
         }
 
         if (!dKpi.contentEquals(kpi)) {
+            System.out.println("Expect kpi " + kpi + " ,but get " + dKpi);
             return "Expect kpi " + kpi + " ,but get " + dKpi;
         }
 
