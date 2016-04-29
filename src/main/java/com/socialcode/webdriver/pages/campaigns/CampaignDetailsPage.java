@@ -170,7 +170,7 @@ public class CampaignDetailsPage extends BasePage {
             return "Expect budget " + budget + " ,but get " + dBudget;
         }
 
-        if (!dObjective.contentEquals(objective)) {
+        if (!dObjective.contains(objective)) {
             System.out.println("Expect objective " + objective + " ,but get " + dObjective);
             return "Expect objective " + objective + " ,but get " + dObjective;
         }
