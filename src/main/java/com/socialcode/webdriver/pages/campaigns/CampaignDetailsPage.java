@@ -44,10 +44,10 @@ public class CampaignDetailsPage extends BasePage {
     @FindBy(id = "kpi_goal")
     protected WebElement kpiGoalDisplay;
 
-    @FindBy(id = "kpi")
+    @FindBy(xpath = "//*[@id = 'kpi_goal']/../../../div[3]")
     protected WebElement kpiDisplay;
 
-    @FindBy(id = "objective_select")
+    @FindBy(xpath = "//*[@id = 'kpi_goal']/../../../div[1]")
     protected WebElement objectiveSelection;
 
     @FindBy(id = "save-campaign")
@@ -129,9 +129,9 @@ public class CampaignDetailsPage extends BasePage {
         String dStartDate = startDateDisplay.getAttribute("value");
         String dEndDate = endDateDisplay.getAttribute("value");
         String dBudget = budgetDisplay.getText();
-        String dObjective = (new Select(objectiveSelection)).getFirstSelectedOption().getText();
+        String dObjective = objectiveSelection.getText();
         String dKpiGoal = kpiGoalDisplay.getAttribute("value");
-        String dKpi = (new Select(kpiDisplay)).getFirstSelectedOption().getText();
+        String dKpi = kpiDisplay.getText();
 
         if (!dCpName.contentEquals(cpName)) {
             return "Expect campaign name " + cpName + " ,but get " + dCpName;
