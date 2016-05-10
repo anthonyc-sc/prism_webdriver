@@ -41,10 +41,10 @@ public class CampaignPage extends BasePage {
     @FindBy(xpath = "//*[@class ='toast-buttons']/a[2]")
     protected WebElement closeAlertLink;
 
-    @FindBy(xpath = "//*[@class = 'select-all-header-cell']/div/button")
+    @FindBy(xpath = "//*[@class = 'select-all-header-cell']/div/input")
     protected WebElement selectAllCheckBox;
 
-    @FindBy(xpath = "//*[@class = 'select-all-header-cell']/div/button[2]")
+    @FindBy(xpath = "//*[@class = 'select-all-header-cell']/div/button")
     protected WebElement ActionsDropdown;
 
     @FindBy(xpath = "//*[@id = 'campaign-details']/../ul/li[6]/div[2]")
