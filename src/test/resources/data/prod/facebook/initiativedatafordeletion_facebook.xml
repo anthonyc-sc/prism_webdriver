@@ -3,7 +3,7 @@
         <test>TC1-3: Delete initiative - FB</test>
         <name>FB Initiative For Deletion Test</name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode Test</brand>
+        <brand>SocialCode Testing</brand>
         <start>current_date</start>
         <duration type="Integer">7</duration>
         <unit>day</unit>
