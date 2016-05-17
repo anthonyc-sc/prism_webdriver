@@ -2,7 +2,7 @@
     <data name="campaign">
         <test>TC1-11: Delete Pinterest Campaign</test>
         <name>Pinterest Campaign SmkTest - Deletion Test</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Pinterest</platform>
         <account>Meghan Callen</account>
         <insertion_order>SocialCode Test IO</insertion_order>
