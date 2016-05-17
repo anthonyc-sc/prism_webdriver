@@ -3,7 +3,7 @@
         <test>TC1-2: Create an Initiative - Twitter</test>
         <name>Twitter : </name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>
@@ -14,7 +14,7 @@
         <test>TC1-2: Create an Initiative - Pinterest</test>
         <name>Pinterest : </name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>
@@ -25,7 +25,7 @@
         <test>TC1-2: Create an Initiative - Instagram</test>
         <name>Instagram : </name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>
@@ -36,7 +36,7 @@
         <test>TC1-2: Create an Initiative - FB 1 Day</test>
         <name>FB Automation Initiative-1 Day :</name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>

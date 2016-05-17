@@ -3,7 +3,7 @@
         <test>TC1-3: Delete initiative - FB</test>
         <name>FB Initiative For Deletion Test</name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">7</duration>
         <unit>day</unit>
@@ -13,7 +13,7 @@
         <test>TC1-3: Delete initiative - Instagram</test>
         <name>Instagram Initiative For Deletion Test</name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>
@@ -24,7 +24,7 @@
         <test>TC1-3: Delete initiative - Pinterest</test>
         <name>Pinterest Initiative For Deletion Test</name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>
@@ -35,7 +35,7 @@
         <test>TC1-3: Delete initiative - Twitter</test>
         <name>Twitter Initiative For Deletion Test</name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>

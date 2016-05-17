@@ -2,7 +2,7 @@
     <data name="campaign">
         <test>TC1-17: Delete FB Campaign</test>
         <name>FB Campaign SmkTest - Deletion Test</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Facebook</platform>
         <account>sc13@socialcode.com</account>
         <insertion_order>SocialCode Test IO</insertion_order>
@@ -18,7 +18,7 @@
     <data name="campaign">
         <test>TC1-23: Delete Instagram Campaign</test>
         <name>Instagram Campaign SmkTest - Deletion Test</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Instagram</platform>
         <account>sc13@socialcode.com</account>
         <insertion_order>SocialCode Test IO</insertion_order>
@@ -34,7 +34,7 @@
     <data name="campaign">
         <test>TC1-11: Delete Pinterest Campaign</test>
         <name>Pinterest Campaign SmkTest - Deletion Test</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Pinterest</platform>
         <account>Meghan Callen</account>
         <insertion_order>SocialCode Test IO</insertion_order>

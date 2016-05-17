@@ -3,7 +3,7 @@
         <test>TC1-3: Delete initiative - Pinterest</test>
         <name>Pinterest Initiative For Deletion Test</name>
         <corporation>SocialCode</corporation>
-        <brand>SocialCode</brand>
+        <brand>SocialCode Test</brand>
         <start>current_date</start>
         <duration type="Integer">1</duration>
         <unit>day</unit>

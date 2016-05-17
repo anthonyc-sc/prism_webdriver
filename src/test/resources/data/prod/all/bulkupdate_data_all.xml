@@ -2,7 +2,7 @@
     <data name="campaign_status">
         <test>TC1-9: Bulk Update: Pinterest Status Resume</test>
         <name>Pinterest</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Pinterest</platform>
         <status_text>Resume</status_text>
         <status_value>active</status_value>
@@ -10,7 +10,7 @@
     <data name="campaign_status">
         <test>TC1-9: Bulk Update: Pinterest Status Pause</test>
         <name>Pinterest</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Pinterest</platform>
         <status_text>Pause</status_text>
         <status_value>paused</status_value>
@@ -18,7 +18,7 @@
     <data name="campaign_status">
         <test>TC1-21: Bulk Update: Instagram Status Resume</test>
         <name>Instagram</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Instagram</platform>
         <status_text>Resume</status_text>
         <status_value>active</status_value>
@@ -26,7 +26,7 @@
     <data name="campaign_status">
         <test>TC1-21: Bulk Update: Instagram Status Pause</test>
         <name>Instagram</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Instagram</platform>
         <status_text>Pause</status_text>
         <status_value>paused</status_value>
@@ -34,28 +34,28 @@
     <data name="campaign_budget">
         <test>TC1-9: Bulk Update: Pinterest Budget</test>
         <name>Pinterest</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Pinterest</platform>
         <budget type="Double">22.50</budget>
     </data>
     <data name="campaign_budget">
         <test>TC1-21: Bulk Update: Instagram Budget</test>
         <name>Instagram</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Instagram</platform>
         <budget type="Double">155.50</budget>
     </data>
     <data name="campaign_bid">
         <test>TC1-21: Bulk Update: Instagram Bid</test>
         <name>Instagram</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Instagram</platform>
         <bid type="Double">12.50</bid>
     </data>
     <data name="campaign_endtime">
         <test>TC1-9: Bulk Update: Pinterest End Date</test>
         <name>Pinterest</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Pinterest</platform>
         <start_date_offset type="Integer">0</start_date_offset>
         <start_date_offset_unit>na</start_date_offset_unit>
@@ -66,7 +66,7 @@
     <data name="campaign_endtime">
         <test>TC1-21: Bulk Update: Instagram End Date</test>
         <name>Instagram</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Instagram</platform>
         <start_date_offset type="Integer">0</start_date_offset>
         <start_date_offset_unit>na</start_date_offset_unit>
@@ -77,7 +77,7 @@
     <data name="campaign_status">
         <test>TC1-15: Bulk Update: Facebook Status Resume</test>
         <name>Facebook</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Facebook</platform>
         <status_text>Resume</status_text>
         <status_value>active</status_value>
@@ -85,7 +85,7 @@
     <data name="campaign_status">
         <test>TC1-15: Bulk Update: Facebook Status Pause</test>
         <name>Facebook</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Facebook</platform>
         <status_text>Pause</status_text>
         <status_value>paused</status_value>
@@ -93,21 +93,21 @@
     <data name="campaign_budget">
         <test>TC1-15: Bulk Update: Facebook Budget</test>
         <name>Facebook</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Facebook</platform>
         <budget type="Double">210.50</budget>
     </data>
     <data name="campaign_bid">
         <test>TC1-15: Bulk Update: Facebook Bid</test>
         <name>Facebook</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Facebook</platform>
         <bid type="Double">22.50</bid>
     </data>
     <data name="campaign_endtime">
         <test>TC1-15: Bulk Update: Facebook End Date and Time</test>
         <name>Facebook</name>
-        <initiative_id type="Integer">9561</initiative_id>
+        <initiative_id type="Integer">10807</initiative_id>
         <platform>Facebook</platform>
         <start_date_offset type="Integer">0</start_date_offset>
         <start_date_offset_unit>na</start_date_offset_unit>
