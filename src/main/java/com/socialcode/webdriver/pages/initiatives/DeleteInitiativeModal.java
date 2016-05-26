@@ -37,7 +37,7 @@ public class DeleteInitiativeModal extends BasePage {
 
         pageInitElements(driver,this);
 
-        if (!isPageLoaded() || !modalTitle.getText().contentEquals("Delete initiative")) {
+        if (!isPageLoaded() || !modalTitle.getText().contentEquals("Delete initiative?")) {
             assert false : "This is not 'Delete initiative' modal";
         }
         LOG.info("VERIFIED - 'Delete initiative' modal is loaded");
