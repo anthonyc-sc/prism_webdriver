@@ -22,10 +22,10 @@ public class DeleteInitiativeModal extends BasePage {
     @FindBy(className = "sc-initiative-grid-delete-confirmation")
     protected WebElement modalConfirm;
 
-    @FindBy(id = "initiative-grid-confirm-delete")
+    @FindBy(id = "confirm-delete")
     protected WebElement deleteInitButton;
 
-    @FindBy(id = "initiative-grid-cancel-delete")
+    @FindBy(id = "cancel-delete")
     protected WebElement deleteInitCancel;
 
     @FindBy(className = "close")

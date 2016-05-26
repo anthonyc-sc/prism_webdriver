@@ -128,7 +128,7 @@ public class CampaignDetailsPage extends BasePage {
         String dAccount = accountItem.getText();
         String dStartDate = startDateDisplay.getAttribute("value");
         String dEndDate = endDateDisplay.getAttribute("value");
-        String dBudget = budgetDisplay.getText();
+        String dBudget = budgetDisplay.getAttribute("value");
         String dObjective = objectiveSelection.getText();
         String dKpiGoal = kpiGoalDisplay.getAttribute("value");
         String dKpi = kpiDisplay.getText();
