@@ -52,7 +52,7 @@ public class DeleteCampaignModal extends BasePage {
     public boolean isPageLoaded() {
         LOG.debug("Verifying Delete Campaign Modal is loaded");
         if (waitForElementVisible(driver,modalContent)) {
-            return modalTitle.getText().contentEquals("Delete campaign");
+            return modalTitle.getText().contentEquals("Delete campaign?");
         }
         return false;
     }
