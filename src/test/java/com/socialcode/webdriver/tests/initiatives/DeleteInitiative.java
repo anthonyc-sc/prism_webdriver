@@ -76,8 +76,8 @@ public class DeleteInitiative extends WebDriverSetup {
 
         // Wait for operation alert message
         String alertMsg = initListPage.getAlertMessage(driver);
-        assertEquals(alertMsg,"Successfully deleted initiative " + initName,
-                "Expect message: Successfully deleted initiative " + initName + ",but get: " + alertMsg);
+        assertEquals(alertMsg,"Initiative deleted",
+                "Expect message: Initiative deleted" + ",but get: " + alertMsg);
 
         // Close the alert message dialog
         initListPage.waitForPageLoaded(driver);
