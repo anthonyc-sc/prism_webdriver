@@ -88,7 +88,7 @@ public class DeleteCampaign extends WebDriverSetup {
 
         // Retrieve alert message and verify toast
         String alert = initPage.getAlertMessage(driver);
-        assertTrue(alert.contains("Successfully deleted campaign"));
+        assertTrue(alert.contains("Campaign deleted"));
 
         // Close alert message 
         initPage.closeAlert(driver);

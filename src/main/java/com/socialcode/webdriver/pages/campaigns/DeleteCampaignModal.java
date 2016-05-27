@@ -26,10 +26,10 @@ public class DeleteCampaignModal extends BasePage {
     @FindBy(className = "sc-initiative-grid-delete-confirmation")
     protected WebElement deleteConfirmSection;
 
-    @FindBy(id = "initiative-grid-confirm-delete")
+    @FindBy(id = "confirm-delete")
     protected WebElement deleteConfirmButton;
 
-    @FindBy(id = "initiative-grid-cancel-delete")
+    @FindBy(id = "cancel-delete")
     protected WebElement cancelbutton;
 
 
