@@ -144,13 +144,17 @@ public class BasePage {
         }
     }
 
-    public boolean isVisible(final By b) {
+    public boolean isVisible(final WebDriver aDriver,final By b) {
         try {
-            WebElement element = driver.findElement(b);
+            WebElement element = aDriver.findElement(b);
             return element.isDisplayed();
         } catch (StaleElementReferenceException StaleExcpt) {
+            LOG.debug("Inside catch block of StaleElementException");
             WebElement element = driver.findElement(b);
             return element.isDisplayed();
+        } catch (NullPointerException nExcpt) {
+            LOG.error("Unable to find web element by expath" + b.toString());
+            return false;
         }
     }
 
@@ -340,6 +344,6 @@ public class BasePage {
             LOG.error("Timeout waiting for element to be presence.");
             return false;
         }
-        return isVisible(By.xpath(elementPath));
+        return isVisible(aDriver,By.xpath(elementPath));
     }
 }
