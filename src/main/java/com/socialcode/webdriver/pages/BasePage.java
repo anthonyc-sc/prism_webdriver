@@ -144,6 +144,16 @@ public class BasePage {
         }
     }
 
+    public boolean isVisible(final By b) {
+        try {
+            WebElement element = driver.findElement(b);
+            return element.isDisplayed();
+        } catch (StaleElementReferenceException StaleExcpt) {
+            WebElement element = driver.findElement(b);
+            return element.isDisplayed();
+        }
+    }
+
     /**
      * Wait for page to complete loading; then initialize its elements
      * @param aDriver
@@ -214,6 +224,8 @@ public class BasePage {
         return isVisible(element);
     }
 
+
+
     /**
      * Wrapper for wait for element to be present within specific wait time
      * @param aDriver
@@ -221,7 +233,7 @@ public class BasePage {
      * @return true if element is present; false otherwise
      */
     public boolean waitForElementPresence(final WebDriver aDriver,String elementPath) {
-        return waitForElementPresence(aDriver,PAGE_LOADING_WAIT,elementPath);
+        return waitForElementPresence_t(aDriver,PAGE_LOADING_WAIT,elementPath);
     }
 
     /**
@@ -316,5 +328,18 @@ public class BasePage {
 
         LOG.info("Completing waiting for ElementNotVisible....");
         return true;
+    }
+
+
+    public boolean waitForElementPresence_t(final WebDriver aDriver, final int timeout, String elementPath){
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(aDriver).withTimeout(
+                timeout, SECONDS).pollingEvery(1, SECONDS).ignoring(Exception.class);
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementPath)));
+        } catch (Throwable error) {
+            LOG.error("Timeout waiting for element to be presence.");
+            return false;
+        }
+        return isVisible(By.xpath(elementPath));
     }
 }
